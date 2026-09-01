@@ -1,6 +1,6 @@
 # myDNAStory
 
-A bilingual archive for my own DNA history. Each published kit gets the same chapters: autosomal origins, ancient Europe, a maternal haplogroup, notable/ancient kin, and a chromosome skyline.
+A bilingual archive for my own DNA history. Each published kit gets the same chapters: autosomal origins, ancient Europe, a maternal haplogroup, a paternal haplogroup when Big Y was tested, notable/ancient kin, and a chromosome skyline (autosomes and X).
 
 Pernille and Helle now live at [pernille-helle.vercel.app](https://pernille-helle.vercel.app).
 

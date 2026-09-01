@@ -2,7 +2,7 @@
   "name": "mydnastory",
   "version": "1.0.0",
   "private": true,
-  "description": "An archive of DNA stories told by first name.",
+  "description": "A DNA story for Simon, told from FamilyTreeDNA results.",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

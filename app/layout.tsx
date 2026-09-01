@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "An archive of DNA stories told by first name: autosomal origins, ancient Europe, maternal haplogroups, and chromosome skylines.",
+    "An archive of DNA stories told by first name: autosomal origins, ancient Europe, motherlines, fatherlines, and chromosome skylines.",
   openGraph: {
     title: "myDNAStory",
     description: "First names. Whole genomes. A growing archive.",
@@ -33,6 +33,7 @@ export const viewport: Viewport = {
   themeColor: "#08090d",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -53,9 +53,11 @@ export function localizeProfile(profile: Profile, locale: Locale): Profile {
             ? t.stats.ireland
             : stat.label === "Motherline"
               ? t.stats.motherline
-              : stat.label === "Markers"
-                ? t.stats.markers
-                : stat.label;
+              : stat.label === "Fatherline"
+                ? t.stats.fatherline
+                : stat.label === "Markers"
+                  ? t.stats.markers
+                  : stat.label;
     return { ...stat, label: key };
   });
 
@@ -91,6 +93,32 @@ export function localizeProfile(profile: Profile, locale: Locale): Profile {
       rarityNote: overlay?.haplogroup?.rarityNote ?? profile.haplogroup.rarityNote,
     },
     haploPath,
+    yHaplogroup: profile.yHaplogroup
+      ? {
+          ...profile.yHaplogroup,
+          formed: overlay?.yHaplogroup?.formed ?? profile.yHaplogroup.formed,
+          headline: overlay?.yHaplogroup?.headline ?? profile.yHaplogroup.headline,
+          testers: {
+            ...profile.yHaplogroup.testers,
+            known: overlay?.yHaplogroup?.known ?? profile.yHaplogroup.testers.known,
+          },
+          rarityNote: overlay?.yHaplogroup?.rarityNote ?? profile.yHaplogroup.rarityNote,
+        }
+      : undefined,
+    yHaploPath: profile.yHaploPath?.map((step) => ({
+      ...step,
+      era: t.era[step.era] ?? step.era,
+      place: t.place[step.place] ?? step.place,
+      copy: overlay?.yHaploPath?.[step.haplogroup]?.copy ?? step.copy,
+    })),
+    fatherlineMapCaption: overlay?.fatherlineMapCaption ?? profile.fatherlineMapCaption,
+    fatherlineSpotlights: overlay?.fatherlineSpotlights
+      ? (profile.fatherlineSpotlights ?? []).map((card, i) => ({
+          ...card,
+          title: overlay.fatherlineSpotlights![i]?.title ?? card.title,
+          copy: overlay.fatherlineSpotlights![i]?.copy ?? card.copy,
+        }))
+      : profile.fatherlineSpotlights,
     motherlineMapCaption: overlay?.motherlineMapCaption ?? profile.motherlineMapCaption,
     motherlineSpotlights: overlay?.motherlineSpotlights
       ? profile.motherlineSpotlights.map((card, i) => ({

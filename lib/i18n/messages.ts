@@ -29,6 +29,8 @@ export type Messages = {
     allStories: string;
     stories: string;
     shared: string;
+    jump: string;
+    close: string;
     chapters: { id: string; label: string }[];
     langEn: string;
     langDa: string;
@@ -57,6 +59,18 @@ export type Messages = {
     mapAlt: string;
     interval: (range: string) => string;
   };
+  fatherline: {
+    kicker: string;
+    intro: string;
+    scrub: string;
+    timeline: string;
+    tmrca: string;
+    testers: string;
+    knownOrigins: string;
+    path: string;
+    mapAlt: string;
+    interval: (range: string) => string;
+  };
   connections: {
     kicker: string;
     title: string;
@@ -67,6 +81,8 @@ export type Messages = {
     deepTime: string;
     rare: string;
     common: string;
+    paternal: string;
+    maternal: string;
     sharedAncestor: (node: string, year: string) => string;
   };
   genome: {
@@ -83,6 +99,7 @@ export type Messages = {
     title: string;
     p1: string;
     p2: (haplo: string) => string;
+    p2y: (haplo: string) => string;
     p3: (name: string) => string;
     p4: (name: string) => string;
     kinshipBefore: (name: string) => string;
@@ -164,6 +181,7 @@ export type Messages = {
     centralEurope: string;
     ireland: string;
     motherline: string;
+    fatherline: string;
     markers: string;
   };
 };
@@ -184,7 +202,7 @@ export const messages: Record<Locale, Messages> = {
       kicker: "A growing archive",
       titleAccent1: "First names.",
       titleAccent2: "Whole genomes.",
-      lede: "Each kit becomes its own cinematic walk — autosomal origins, ancient Europe, a maternal haplogroup, and a chromosome skyline. People are listed by first name only.",
+      lede: "Each kit becomes its own cinematic walk — autosomal origins, ancient Europe, motherline and fatherline when both were tested, and a chromosome skyline. People are listed by first name only.",
       stories: "Stories",
       openGenome: "Open a genome.",
       sharedKicker: "Paternal grandmother",
@@ -198,14 +216,17 @@ export const messages: Record<Locale, Messages> = {
       familyMovedLink: "Pernille & Helle",
     },
     nav: {
-      allStories: "All stories",
+      allStories: "Home",
       stories: "Stories",
       shared: "Shared",
+      jump: "Jump",
+      close: "Close",
       chapters: [
         { id: "open", label: "Open" },
         { id: "origins", label: "Origins" },
         { id: "ancient", label: "Deep time" },
         { id: "motherline", label: "Motherline" },
+        { id: "fatherline", label: "Fatherline" },
         { id: "kin", label: "Kin" },
         { id: "genome", label: "Genome" },
         { id: "notes", label: "Notes" },
@@ -230,8 +251,21 @@ export const messages: Record<Locale, Messages> = {
       mapAlt: "East African rift at dawn, standing in for mitochondrial Eve’s landscape",
       interval: (range) => ` (95% interval ${range})`,
     },
+    fatherline: {
+      kicker: "Y-chromosome haplogroup",
+      intro:
+        "The Y chromosome passes from father to son, almost unchanged. {name}’s Big Y haplogroup is {id}, which {formed}. The most recent man of this exact branch likely lived around {tmrca}{interval}. {testers} testers currently sit on the twig — {known}.",
+      scrub: "Scrub the fatherline",
+      timeline: "Y haplogroup timeline",
+      tmrca: "TMRCA",
+      testers: "Testers",
+      knownOrigins: "Known origins",
+      path: "Path",
+      mapAlt: "East African rift at dawn, standing in for Y-chromosomal Adam’s landscape",
+      interval: (range) => ` (95% interval ${range})`,
+    },
     connections: {
-      kicker: "Shared maternal ancestors",
+      kicker: "Shared haplogroup ancestors",
       title: "Kin across centuries —",
       titleAccent: " and millennia.",
       all: "All",
@@ -240,6 +274,8 @@ export const messages: Record<Locale, Messages> = {
       deepTime: "Deep time",
       rare: "Rare connection",
       common: "Shared by everyone",
+      paternal: "Fatherline",
+      maternal: "Motherline",
       sharedAncestor: (node, year) => `shared ancestor ${node} (${year})`,
     },
     genome: {
@@ -255,9 +291,11 @@ export const messages: Record<Locale, Messages> = {
     notes: {
       kicker: "How to read this",
       title: "A story, not a verdict.",
-      p1: "Ethnicity percentages and ancient components come from FamilyTreeDNA myOrigins version 3. They compare stretches of autosomal DNA with reference populations. They will shift as those references grow. Smaller slices are the most fragile. Shared haplotype blocks between kits were called independently from the raw autosomal CSVs: long runs without opposite homozygotes, not FamilyTreeDNA’s match list.",
+      p1: "Ethnicity percentages and ancient components come from FamilyTreeDNA myOrigins version 3. They compare stretches of autosomal DNA with reference populations. They will shift as those references grow. Smaller slices are the most fragile.",
       p2: (haplo) =>
-        `Haplogroup ${haplo} is from mtFull Sequence. Notable and ancient “connections” mean a shared maternal ancestor at the stated node, often many thousands of years ago. This site does not claim close kinship with kings, mummies, or archaeological strangers.`,
+        `Haplogroup ${haplo} is from mtFull Sequence. Notable and ancient “connections” on the motherline mean a shared maternal ancestor at the stated node, often many thousands of years ago. This site does not claim close kinship with queens, mummies, or archaeological strangers.`,
+      p2y: (haplo) =>
+        `Haplogroup ${haplo} is from Big Y. Notable “connections” on the fatherline mean a shared paternal ancestor at the stated node. The Y is one thread. It does not have to match the autosomal map.`,
       p3: (name) =>
         `${name} is named only by first name. Living genetic matches are not listed.`,
       p4: (name) =>
@@ -282,6 +320,8 @@ export const messages: Record<Locale, Messages> = {
       "central-europe": "Central Europe",
       ireland: "Ireland",
       isles: "England, Wales & Scotland",
+      baltic: "Baltic",
+      sephardic: "Sephardic Jewish",
     },
     ancientLabels: {
       hunter: "Hunter-Gatherer",
@@ -302,6 +342,7 @@ export const messages: Record<Locale, Messages> = {
       Neolithic: "Neolithic",
       "Bronze Age": "Bronze Age",
       "Pleistocene → Mesolithic": "Pleistocene → Mesolithic",
+      "Middle Ages / Modern": "Middle Ages / Modern",
     },
     place: {
       Denmark: "Denmark",
@@ -317,6 +358,14 @@ export const messages: Record<Locale, Messages> = {
       "Eurasia / Africa": "Eurasia / Africa",
       "Deep time": "Deep time",
       Sweden: "Sweden",
+      Norway: "Norway",
+      Finland: "Finland",
+      England: "England",
+      "Atlantic Europe": "Atlantic Europe",
+      "Cheddar Gorge": "Cheddar Gorge",
+      "Jutland, Denmark": "Jutland, Denmark",
+      "Rogaland, Norway": "Rogaland, Norway",
+      Carthage: "Carthage",
       France: "France",
       Germany: "Germany",
       "Thebes, Egypt": "Thebes, Egypt",
@@ -411,6 +460,7 @@ export const messages: Record<Locale, Messages> = {
       centralEurope: "Central Europe",
       ireland: "Ireland",
       motherline: "Motherline",
+      fatherline: "Fatherline",
       markers: "Markers",
     },
   },
@@ -429,7 +479,7 @@ export const messages: Record<Locale, Messages> = {
       kicker: "Et voksende arkiv",
       titleAccent1: "Fornavne.",
       titleAccent2: "Hele genomer.",
-      lede: "Hvert kit bliver sin egen filmiske vandring — autosomale rødder, oldtidens Europa, en maternel haplogruppe og en kromosom-silhuet. Personer nævnes kun med fornavn.",
+      lede: "Hvert kit bliver sin egen filmiske vandring — autosomale rødder, oldtidens Europa, morlinje og farlinje når begge er testet, og en kromosom-silhuet. Personer nævnes kun med fornavn.",
       stories: "Historier",
       openGenome: "Åbn et genom.",
       sharedKicker: "Fars mor",
@@ -443,14 +493,17 @@ export const messages: Record<Locale, Messages> = {
       familyMovedLink: "Pernille og Helle",
     },
     nav: {
-      allStories: "Alle historier",
+      allStories: "Hjem",
       stories: "Historier",
       shared: "Fælles",
+      jump: "Gå til",
+      close: "Luk",
       chapters: [
         { id: "open", label: "Åbn" },
         { id: "origins", label: "Rødder" },
         { id: "ancient", label: "Dyb tid" },
         { id: "motherline", label: "Morlinje" },
+        { id: "fatherline", label: "Farlinje" },
         { id: "kin", label: "Slægt" },
         { id: "genome", label: "Genom" },
         { id: "notes", label: "Noter" },
@@ -475,8 +528,21 @@ export const messages: Record<Locale, Messages> = {
       mapAlt: "Østafrikansk riftdal ved daggry, som stand-in for mitokondriel Eves landskab",
       interval: (range) => ` (95 % interval ${range})`,
     },
+    fatherline: {
+      kicker: "Y-kromosom-haplogruppe",
+      intro:
+        "Y-kromosomet går fra far til søn, næsten uændret. {name}s Big Y-haplogruppe er {id}, som {formed}. Den seneste mand på netop denne gren levede sandsynligvis omkring {tmrca}{interval}. {testers} testere sidder i øjeblikket på kvisten — {known}.",
+      scrub: "Gå farlinjen igennem",
+      timeline: "Y-haplogruppe-tidslinje",
+      tmrca: "TMRCA",
+      testers: "Testere",
+      knownOrigins: "Kendte oprindelser",
+      path: "Sti",
+      mapAlt: "Østafrikansk riftdal ved daggry, som stand-in for Y-kromosomal Adams landskab",
+      interval: (range) => ` (95 % interval ${range})`,
+    },
     connections: {
-      kicker: "Fælles maternelle aner",
+      kicker: "Fælles haplogruppe-aner",
       title: "Slægt gennem århundreder —",
       titleAccent: " og årtusinder.",
       all: "Alle",
@@ -485,6 +551,8 @@ export const messages: Record<Locale, Messages> = {
       deepTime: "Dyb tid",
       rare: "Sjælden forbindelse",
       common: "Delt af alle",
+      paternal: "Farlinje",
+      maternal: "Morlinje",
       sharedAncestor: (node, year) => `fælles ane ${node} (${year})`,
     },
     genome: {
@@ -500,9 +568,11 @@ export const messages: Record<Locale, Messages> = {
     notes: {
       kicker: "Sådan læses det",
       title: "En historie, ikke en dom.",
-      p1: "Etnicitetsprocenter og oldtidskomponenter kommer fra FamilyTreeDNA myOrigins version 3. De sammenligner stræk af autosomalt DNA med referencepopulationer. De vil rykke sig, efterhånden som referencerne vokser. De mindste skiver er de mest skrøbelige. Delte haplotypeblokke mellem kits er kaldt selvstændigt fra de rå autosomale CSV-filer: lange stræk uden modsatte homozygoter, ikke FamilyTreeDNAs matchliste.",
+      p1: "Etnicitetsprocenter og oldtidskomponenter kommer fra FamilyTreeDNA myOrigins version 3. De sammenligner stræk af autosomalt DNA med referencepopulationer. De vil rykke sig, efterhånden som referencerne vokser. De mindste skiver er de mest skrøbelige.",
       p2: (haplo) =>
-        `Haplogruppe ${haplo} kommer fra mtFull Sequence. Bemærkelsesværdige og arkæologiske “forbindelser” betyder en fælles maternel ane ved det angivne knudepunkt, ofte mange tusinde år tilbage. Sitet hævder ikke nært slægtskab med konger, mumier eller arkæologiske fremmede.`,
+        `Haplogruppe ${haplo} kommer fra mtFull Sequence. Bemærkelsesværdige og arkæologiske “forbindelser” på morlinjen betyder en fælles maternel ane ved det angivne knudepunkt, ofte mange tusinde år tilbage. Sitet hævder ikke nært slægtskab med dronninger, mumier eller arkæologiske fremmede.`,
+      p2y: (haplo) =>
+        `Haplogruppe ${haplo} kommer fra Big Y. Bemærkelsesværdige “forbindelser” på farlinjen betyder en fælles paternel ane ved det angivne knudepunkt. Y er én tråd. Den behøver ikke ligne det autosomale kort.`,
       p3: (name) =>
         `${name} nævnes kun med fornavn. Levende genetiske matches vises ikke.`,
       p4: (name) =>
@@ -527,6 +597,8 @@ export const messages: Record<Locale, Messages> = {
       "central-europe": "Centraleuropa",
       ireland: "Irland",
       isles: "England, Wales og Skotland",
+      baltic: "Baltikum",
+      sephardic: "Sefardisk jødisk",
     },
     ancientLabels: {
       hunter: "Jæger-samler",
@@ -547,6 +619,7 @@ export const messages: Record<Locale, Messages> = {
       Neolithic: "Neolitikum",
       "Bronze Age": "Bronzealder",
       "Pleistocene → Mesolithic": "Pleistocæn → mesolitikum",
+      "Middle Ages / Modern": "Middelalder / moderne tid",
     },
     place: {
       Denmark: "Danmark",
@@ -562,6 +635,14 @@ export const messages: Record<Locale, Messages> = {
       "Eurasia / Africa": "Eurasien / Afrika",
       "Deep time": "Dyb tid",
       Sweden: "Sverige",
+      Norway: "Norge",
+      Finland: "Finland",
+      England: "England",
+      "Atlantic Europe": "Atlanterhavseuropa",
+      "Cheddar Gorge": "Cheddar Gorge",
+      "Jutland, Denmark": "Jylland, Danmark",
+      "Rogaland, Norway": "Rogaland, Norge",
+      Carthage: "Karthago",
       France: "Frankrig",
       Germany: "Tyskland",
       "Thebes, Egypt": "Theben, Egypten",
@@ -656,6 +737,7 @@ export const messages: Record<Locale, Messages> = {
       centralEurope: "Centraleuropa",
       ireland: "Irland",
       motherline: "Morlinje",
+      fatherline: "Farlinje",
       markers: "Markører",
     },
   },

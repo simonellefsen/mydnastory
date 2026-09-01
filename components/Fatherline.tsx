@@ -7,47 +7,46 @@ import type { Profile } from "@/lib/types";
 import { MotherlineDeep } from "./MotherlineDeep";
 import { Reveal } from "./Reveal";
 
-const points = [
-  { x: 52, y: 72, label: "Eve" },
-  { x: 54, y: 58, label: "L3" },
-  { x: 57, y: 48, label: "N" },
-  { x: 60, y: 42, label: "R0" },
-  { x: 58, y: 34, label: "H" },
+const fallbackPoints = [
+  { x: 48, y: 76, label: "Adam" },
+  { x: 52, y: 62, label: "F" },
+  { x: 58, y: 48, label: "R" },
+  { x: 62, y: 34, label: "L21" },
+  { x: 56, y: 22, label: "Y" },
 ];
 
-export function Motherline({ profile }: { profile: Profile }) {
+export function Fatherline({ profile }: { profile: Profile }) {
   const { t } = useI18n();
-  const { haploPath, haplogroup } = profile;
+  const haplogroup = profile.yHaplogroup;
+  const haploPath = profile.yHaploPath ?? [];
   const [index, setIndex] = useState(0);
-  const step = haploPath[index];
-  const max = haploPath.length - 1;
-  const mapPoints = useMemo(
-    () => profile.haploMapPoints ?? [...points, { x: 53, y: 22, label: haplogroup.id }],
-    [haplogroup.id, profile.haploMapPoints],
-  );
+  const mapPoints = profile.yHaploMapPoints ?? fallbackPoints;
   const pathD = useMemo(
     () => mapPoints.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" "),
     [mapPoints],
   );
+  if (!haplogroup || !haploPath.length) return null;
+  const step = haploPath[index] ?? haploPath[0];
+  const max = haploPath.length - 1;
 
   return (
-    <section id="motherline" className="chapter">
+    <section id="fatherline" className="chapter">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="kicker">{t.motherline.kicker}</p>
+          <p className="kicker">{t.fatherline.kicker}</p>
           <h2 className="mt-3 max-w-4xl font-display text-4xl leading-[1.05] md:text-6xl">
             {haplogroup.id}
-            <span className="block italic text-rose">{haplogroup.headline}</span>
+            <span className="block italic text-ice">{haplogroup.headline}</span>
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            {t.motherline.intro
+            {t.fatherline.intro
               .replace("{name}", profile.firstName)
               .replace("{id}", haplogroup.id)
               .replace("{formed}", haplogroup.formed)
               .replace("{tmrca}", haplogroup.tmrca.meanLabel)
               .replace(
                 "{interval}",
-                haplogroup.tmrca.ci95.startsWith("see") ? "" : t.motherline.interval(haplogroup.tmrca.ci95),
+                haplogroup.tmrca.ci95.startsWith("see") ? "" : t.fatherline.interval(haplogroup.tmrca.ci95),
               )
               .replace("{testers}", String(haplogroup.testers.total))
               .replace("{known}", haplogroup.testers.known)}
@@ -58,8 +57,8 @@ export function Motherline({ profile }: { profile: Profile }) {
           <Reveal>
             <div className="rounded-3xl border border-white/10 bg-black/30 p-5 md:p-7">
               <div className="flex items-center justify-between gap-4">
-                <p className="text-sm text-muted">{t.motherline.scrub}</p>
-                <p className="font-display text-xl text-amber">{step.haplogroup}</p>
+                <p className="text-sm text-muted">{t.fatherline.scrub}</p>
+                <p className="font-display text-xl text-ice">{step.haplogroup}</p>
               </div>
               <input
                 type="range"
@@ -67,8 +66,8 @@ export function Motherline({ profile }: { profile: Profile }) {
                 max={max}
                 value={index}
                 onChange={(e) => setIndex(Number(e.target.value))}
-                className="mt-4 w-full accent-amber"
-                aria-label={t.motherline.timeline}
+                className="mt-4 w-full accent-ice"
+                aria-label={t.fatherline.timeline}
               />
               <ol className="mt-4 flex flex-wrap gap-2">
                 {haploPath.map((h, i) => (
@@ -77,7 +76,7 @@ export function Motherline({ profile }: { profile: Profile }) {
                       type="button"
                       onClick={() => setIndex(i)}
                       className={`rounded-full px-2.5 py-1 text-xs tracking-wide ${
-                        i === index ? "bg-amber text-black" : "bg-white/5 text-muted hover:text-ink"
+                        i === index ? "bg-ice text-black" : "bg-white/5 text-muted hover:text-ink"
                       }`}
                     >
                       {h.haplogroup}
@@ -93,19 +92,19 @@ export function Motherline({ profile }: { profile: Profile }) {
               </div>
               <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-white/10 pt-5 text-sm md:grid-cols-4">
                 <div>
-                  <dt className="text-faint">{t.motherline.tmrca}</dt>
+                  <dt className="text-faint">{t.fatherline.tmrca}</dt>
                   <dd>{haplogroup.tmrca.meanLabel}</dd>
                 </div>
                 <div>
-                  <dt className="text-faint">{t.motherline.testers}</dt>
+                  <dt className="text-faint">{t.fatherline.testers}</dt>
                   <dd>{haplogroup.testers.total}</dd>
                 </div>
                 <div>
-                  <dt className="text-faint">{t.motherline.knownOrigins}</dt>
+                  <dt className="text-faint">{t.fatherline.knownOrigins}</dt>
                   <dd>{haplogroup.testers.known}</dd>
                 </div>
                 <div>
-                  <dt className="text-faint">{t.motherline.path}</dt>
+                  <dt className="text-faint">{t.fatherline.path}</dt>
                   <dd className="truncate">{haplogroup.pathLabel}</dd>
                 </div>
               </dl>
@@ -116,14 +115,14 @@ export function Motherline({ profile }: { profile: Profile }) {
             <figure className="relative overflow-hidden rounded-3xl border border-white/10">
               <Image
                 src="/images/rift-eve.jpg"
-                alt={t.motherline.mapAlt}
+                alt={t.fatherline.mapAlt}
                 fill
                 className="object-cover opacity-80"
                 sizes="(min-width: 1024px) 40vw, 100vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/20" />
               <svg viewBox="0 0 100 90" className="relative z-10 h-[28rem] w-full">
-                <path d={pathD} fill="none" stroke="#d4a054" strokeWidth="0.6" opacity="0.85" />
+                <path d={pathD} fill="none" stroke="#8ea4c8" strokeWidth="0.6" opacity="0.85" />
                 {mapPoints.map((p, i) => (
                   <g key={p.label}>
                     <circle cx={p.x} cy={p.y} r={i === 0 || i === mapPoints.length - 1 ? 1.6 : 1.1} fill="#f3eee4" />
@@ -134,14 +133,14 @@ export function Motherline({ profile }: { profile: Profile }) {
                 ))}
               </svg>
               <figcaption className="absolute bottom-4 left-5 right-5 text-sm text-muted">
-                {profile.motherlineMapCaption}
+                {profile.fatherlineMapCaption}
               </figcaption>
             </figure>
           </Reveal>
         </div>
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {profile.motherlineSpotlights.map((card) => (
+          {(profile.fatherlineSpotlights ?? []).map((card) => (
             <article key={card.title} className="overflow-hidden rounded-2xl border border-white/10">
               <div className="relative h-40">
                 <Image src={card.img} alt="" fill className="object-cover" sizes="33vw" />
@@ -153,7 +152,7 @@ export function Motherline({ profile }: { profile: Profile }) {
             </article>
           ))}
         </div>
-        <MotherlineDeep profile={profile} />
+        <MotherlineDeep profile={profile} haplogroupId={haplogroup.id} />
       </div>
     </section>
   );

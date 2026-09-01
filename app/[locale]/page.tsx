@@ -42,7 +42,7 @@ export default async function HomePage({ params }: { params: Promise<Params> }) 
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-black/40" />
-        <div className="relative z-10 mx-auto flex min-h-[70svh] w-full min-w-0 max-w-6xl flex-col justify-end px-5 pb-16 pt-20 md:justify-center md:px-8">
+        <div className="hero-copy relative z-10 mx-auto flex min-h-[70svh] w-full min-w-0 max-w-6xl flex-col justify-end px-5 pb-16 pt-20 md:justify-center md:px-8">
           <p className="kicker">{t.home.kicker}</p>
           <h1 className="mt-4 max-w-3xl font-display text-[2.5rem] leading-[0.95] sm:text-6xl md:text-7xl">
             myDNAStory
@@ -59,7 +59,7 @@ export default async function HomePage({ params }: { params: Promise<Params> }) 
         <div className="mx-auto max-w-6xl">
           <p className="kicker">{t.home.stories}</p>
           <h2 className="mt-3 font-display text-4xl md:text-5xl">{t.home.openGenome}</h2>
-          <ul className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-10 grid gap-6 md:grid-cols-2">
             {entries.map((entry) => {
               if (entry.status === "coming") {
                 return (
@@ -93,7 +93,10 @@ export default async function HomePage({ params }: { params: Promise<Params> }) 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/10" />
                     <div className="relative z-10 mt-auto p-7">
-                      <p className="kicker">{entry.haplogroup.id}</p>
+                      <p className="kicker">
+                        {entry.haplogroup.id}
+                        {entry.yHaplogroup ? ` · ${entry.yHaplogroup.id}` : ""}
+                      </p>
                       <h3 className="mt-2 font-display text-4xl">{entry.firstName}</h3>
                       <p className="mt-2 text-sm text-muted">{entry.tagline}</p>
                       <p className="mt-4 text-sm text-ink/80">

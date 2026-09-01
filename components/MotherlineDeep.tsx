@@ -6,9 +6,15 @@ import { useI18n } from "@/lib/i18n/context";
 import type { Profile } from "@/lib/types";
 import { Reveal } from "./Reveal";
 
-export function MotherlineDeep({ profile }: { profile: Profile }) {
+export function MotherlineDeep({
+  profile,
+  haplogroupId,
+}: {
+  profile: Profile;
+  haplogroupId?: string;
+}) {
   const { locale } = useI18n();
-  const twig = getScience(locale).twigs[profile.haplogroup.id];
+  const twig = getScience(locale).twigs[haplogroupId ?? profile.haplogroup.id];
   if (!twig) return null;
 
   return (

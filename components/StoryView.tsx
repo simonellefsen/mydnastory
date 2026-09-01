@@ -1,5 +1,6 @@
 import { Ancient } from "@/components/Ancient";
 import { Connections } from "@/components/Connections";
+import { Fatherline } from "@/components/Fatherline";
 import { Genome } from "@/components/Genome";
 import { Hero } from "@/components/Hero";
 import { Motherline } from "@/components/Motherline";
@@ -18,6 +19,7 @@ export function StoryView({ profile, locale }: { profile: Profile; locale: Local
         <Origins profile={profile} />
         <Ancient profile={profile} />
         <Motherline profile={profile} />
+        <Fatherline profile={profile} />
         <Connections profile={profile} />
         <Genome profile={profile} />
         <Notes profile={profile} locale={locale} />

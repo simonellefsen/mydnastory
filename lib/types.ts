@@ -38,6 +38,7 @@ export type Connection = {
   dates: string;
   kind: "notable" | "ancient" | "deep";
   rarity: "rare" | "common";
+  line?: "paternal" | "maternal" | "deep";
   shared: string;
   sharedYear: string;
   place: string;
@@ -45,13 +46,32 @@ export type Connection = {
   blurb: string;
 };
 
+export type Haplogroup = {
+  id: string;
+  parent: string;
+  pathLabel: string;
+  formed: string;
+  headline: string;
+  tmrca: {
+    meanLabel: string;
+    ci95: string;
+  };
+  testers: {
+    total: number;
+    known: string;
+  };
+  rarityNote: string;
+};
+
+export type MapPoint = { x: number; y: number; label: string };
+
 export type Chromosome = { id: string; snps: number };
 
 export type HeroStat = {
   label: string;
   value: string;
   shortValue?: string;
-  color?: "aurora" | "amber" | "ink" | "rose";
+  color?: "aurora" | "amber" | "ink" | "rose" | "ice";
 };
 
 export type Profile = {
@@ -70,25 +90,16 @@ export type Profile = {
   ancientHeadline: { lead: string; mid: string; end: string };
   ancientLede: string;
   ancientOrigins: AncientOrigin[];
-  haplogroup: {
-    id: string;
-    parent: string;
-    pathLabel: string;
-    formed: string;
-    headline: string;
-    tmrca: {
-      meanLabel: string;
-      ci95: string;
-    };
-    testers: {
-      total: number;
-      known: string;
-    };
-    rarityNote: string;
-  };
+  haplogroup: Haplogroup;
   haploPath: HaploStep[];
+  haploMapPoints?: MapPoint[];
   motherlineMapCaption: string;
   motherlineSpotlights: { img: string; title: string; copy: string }[];
+  yHaplogroup?: Haplogroup;
+  yHaploPath?: HaploStep[];
+  yHaploMapPoints?: MapPoint[];
+  fatherlineMapCaption?: string;
+  fatherlineSpotlights?: { img: string; title: string; copy: string }[];
   connectionsLede: string;
   connections: Connection[];
   chromosomes: Chromosome[];

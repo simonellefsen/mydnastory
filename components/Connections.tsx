@@ -71,6 +71,11 @@ export function Connections({ profile }: { profile: Profile }) {
                       <span className="block font-medium">{c.name}</span>
                       <span className="text-sm text-muted">
                         {c.dates} · {c.place}
+                        {c.line === "paternal"
+                          ? ` · ${t.connections.paternal}`
+                          : c.line === "maternal"
+                            ? ` · ${t.connections.maternal}`
+                            : ""}
                       </span>
                     </span>
                     <span className="text-xs tracking-wide text-amber uppercase">{c.shared}</span>
