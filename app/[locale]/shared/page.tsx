@@ -4,6 +4,7 @@ import { AncientCompare } from "@/components/AncientCompare";
 import { ArchiveChrome } from "@/components/ArchiveChrome";
 import { ChromosomeShare } from "@/components/ChromosomeShare";
 import { IbdMap } from "@/components/IbdMap";
+import { ParentalSplit } from "@/components/ParentalSplit";
 import { MotherlineFork } from "@/components/MotherlineFork";
 import { OriginCompare } from "@/components/OriginCompare";
 import { Reveal } from "@/components/Reveal";
@@ -190,6 +191,7 @@ export default async function SharedPage({ params }: { params: Promise<Params> }
             <ChromosomeShare />
           </div>
           <IbdMap />
+          <ParentalSplit />
           <p className="mt-6 max-w-3xl text-sm leading-relaxed text-faint">{t.shared.autoNote}</p>
         </div>
       </section>

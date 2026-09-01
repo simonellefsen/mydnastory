@@ -44,6 +44,33 @@ export type ScienceCopy = {
     note: string;
     silent: string;
   };
+  split: {
+    kicker: string;
+    title: string;
+    accent: string;
+    lede: string;
+    mother: string;
+    helle: string;
+    grandfather: string;
+    motherCopy: string;
+    helleCopy: (pct: string, expected: string) => string;
+    grandfatherCopy: string;
+    originsTitle: string;
+    originsLede: string;
+    colHelle: string;
+    colPernille: string;
+    colOther: string;
+    irelandTitle: string;
+    irelandCopy: string;
+    chromTitle: string;
+    chromHelle: string;
+    chromSilent: string;
+    xTitle: string;
+    xCopy: (hellePct: string, maternal: string) => string;
+    mitoTitle: string;
+    mitoCopy: string;
+    note: string;
+  };
 };
 
 export const science: Record<Locale, ScienceCopy> = {
@@ -227,6 +254,40 @@ export const science: Record<Locale, ScienceCopy> = {
       note: "Unphased identity-by-state, gaps over 1 Mb break a run, lengths from a sex-averaged chromosome map. This is not FamilyTreeDNA’s match list and not a court exhibit. Opposite sites cannot sit inside a shared segment. Two opposite calls on X are more likely chip errors than a break in a father’s X.",
       silent: "No long IBD",
     },
+    split: {
+      kicker: "Mother and father’s mother",
+      title: "What differs.",
+      accent: " What could not have come from Helle.",
+      lede: "Pernille has two copies of each autosome: one from her mother, one from her father. The father’s copy is a shuffle of Helle and the paternal grandfather. Mitochondria and one X follow different rules. That is enough to say what is Helle’s gift, what is the mother’s line, and what never passed.",
+      mother: "Mother",
+      helle: "Helle",
+      grandfather: "Father’s father",
+      motherCopy:
+        "Half the autosomes, the whole motherline (H10a1u), and one X. She is not on this chip, so her haplotype cannot be painted as blocks — only inferred where Helle’s copy is already known.",
+      helleCopy: (pct, expected) =>
+        `About ${pct}% of the autosomes assigned as long shared haplotypes (expectation ~${expected}%). Nearly the whole paternal X. None of the mitochondria.`,
+      grandfatherCopy:
+        "The rest of the paternal autosomes: chromosomes where father passed the other grandfather’s copy, plus any Helle segments shorter than the cutoff. Not named on this site.",
+      originsTitle: "Recent geography, pulled apart",
+      originsLede:
+        "If the mother and the paternal grandfather were similar to each other, their mix is (Pernille − ¼ Helle) ÷ ¾. Deep time barely moves. The recent map does.",
+      colHelle: "Helle",
+      colPernille: "Pernille",
+      colOther: "The other ¾",
+      irelandTitle: "Ireland did not pass",
+      irelandCopy:
+        "Helle is 19% Irish on myOrigins. A random quarter of that would still be ~5% in Pernille. The file shows none. Either the father did not inherit Helle’s Irish stretches, or he did not pass them on. The Irish chapter is Helle’s, not Pernille’s.",
+      chromTitle: "Which chromosomes the father handed on",
+      chromHelle: "Mostly Helle’s copy",
+      chromSilent: "No long Helle block — the other grandfather",
+      xTitle: "The X is the tell",
+      xCopy: (hellePct, maternal) =>
+        `${hellePct}% of the X map is compatible with Helle. That is the X her son received and gave to his daughter. At ${maternal} sites Helle is homozygous and Pernille is not: the extra allele is from Pernille’s mother. Two opposite calls on the whole X are more likely chip errors than a break.`,
+      mitoTitle: "Mitochondria stay with the mother",
+      mitoCopy:
+        "H10a1u is Pernille’s mother’s line. H1e1b1f1 is Helle’s. They meet only at haplogroup H, around 8000 BCE. A father’s mother cannot give mitochondria to a granddaughter.",
+      note: "Unphased chips cannot separate the mother’s haplotype from the paternal grandfather’s in regions that are not assigned to Helle. The 20% Helle figure is a lower bound: short shared stretches are counted with the grandfather. Percentages are myOrigins v3 estimates, not a pedigree.",
+    },
   },
   da: {
     twigs: {
@@ -407,6 +468,40 @@ export const science: Record<Locale, ScienceCopy> = {
       chrom: (id, cm, n) => `Kromosom ${id} · ${cm} cM i ${n} segment${n === "1" ? "" : "er"}`,
       note: "Ufaselt identity-by-state, huller over 1 Mb bryder et stræk, længder fra et kønsgennemsnitligt kromosomkort. Dette er ikke FamilyTreeDNAs matchliste og ikke et retsdokument. Modsatte steder kan ikke ligge i et delt segment. To modsatte kald på X er snarere chipfejl end et brud i et fars-X.",
       silent: "Ingen lang IBD",
+    },
+    split: {
+      kicker: "Mor og fars mor",
+      title: "Hvad der adskiller sig.",
+      accent: " Hvad der ikke kan komme fra Helle.",
+      lede: "Pernille har to kopier af hvert autosom: én fra sin mor, én fra sin far. Farens kopi er en blanding af Helle og farfaderen. Mitokondrier og ét X følger andre regler. Det er nok til at sige, hvad der er Helles gave, hvad der er morens linje, og hvad der aldrig gik videre.",
+      mother: "Mor",
+      helle: "Helle",
+      grandfather: "Farfar",
+      motherCopy:
+        "Halvdelen af autosomerne, hele morlinjen (H10a1u) og ét X. Hun er ikke på denne chip, så hendes haplotype kan ikke males som blokke — kun sluttes, hvor Helles kopi allerede er kendt.",
+      helleCopy: (pct, expected) =>
+        `Omkring ${pct} % af autosomerne tildelt som lange delte haplotyper (forventning ~${expected} %). Næsten hele det paternelle X. Ingen af mitokondrierne.`,
+      grandfatherCopy:
+        "Resten af de paternelle autosomer: kromosomer, hvor faderen gav den anden bedstefars kopi videre, plus eventuelle Helle-segmenter kortere end tærsklen. Ikke navngivet på dette site.",
+      originsTitle: "Den nære geografi, trukket fra hinanden",
+      originsLede:
+        "Hvis moren og farfaderen lignede hinanden, er deres blanding (Pernille − ¼ Helle) ÷ ¾. Dyb tid rykker sig næsten ikke. Det nære kort gør.",
+      colHelle: "Helle",
+      colPernille: "Pernille",
+      colOther: "De andre ¾",
+      irelandTitle: "Irland gik ikke videre",
+      irelandCopy:
+        "Helle er 19 % irsk på myOrigins. En tilfældig fjerdedel af det ville stadig være ~5 % hos Pernille. Filen viser intet. Enten arvede faderen ikke Helles irske stræk, eller han gav dem ikke videre. Det irske kapitel er Helles, ikke Pernilles.",
+      chromTitle: "Hvilke kromosomer faderen rakte videre",
+      chromHelle: "Mest Helles kopi",
+      chromSilent: "Ingen lang Helle-blok — den anden bedstefar",
+      xTitle: "X er tegnet",
+      xCopy: (hellePct, maternal) =>
+        `${hellePct} % af X-kortet er foreneligt med Helle. Det er det X, hendes søn fik og gav til sin datter. Ved ${maternal} steder er Helle homozygot og Pernille ikke: det ekstra allel er fra Pernilles mor. To modsatte kald på hele X er snarere chipfejl end et brud.`,
+      mitoTitle: "Mitokondrier bliver hos mor",
+      mitoCopy:
+        "H10a1u er Pernilles mors linje. H1e1b1f1 er Helles. De mødes først i haplogruppe H, omkring 8000 f.Kr. En fars mor kan ikke give mitokondrier til en sønnedatter.",
+      note: "Ufaselte chips kan ikke skille morens haplotype fra farfaderens i områder, der ikke er tildelt Helle. Tallet på 20 % Helle er en nedre grænse: korte delte stræk tælles med farfaderen. Procenter er myOrigins v3-skøn, ikke en stamtavle.",
     },
   },
 };
