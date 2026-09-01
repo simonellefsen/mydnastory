@@ -59,24 +59,6 @@ export default async function HomePage({ params }: { params: Promise<Params> }) 
         <div className="mx-auto max-w-6xl">
           <p className="kicker">{t.home.stories}</p>
           <h2 className="mt-3 font-display text-4xl md:text-5xl">{t.home.openGenome}</h2>
-          <Link
-            href={withLocale(locale, "/shared")}
-            className="group relative mt-10 flex min-h-56 overflow-hidden rounded-3xl border border-amber/25"
-          >
-            <Image
-              src="/images/kinship-shore.jpg"
-              alt=""
-              fill
-              className="object-cover transition duration-700 group-hover:scale-105"
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/55 to-black/20" />
-            <div className="relative z-10 mt-auto p-7 md:p-10">
-              <p className="kicker">{t.home.sharedKicker}</p>
-              <h3 className="mt-2 font-display text-3xl md:text-5xl">{t.home.sharedTitle}</h3>
-              <p className="mt-3 max-w-xl text-muted">{t.home.sharedLede}</p>
-            </div>
-          </Link>
           <ul className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {entries.map((entry) => {
               if (entry.status === "coming") {
@@ -123,6 +105,15 @@ export default async function HomePage({ params }: { params: Promise<Params> }) 
               );
             })}
           </ul>
+          <p className="mt-10 max-w-xl text-sm text-muted">
+            {t.home.familyMoved}{" "}
+            <a
+              href="https://pernille-helle.vercel.app"
+              className="text-amber hover:text-ink"
+            >
+              {t.home.familyMovedLink}
+            </a>
+          </p>
         </div>
       </section>
     </main>

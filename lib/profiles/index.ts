@@ -1,18 +1,14 @@
 import { localizeCatalog, localizeProfile } from "@/lib/i18n/localize";
 import type { Locale } from "@/lib/i18n/config";
-import { helle } from "./helle";
-import { pernille } from "./pernille";
 import type { CatalogEntry, Profile } from "@/lib/types";
 
-export const publishedProfiles: Profile[] = [pernille, helle];
+export const publishedProfiles: Profile[] = [];
 
 export const catalog: CatalogEntry[] = [
-  pernille,
-  helle,
   {
     slug: "next",
     status: "coming",
-    teaser: "The next kit lands here. Same first-name rule, same private ftdna/ folder, same chapters.",
+    teaser: "The first kit lands here. Same first-name rule, same chapters.",
   },
 ];
 
@@ -25,4 +21,4 @@ export function getCatalog(locale: Locale = "en"): CatalogEntry[] {
   return localizeCatalog(catalog, locale);
 }
 
-export { pernille, helle };
+

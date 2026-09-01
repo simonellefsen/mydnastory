@@ -2,7 +2,7 @@
   "name": "mydnastory",
   "version": "1.0.0",
   "private": true,
-  "description": "An interactive DNA story for Pernille, told from FamilyTreeDNA results.",
+  "description": "An archive of DNA stories told by first name.",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

@@ -1,8 +1,8 @@
 # myDNAStory
 
-An archive of DNA stories, one first name at a time. Each published kit gets the same chapters: autosomal origins, ancient Europe, a maternal haplogroup, notable/ancient kin, and a chromosome skyline.
+A bilingual archive for my own DNA history. Each published kit gets the same chapters: autosomal origins, ancient Europe, a maternal haplogroup, notable/ancient kin, and a chromosome skyline.
 
-Raw FTDNA exports and screenshots live in a local `ftdna/` folder that is **not** committed.
+Pernille and Helle now live at [pernille-helle.vercel.app](https://pernille-helle.vercel.app).
 
 ## Develop
 
@@ -11,10 +11,9 @@ npm install
 npm run dev
 ```
 
-- `/` — catalog of stories (redirects to `/en` or `/da` from the browser language, then a `NEXT_LOCALE` cookie)
+- `/` — catalog (redirects to `/en` or `/da` from the browser language, then a `NEXT_LOCALE` cookie)
 - `/en`, `/da` — English (default) and Danish
-- `/en/pernille`, `/da/helle`, … — one genome each
-- `/en/shared`, `/da/shared` — Helle (paternal grandmother) and Pernille compared
+- `/en/<slug>` — one genome each
 
 ## Add a profile
 
@@ -22,6 +21,7 @@ npm run dev
 2. Add `lib/profiles/<slug>.ts` exporting a `Profile` (first name only).
 3. Register it in `lib/profiles/index.ts` (`publishedProfiles` + `catalog`).
 4. Shared landscapes live in `public/images/`; add a distinct hero if the geography needs it.
+5. Danish overlay copy goes in `lib/i18n/da-profiles.ts`.
 
 Coming kits can sit in `catalog` with `status: "coming"` until the story is written.
 

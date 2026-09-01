@@ -10,3 +10,4 @@ ftdna/
 scripts/__pycache__/
 public/sprites/src/
 scripts/shots.mjs
+tsconfig.tsbuildinfo

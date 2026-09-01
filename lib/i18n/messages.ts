@@ -22,6 +22,8 @@ export type Messages = {
     coming: string;
     nextKit: string;
     waiting: string;
+    familyMoved: string;
+    familyMovedLink: string;
   };
   nav: {
     allStories: string;
@@ -182,7 +184,7 @@ export const messages: Record<Locale, Messages> = {
       kicker: "A growing archive",
       titleAccent1: "First names.",
       titleAccent2: "Whole genomes.",
-      lede: "Each kit becomes its own cinematic walk — autosomal origins, ancient Europe, a maternal haplogroup, and a chromosome skyline. People are listed by first name only. Raw files never leave the private folder.",
+      lede: "Each kit becomes its own cinematic walk — autosomal origins, ancient Europe, a maternal haplogroup, and a chromosome skyline. People are listed by first name only.",
       stories: "Stories",
       openGenome: "Open a genome.",
       sharedKicker: "Paternal grandmother",
@@ -190,8 +192,10 @@ export const messages: Record<Locale, Messages> = {
       sharedLede:
         "What they share in origins, deep time, haplogroup H, and 678,311 compared markers — including the X that only a father’s mother can give.",
       coming: "Coming",
-      nextKit: "Next kit",
-      waiting: "Waiting for ftdna/",
+      nextKit: "Your kit",
+      waiting: "Waiting",
+      familyMoved: "Pernille and Helle have their own close-family site.",
+      familyMovedLink: "Pernille & Helle",
     },
     nav: {
       allStories: "All stories",
@@ -255,7 +259,7 @@ export const messages: Record<Locale, Messages> = {
       p2: (haplo) =>
         `Haplogroup ${haplo} is from mtFull Sequence. Notable and ancient “connections” mean a shared maternal ancestor at the stated node, often many thousands of years ago. This site does not claim close kinship with kings, mummies, or archaeological strangers.`,
       p3: (name) =>
-        `${name} is named only by first name. Living genetic matches are not listed. The autosomal CSV and FamilyTreeDNA screenshots remain off this repository, in a local ftdna/ folder used to build each profile.`,
+        `${name} is named only by first name. Living genetic matches are not listed.`,
       p4: (name) =>
         `Landscapes and still lifes were generated for this telling. The DNA helix overlay was modelled in Blender. None of the pictures are portraits of ${name}.`,
       kinshipBefore: (name: string) => `${name} is also part of a `,
@@ -425,7 +429,7 @@ export const messages: Record<Locale, Messages> = {
       kicker: "Et voksende arkiv",
       titleAccent1: "Fornavne.",
       titleAccent2: "Hele genomer.",
-      lede: "Hvert kit bliver sin egen filmiske vandring — autosomale rødder, oldtidens Europa, en maternel haplogruppe og en kromosom-silhuet. Personer nævnes kun med fornavn. Rå filer forlader aldrig den private mappe.",
+      lede: "Hvert kit bliver sin egen filmiske vandring — autosomale rødder, oldtidens Europa, en maternel haplogruppe og en kromosom-silhuet. Personer nævnes kun med fornavn.",
       stories: "Historier",
       openGenome: "Åbn et genom.",
       sharedKicker: "Fars mor",
@@ -433,8 +437,10 @@ export const messages: Record<Locale, Messages> = {
       sharedLede:
         "Det de deler i rødder, dyb tid, haplogruppe H og 678.311 sammenlignede markører — inklusive det X, kun en fars mor kan give.",
       coming: "På vej",
-      nextKit: "Næste kit",
-      waiting: "Venter på ftdna/",
+      nextKit: "Dit kit",
+      waiting: "Venter",
+      familyMoved: "Pernille og Helle har deres eget site for nær familie.",
+      familyMovedLink: "Pernille og Helle",
     },
     nav: {
       allStories: "Alle historier",
@@ -498,7 +504,7 @@ export const messages: Record<Locale, Messages> = {
       p2: (haplo) =>
         `Haplogruppe ${haplo} kommer fra mtFull Sequence. Bemærkelsesværdige og arkæologiske “forbindelser” betyder en fælles maternel ane ved det angivne knudepunkt, ofte mange tusinde år tilbage. Sitet hævder ikke nært slægtskab med konger, mumier eller arkæologiske fremmede.`,
       p3: (name) =>
-        `${name} nævnes kun med fornavn. Levende genetiske matches vises ikke. Den autosomale CSV og FamilyTreeDNA-skærmbilleder forbliver uden for dette repository, i en lokal ftdna/-mappe der bruges til at bygge hver profil.`,
+        `${name} nævnes kun med fornavn. Levende genetiske matches vises ikke.`,
       p4: (name) =>
         `Landskaber og stilleben er skabt til denne fortælling. DNA-helixen er modelleret i Blender. Ingen af billederne er portrætter af ${name}.`,
       kinshipBefore: (name: string) => `${name} indgår også i en `,

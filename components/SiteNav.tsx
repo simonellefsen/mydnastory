@@ -68,15 +68,6 @@ export function SiteNav({ slug }: { slug: string }) {
               </li>
             );
           })}
-          <li className="shrink-0">
-            <Link
-              href={href("/shared")}
-              className="flex items-center gap-2 whitespace-nowrap rounded-full px-2.5 py-1.5 text-[10px] tracking-[0.14em] text-amber uppercase hover:text-ink md:px-3 md:text-[11px] md:tracking-[0.18em]"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-amber" />
-              {t.nav.shared}
-            </Link>
-          </li>
           {others.map((p) => (
             <li key={p.slug} className="hidden shrink-0 md:block">
               <Link
