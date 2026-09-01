@@ -1,10 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import { chapters } from "@/lib/story";
+import { chapters } from "@/lib/chapters";
+import { publishedProfiles } from "@/lib/profiles";
 
-export function SiteNav() {
+export function SiteNav({ slug }: { slug: string }) {
   const [active, setActive] = useState<string>(chapters[0].id);
+  const others = publishedProfiles.filter((p) => p.slug !== slug);
 
   useEffect(() => {
     const nodes = chapters
@@ -28,26 +31,51 @@ export function SiteNav() {
       aria-label="Chapters"
       className="pointer-events-none fixed inset-x-0 top-0 z-40 flex justify-center p-2 md:inset-auto md:top-1/2 md:right-5 md:-translate-y-1/2 md:p-0"
     >
-      <ul className="pointer-events-auto flex max-w-[calc(100vw-1rem)] gap-1 overflow-x-auto rounded-full border border-white/10 bg-black/45 px-1.5 py-1.5 backdrop-blur-md md:max-w-none md:flex-col md:rounded-3xl md:px-2 md:py-3">
-        {chapters.map((c) => {
-          const on = active === c.id;
-          return (
-            <li key={c.id} className="shrink-0">
-              <a
-                href={`#${c.id}`}
-                className={`flex items-center gap-2 whitespace-nowrap rounded-full px-2.5 py-1.5 text-[10px] tracking-[0.14em] uppercase transition md:px-3 md:text-[11px] md:tracking-[0.18em] ${
-                  on ? "bg-white/10 text-ink" : "text-faint hover:text-ink"
-                }`}
+      <div className="pointer-events-auto flex max-w-[calc(100vw-1rem)] flex-col items-stretch gap-2 md:max-w-none">
+        <Link
+          href="/"
+          className="hidden rounded-full border border-white/10 bg-black/45 px-3 py-1.5 text-center text-[10px] tracking-[0.18em] text-amber uppercase backdrop-blur-md md:block"
+        >
+          All stories
+        </Link>
+        <ul className="flex gap-1 overflow-x-auto rounded-full border border-white/10 bg-black/45 px-1.5 py-1.5 backdrop-blur-md md:flex-col md:rounded-3xl md:px-2 md:py-3">
+          <li className="shrink-0 md:hidden">
+            <Link
+              href="/"
+              className="flex items-center gap-2 whitespace-nowrap rounded-full px-2.5 py-1.5 text-[10px] tracking-[0.14em] text-amber uppercase"
+            >
+              Stories
+            </Link>
+          </li>
+          {chapters.map((c) => {
+            const on = active === c.id;
+            return (
+              <li key={c.id} className="shrink-0">
+                <a
+                  href={`#${c.id}`}
+                  className={`flex items-center gap-2 whitespace-nowrap rounded-full px-2.5 py-1.5 text-[10px] tracking-[0.14em] uppercase transition md:px-3 md:text-[11px] md:tracking-[0.18em] ${
+                    on ? "bg-white/10 text-ink" : "text-faint hover:text-ink"
+                  }`}
+                >
+                  <span className={`h-1.5 w-1.5 rounded-full ${on ? "bg-amber" : "bg-white/25"}`} />
+                  <span className="md:inline">{c.label}</span>
+                </a>
+              </li>
+            );
+          })}
+          {others.map((p) => (
+            <li key={p.slug} className="hidden shrink-0 md:block">
+              <Link
+                href={`/${p.slug}`}
+                className="flex items-center gap-2 whitespace-nowrap rounded-full px-3 py-1.5 text-[11px] tracking-[0.18em] text-muted uppercase hover:text-ink"
               >
-                <span
-                  className={`h-1.5 w-1.5 rounded-full ${on ? "bg-amber" : "bg-white/25"}`}
-                />
-                <span className="md:inline">{c.label}</span>
-              </a>
+                <span className="h-1.5 w-1.5 rounded-full bg-aurora/60" />
+                {p.firstName}
+              </Link>
             </li>
-          );
-        })}
-      </ul>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 }

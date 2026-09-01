@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ancientOrigins } from "@/lib/story";
+import type { Profile } from "@/lib/types";
 import { Reveal } from "./Reveal";
 
-export function Ancient() {
+export function Ancient({ profile }: { profile: Profile }) {
+  const { ancientOrigins } = profile;
   const [active, setActive] = useState(ancientOrigins[0].id);
   const current = ancientOrigins.find((o) => o.id === active) ?? ancientOrigins[0];
 
@@ -15,15 +16,11 @@ export function Ancient() {
         <Reveal>
           <p className="kicker">Ancient European origins</p>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[1.05] md:text-6xl">
-            Half forager.
-            <span className="italic text-rose"> Then the fields.</span>
-            <span className="italic text-amber"> Then the horses.</span>
+            {profile.ancientHeadline.lead}
+            <span className="italic text-rose"> {profile.ancientHeadline.mid}</span>
+            <span className="italic text-amber"> {profile.ancientHeadline.end}</span>
           </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            Under the modern map is a much older recipe. FamilyTreeDNA splits
-            European autosomal DNA into three deep streams. Pernille’s mix is
-            unusually heavy on the first.
-          </p>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{profile.ancientLede}</p>
         </Reveal>
 
         <div className="mt-10 overflow-hidden rounded-full border border-white/10">
@@ -74,13 +71,7 @@ export function Ancient() {
         <Reveal className="mt-8" delay={0.05}>
           <article className="grid overflow-hidden rounded-3xl border border-white/10 md:grid-cols-2">
             <div className="relative min-h-64">
-              <Image
-                src={current.image}
-                alt=""
-                fill
-                className="object-cover"
-                sizes="(min-width: 768px) 50vw, 100vw"
-              />
+              <Image src={current.image} alt="" fill className="object-cover" sizes="(min-width: 768px) 50vw, 100vw" />
             </div>
             <div className="bg-black/30 p-7 md:p-10">
               <p className="kicker">{current.when}</p>

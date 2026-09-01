@@ -1,11 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { chromosomes, genome } from "@/lib/story";
+import type { Profile } from "@/lib/types";
 import { Reveal } from "./Reveal";
 
-export function Genome() {
-  const max = useMemo(() => Math.max(...chromosomes.map((c) => c.snps)), []);
+export function Genome({ profile }: { profile: Profile }) {
+  const { chromosomes, genome } = profile;
+  const max = useMemo(() => Math.max(...chromosomes.map((c) => c.snps)), [chromosomes]);
   const [active, setActive] = useState(chromosomes[0].id);
   const current = chromosomes.find((c) => c.id === active) ?? chromosomes[0];
   const share = ((current.snps / genome.snps) * 100).toFixed(1);
@@ -20,9 +21,8 @@ export function Genome() {
             <span className="italic text-aurora"> A skyline of chromosomes.</span>
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            The raw genotype file stays private. What you can explore is the
-            shape of the test: how many SNPs were read on each chromosome.
-            {` ${genome.painting}`}
+            The raw genotype file stays private. What you can explore is the shape of
+            the test: how many SNPs were read on each chromosome. {genome.painting}
           </p>
         </Reveal>
 

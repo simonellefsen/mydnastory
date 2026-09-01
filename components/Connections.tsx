@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { connections, type Connection } from "@/lib/story";
+import type { Connection, Profile } from "@/lib/types";
 import { Reveal } from "./Reveal";
 
 const filters = [
@@ -12,13 +12,14 @@ const filters = [
   { id: "deep", label: "Deep time" },
 ] as const;
 
-export function Connections() {
+export function Connections({ profile }: { profile: Profile }) {
+  const { connections } = profile;
   const [filter, setFilter] = useState<(typeof filters)[number]["id"]>("all");
-  const [open, setOpen] = useState<Connection | null>(connections[0]);
+  const [open, setOpen] = useState<Connection | null>(connections[0] ?? null);
 
   const list = useMemo(
     () => connections.filter((c) => (filter === "all" ? true : c.kind === filter)),
-    [filter],
+    [connections, filter],
   );
 
   return (
@@ -30,12 +31,7 @@ export function Connections() {
             Kin across centuries —
             <span className="italic text-amber"> and millennia.</span>
           </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            FamilyTreeDNA lists notable and archaeological people who share a
-            maternal ancestor with Pernille. These are not cousins in any family
-            sense. They are fun facts about a thread that is thousands of years
-            long. Living match names are not shown here.
-          </p>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{profile.connectionsLede}</p>
         </Reveal>
 
         <div className="mt-8 flex flex-wrap gap-2">

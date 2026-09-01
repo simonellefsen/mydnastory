@@ -16,20 +16,22 @@ const sans = Outfit({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mydnastory.vercel.app"),
-  title: "Pernille — a DNA story",
+  title: {
+    default: "myDNAStory",
+    template: "%s",
+  },
   description:
-    "An interactive telling of Pernille’s FamilyTreeDNA results: Scandinavian autosomal ancestry, ancient hunter-gatherer depth, and maternal haplogroup H10a1u.",
+    "An archive of DNA stories told by first name: autosomal origins, ancient Europe, maternal haplogroups, and chromosome skylines.",
   openGraph: {
-    title: "Pernille — a DNA story",
-    description:
-      "A cinematic walk through one genome: 71% Scandinavia, haplogroup H10a1u, and 720,349 markers.",
-    images: ["/images/hero-coast.jpg"],
+    title: "myDNAStory",
+    description: "First names. Whole genomes. A growing archive.",
+    images: ["/images/archive-threads.jpg"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pernille — a DNA story",
-    images: ["/images/hero-coast.jpg"],
+    title: "myDNAStory",
+    images: ["/images/archive-threads.jpg"],
   },
 };
 

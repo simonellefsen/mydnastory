@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { haploPath, haplogroup } from "@/lib/story";
+import type { Profile } from "@/lib/types";
 import { Reveal } from "./Reveal";
 
 const points = [
@@ -11,19 +11,20 @@ const points = [
   { x: 57, y: 48, label: "N" },
   { x: 60, y: 42, label: "R0" },
   { x: 58, y: 34, label: "H" },
-  { x: 53, y: 22, label: "H10a1u" },
 ];
 
-export function Motherline() {
+export function Motherline({ profile }: { profile: Profile }) {
+  const { haploPath, haplogroup } = profile;
   const [index, setIndex] = useState(0);
   const step = haploPath[index];
   const max = haploPath.length - 1;
+  const mapPoints = useMemo(
+    () => [...points, { x: 53, y: 22, label: haplogroup.id }],
+    [haplogroup.id],
+  );
   const pathD = useMemo(
-    () =>
-      points
-        .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`)
-        .join(" "),
-    [],
+    () => mapPoints.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" "),
+    [mapPoints],
   );
 
   return (
@@ -33,15 +34,14 @@ export function Motherline() {
           <p className="kicker">Mitochondrial haplogroup</p>
           <h2 className="mt-3 max-w-4xl font-display text-4xl leading-[1.05] md:text-6xl">
             {haplogroup.id}
-            <span className="block italic text-rose">A Danish motherline from the Middle Ages.</span>
+            <span className="block italic text-rose">{haplogroup.headline}</span>
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            Mitochondria pass from mother to child, almost unchanged. Pernille’s
-            full sequence is {haplogroup.id}, which {haplogroup.formed}. The most
-            recent woman of this exact branch likely lived around{" "}
-            {haplogroup.tmrca.meanLabel} (95% interval {haplogroup.tmrca.ci95}).
-            Only {haplogroup.testers.total} testers currently sit on the twig —
-            {haplogroup.testers.denmark} of them naming Denmark.
+            Mitochondria pass from mother to child, almost unchanged. {profile.firstName}’s
+            full sequence is {haplogroup.id}, which {haplogroup.formed}. The most recent
+            woman of this exact branch likely lived around {haplogroup.tmrca.meanLabel}
+            {haplogroup.tmrca.ci95.startsWith("see") ? "" : ` (95% interval ${haplogroup.tmrca.ci95})`}
+            . {haplogroup.testers.total} testers currently sit on the twig — {haplogroup.testers.known}.
           </p>
         </Reveal>
 
@@ -84,16 +84,16 @@ export function Motherline() {
               </div>
               <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-white/10 pt-5 text-sm md:grid-cols-4">
                 <div>
-                  <dt className="text-faint">TMRCA mean</dt>
+                  <dt className="text-faint">TMRCA</dt>
                   <dd>{haplogroup.tmrca.meanLabel}</dd>
                 </div>
                 <div>
-                  <dt className="text-faint">95% interval</dt>
-                  <dd>{haplogroup.tmrca.ci95}</dd>
+                  <dt className="text-faint">Testers</dt>
+                  <dd>{haplogroup.testers.total}</dd>
                 </div>
                 <div>
                   <dt className="text-faint">Known origins</dt>
-                  <dd>Denmark</dd>
+                  <dd>{haplogroup.testers.known}</dd>
                 </div>
                 <div>
                   <dt className="text-faint">Path</dt>
@@ -115,9 +115,9 @@ export function Motherline() {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/20" />
               <svg viewBox="0 0 100 90" className="relative z-10 h-[28rem] w-full">
                 <path d={pathD} fill="none" stroke="#d4a054" strokeWidth="0.6" opacity="0.85" />
-                {points.map((p, i) => (
+                {mapPoints.map((p, i) => (
                   <g key={p.label}>
-                    <circle cx={p.x} cy={p.y} r={i === 0 || i === points.length - 1 ? 1.6 : 1.1} fill="#f3eee4" />
+                    <circle cx={p.x} cy={p.y} r={i === 0 || i === mapPoints.length - 1 ? 1.6 : 1.1} fill="#f3eee4" />
                     <text x={p.x + 2.4} y={p.y + 0.8} fill="#f3eee4" fontSize="3.1">
                       {p.label}
                     </text>
@@ -125,31 +125,14 @@ export function Motherline() {
                 ))}
               </svg>
               <figcaption className="absolute bottom-4 left-5 right-5 text-sm text-muted">
-                A schematic walk: East Africa → Near East → haplogroup H → Denmark.
-                Not a GPS track — a mitochondrial route of daughters.
+                {profile.motherlineMapCaption}
               </figcaption>
             </figure>
           </Reveal>
         </div>
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {[
-            {
-              img: "/images/emblem-maternal.jpg",
-              title: "A rare twig",
-              copy: haplogroup.rarityNote,
-            },
-            {
-              img: "/images/caucasus.jpg",
-              title: "H before the ice",
-              copy: "Haplogroup H formed outside Europe, in the northern Near East and southern Caucasus, then spread west. Today it is about 40% of European maternal lines.",
-            },
-            {
-              img: "/images/viking-langeland.jpg",
-              title: "Home water",
-              copy: "The living geography of H10a1u is Danish. Ancient H10a1 kin turn up from Langeland to the Carpathian Basin — a Bronze Age family that later found the islands.",
-            },
-          ].map((card) => (
+          {profile.motherlineSpotlights.map((card) => (
             <article key={card.title} className="overflow-hidden rounded-2xl border border-white/10">
               <div className="relative h-40">
                 <Image src={card.img} alt="" fill className="object-cover" sizes="33vw" />

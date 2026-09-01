@@ -1,6 +1,7 @@
-import { haplogroup } from "@/lib/story";
+import Link from "next/link";
+import type { Profile } from "@/lib/types";
 
-export function Notes() {
+export function Notes({ profile }: { profile: Profile }) {
   return (
     <section id="notes" className="chapter pb-24">
       <div className="mx-auto max-w-3xl">
@@ -11,29 +12,34 @@ export function Notes() {
             Ethnicity percentages and ancient components come from FamilyTreeDNA
             myOrigins version 3. They compare stretches of autosomal DNA with
             reference populations. They will shift as those references grow.
-            Trace amounts — like the British Isles slice — are the most fragile.
+            Smaller slices are the most fragile.
           </p>
           <p>
-            Haplogroup {haplogroup.id} is from mtFull Sequence. Notable and
+            Haplogroup {profile.haplogroup.id} is from mtFull Sequence. Notable and
             ancient “connections” mean a shared maternal ancestor at the stated
-            node, often many thousands of years ago. They are published by
-            FamilyTreeDNA as curiosities. This site does not claim close kinship
-            with kings, mummies, or archaeological strangers.
+            node, often many thousands of years ago. This site does not claim close
+            kinship with kings, mummies, or archaeological strangers.
           </p>
           <p>
-            Pernille is named only by her first name. Living genetic matches are
-            not listed. The autosomal CSV and FamilyTreeDNA screenshots remain
-            off this repository.
+            {profile.firstName} is named only by first name. Living genetic matches
+            are not listed. The autosomal CSV and FamilyTreeDNA screenshots remain
+            off this repository, in a local <code className="text-ink">ftdna/</code>{" "}
+            folder used to build each profile.
           </p>
           <p>
             Landscapes and still lifes were generated for this telling. The DNA
-            helix overlay was modelled in Blender. Emblem stills were packed with
-            TexturePacker. None of the pictures are portraits of Pernille.
+            helix overlay was modelled in Blender. None of the pictures are
+            portraits of {profile.firstName}.
           </p>
         </div>
         <div className="hairline mt-12" />
         <p className="mt-6 text-sm text-faint">
-          myDNAStory · Pernille · data from FamilyTreeDNA, retold for the screen.
+          <Link href="/" className="text-amber hover:text-ink">
+            myDNAStory
+          </Link>
+          {" · "}
+          {profile.firstName}
+          {" · data from FamilyTreeDNA, retold for the screen."}
         </p>
       </div>
     </section>

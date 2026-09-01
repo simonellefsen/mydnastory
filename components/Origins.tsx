@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { origins } from "@/lib/story";
+import type { Profile } from "@/lib/types";
 import { Reveal } from "./Reveal";
 
 const TAU = Math.PI * 2;
@@ -18,7 +18,8 @@ function arc(cx: number, cy: number, r: number, start: number, end: number) {
   return `M ${sx} ${sy} A ${r} ${r} 0 ${large} 1 ${ex} ${ey}`;
 }
 
-export function Origins() {
+export function Origins({ profile }: { profile: Profile }) {
+  const { origins } = profile;
   const [active, setActive] = useState(origins[0].id);
   const current = origins.find((o) => o.id === active) ?? origins[0];
 
@@ -32,7 +33,7 @@ export function Origins() {
       cursor = end;
       return { ...o, d: arc(50, 50, r, start, end), start, end };
     });
-  }, []);
+  }, [origins]);
 
   return (
     <section id="origins" className="chapter">
@@ -40,13 +41,10 @@ export function Origins() {
         <Reveal>
           <p className="kicker">Autosomal ancestry</p>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[1.05] md:text-6xl">
-            One hundred percent Europe.
-            <span className="italic text-amber"> Almost all of it northern.</span>
+            {profile.originsHeadline.lead}
+            <span className="italic text-amber"> {profile.originsHeadline.accent}</span>
           </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            FamilyTreeDNA myOrigins v3 paints Pernille as entirely European. Click a
-            slice. The numbers are estimates, not a family tree — but they are loud.
-          </p>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{profile.originsLede}</p>
         </Reveal>
 
         <div className="mt-12 grid items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
@@ -70,24 +68,10 @@ export function Origins() {
                   </path>
                 ))}
                 <circle cx="50" cy="50" r="28" fill="#08090d" />
-                <text
-                  x="50"
-                  y="48"
-                  textAnchor="middle"
-                  fill="#f3eee4"
-                  fontSize="9"
-                  fontFamily="Fraunces, serif"
-                >
+                <text x="50" y="48" textAnchor="middle" fill="#f3eee4" fontSize="9" fontFamily="Fraunces, serif">
                   {current.display ?? `${current.percent}%`}
                 </text>
-                <text
-                  x="50"
-                  y="58"
-                  textAnchor="middle"
-                  fill="#b7b0a4"
-                  fontSize="3.4"
-                  letterSpacing="0.12em"
-                >
+                <text x="50" y="58" textAnchor="middle" fill="#b7b0a4" fontSize="3.4" letterSpacing="0.12em">
                   {current.label.toUpperCase()}
                 </text>
               </svg>
@@ -103,10 +87,7 @@ export function Origins() {
                           : "border-white/10 text-muted hover:text-ink"
                       }`}
                     >
-                      <span
-                        className="mr-2 inline-block h-2 w-2 rounded-full"
-                        style={{ background: o.color }}
-                      />
+                      <span className="mr-2 inline-block h-2 w-2 rounded-full" style={{ background: o.color }} />
                       {o.label} {o.display ?? `${o.percent}%`}
                     </button>
                   </li>
@@ -118,13 +99,7 @@ export function Origins() {
           <Reveal delay={0.1}>
             <article className="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
               <div className="relative h-56 md:h-72">
-                <Image
-                  src={current.image}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                />
+                <Image src={current.image} alt="" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <p className="absolute bottom-4 left-5 kicker">{current.kicker}</p>
               </div>
