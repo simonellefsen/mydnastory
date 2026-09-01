@@ -1,4 +1,6 @@
 import Image from "next/image";
+import type { Locale } from "@/lib/i18n/config";
+import { getMessages } from "@/lib/i18n/messages";
 import type { Profile } from "@/lib/types";
 
 const statColor = {
@@ -8,7 +10,8 @@ const statColor = {
   rose: "text-rose",
 } as const;
 
-export function Hero({ profile }: { profile: Profile }) {
+export function Hero({ profile, locale }: { profile: Profile; locale: Locale }) {
+  const t = getMessages(locale);
   return (
     <section id="open" className="relative isolate min-h-[100svh] overflow-hidden">
       <Image
@@ -35,7 +38,7 @@ export function Hero({ profile }: { profile: Profile }) {
         </p>
         <h1 className="mt-4 max-w-3xl text-[2.7rem] leading-[0.95] text-ink sm:text-7xl md:text-8xl">
           {profile.firstName}
-          <span className="block italic text-amber/90">’s DNA story</span>
+          <span className="block italic text-amber/90">{t.hero.storySuffix}</span>
         </h1>
         <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg md:text-xl">
           {profile.lede}
@@ -69,7 +72,7 @@ export function Hero({ profile }: { profile: Profile }) {
           href="#origins"
           className="mt-12 inline-flex w-fit items-center gap-3 text-sm tracking-[0.22em] text-ink/80 uppercase"
         >
-          Begin
+          {t.hero.begin}
           <span className="block h-8 w-px bg-amber/80" />
         </a>
       </div>

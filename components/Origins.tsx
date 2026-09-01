@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
+import { useI18n } from "@/lib/i18n/context";
 import type { Profile } from "@/lib/types";
 import { Reveal } from "./Reveal";
 
@@ -19,6 +20,7 @@ function arc(cx: number, cy: number, r: number, start: number, end: number) {
 }
 
 export function Origins({ profile }: { profile: Profile }) {
+  const { t } = useI18n();
   const { origins } = profile;
   const [active, setActive] = useState(origins[0].id);
   const current = origins.find((o) => o.id === active) ?? origins[0];
@@ -39,7 +41,7 @@ export function Origins({ profile }: { profile: Profile }) {
     <section id="origins" className="chapter">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="kicker">Autosomal ancestry</p>
+          <p className="kicker">{t.origins.kicker}</p>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[1.05] md:text-6xl">
             {profile.originsHeadline.lead}
             <span className="italic text-amber"> {profile.originsHeadline.accent}</span>
@@ -50,7 +52,7 @@ export function Origins({ profile }: { profile: Profile }) {
         <div className="mt-12 grid items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <Reveal>
             <div className="relative mx-auto w-full max-w-md">
-              <svg viewBox="0 0 100 100" className="w-full drop-shadow-2xl" role="img" aria-label="Ancestry ring">
+              <svg viewBox="0 0 100 100" className="w-full drop-shadow-2xl" role="img" aria-label={t.origins.ringAria}>
                 <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(243,238,228,0.08)" strokeWidth="11" />
                 {slices.map((s) => (
                   <path

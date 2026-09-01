@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useI18n } from "@/lib/i18n/context";
 import { originCompare } from "@/lib/kinship";
 
 export function OriginCompare() {
+  const { t } = useI18n();
   const [focus, setFocus] = useState(originCompare[0].id);
   const current = originCompare.find((r) => r.id === focus) ?? originCompare[0];
 
@@ -22,7 +24,7 @@ export function OriginCompare() {
               }`}
             >
               <div className="mb-2 flex items-center justify-between gap-3 text-sm">
-                <span>{row.label}</span>
+                <span>{t.originLabels[row.id] ?? row.label}</span>
                 <span className="text-muted">
                   Pernille {row.pernilleDisplay ?? `${row.pernille}%`} · Helle {row.helle}%
                 </span>
@@ -46,14 +48,8 @@ export function OriginCompare() {
         })}
       </div>
       <p className="text-sm leading-relaxed text-muted">
-        Both are 100% European. Scandinavia and Central Europe are the shared
-        rooms of the house. Helle carries a clear Irish chapter that Pernille does
-        not; Pernille is more strongly Scandinavian. Click a row.
-        {current.id === "ireland"
-          ? " Ireland is Helle’s distinctive western voice."
-          : current.id === "scandinavia"
-            ? " Scandinavia is the louder shared current, especially in Pernille."
-            : ""}
+        {t.shared.originBlurb}
+        {current.id === "ireland" ? t.shared.irelandBlurb : current.id === "scandinavia" ? t.shared.scandBlurb : ""}
       </p>
     </div>
   );

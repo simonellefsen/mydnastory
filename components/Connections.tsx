@@ -2,17 +2,18 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
+import { useI18n } from "@/lib/i18n/context";
 import type { Connection, Profile } from "@/lib/types";
 import { Reveal } from "./Reveal";
 
-const filters = [
-  { id: "all", label: "All" },
-  { id: "notable", label: "Historical" },
-  { id: "ancient", label: "Ancient DNA" },
-  { id: "deep", label: "Deep time" },
-] as const;
-
 export function Connections({ profile }: { profile: Profile }) {
+  const { t } = useI18n();
+  const filters = [
+    { id: "all" as const, label: t.connections.all },
+    { id: "notable" as const, label: t.connections.historical },
+    { id: "ancient" as const, label: t.connections.ancientDna },
+    { id: "deep" as const, label: t.connections.deepTime },
+  ];
   const { connections } = profile;
   const [filter, setFilter] = useState<(typeof filters)[number]["id"]>("all");
   const [open, setOpen] = useState<Connection | null>(connections[0] ?? null);
@@ -26,10 +27,10 @@ export function Connections({ profile }: { profile: Profile }) {
     <section id="kin" className="chapter">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="kicker">Shared maternal ancestors</p>
+          <p className="kicker">{t.connections.kicker}</p>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[1.05] md:text-6xl">
-            Kin across centuries —
-            <span className="italic text-amber"> and millennia.</span>
+            {t.connections.title}
+            <span className="italic text-amber">{t.connections.titleAccent}</span>
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{profile.connectionsLede}</p>
         </Reveal>
@@ -86,14 +87,14 @@ export function Connections({ profile }: { profile: Profile }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <div className="absolute bottom-4 left-5">
                   <p className="kicker">
-                    {open.rarity === "rare" ? "Rare connection" : "Shared by everyone"}
+                    {open.rarity === "rare" ? t.connections.rare : t.connections.common}
                   </p>
                   <h3 className="font-display text-3xl">{open.name}</h3>
                 </div>
               </div>
               <div className="space-y-3 p-6 md:p-8">
                 <p className="text-sm text-muted">
-                  {open.dates} · shared ancestor {open.shared} ({open.sharedYear})
+                  {open.dates} · {t.connections.sharedAncestor(open.shared, open.sharedYear)}
                 </p>
                 <p className="leading-relaxed text-ink/90">{open.blurb}</p>
               </div>

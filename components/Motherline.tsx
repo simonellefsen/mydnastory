@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
+import { useI18n } from "@/lib/i18n/context";
 import type { Profile } from "@/lib/types";
 import { Reveal } from "./Reveal";
 
@@ -14,6 +15,7 @@ const points = [
 ];
 
 export function Motherline({ profile }: { profile: Profile }) {
+  const { t } = useI18n();
   const { haploPath, haplogroup } = profile;
   const [index, setIndex] = useState(0);
   const step = haploPath[index];
@@ -31,17 +33,23 @@ export function Motherline({ profile }: { profile: Profile }) {
     <section id="motherline" className="chapter">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="kicker">Mitochondrial haplogroup</p>
+          <p className="kicker">{t.motherline.kicker}</p>
           <h2 className="mt-3 max-w-4xl font-display text-4xl leading-[1.05] md:text-6xl">
             {haplogroup.id}
             <span className="block italic text-rose">{haplogroup.headline}</span>
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            Mitochondria pass from mother to child, almost unchanged. {profile.firstName}’s
-            full sequence is {haplogroup.id}, which {haplogroup.formed}. The most recent
-            woman of this exact branch likely lived around {haplogroup.tmrca.meanLabel}
-            {haplogroup.tmrca.ci95.startsWith("see") ? "" : ` (95% interval ${haplogroup.tmrca.ci95})`}
-            . {haplogroup.testers.total} testers currently sit on the twig — {haplogroup.testers.known}.
+            {t.motherline.intro
+              .replace("{name}", profile.firstName)
+              .replace("{id}", haplogroup.id)
+              .replace("{formed}", haplogroup.formed)
+              .replace("{tmrca}", haplogroup.tmrca.meanLabel)
+              .replace(
+                "{interval}",
+                haplogroup.tmrca.ci95.startsWith("see") ? "" : t.motherline.interval(haplogroup.tmrca.ci95),
+              )
+              .replace("{testers}", String(haplogroup.testers.total))
+              .replace("{known}", haplogroup.testers.known)}
           </p>
         </Reveal>
 
@@ -49,7 +57,7 @@ export function Motherline({ profile }: { profile: Profile }) {
           <Reveal>
             <div className="rounded-3xl border border-white/10 bg-black/30 p-5 md:p-7">
               <div className="flex items-center justify-between gap-4">
-                <p className="text-sm text-muted">Scrub the motherline</p>
+                <p className="text-sm text-muted">{t.motherline.scrub}</p>
                 <p className="font-display text-xl text-amber">{step.haplogroup}</p>
               </div>
               <input
@@ -59,7 +67,7 @@ export function Motherline({ profile }: { profile: Profile }) {
                 value={index}
                 onChange={(e) => setIndex(Number(e.target.value))}
                 className="mt-4 w-full accent-amber"
-                aria-label="Haplogroup timeline"
+                aria-label={t.motherline.timeline}
               />
               <ol className="mt-4 flex flex-wrap gap-2">
                 {haploPath.map((h, i) => (
@@ -84,19 +92,19 @@ export function Motherline({ profile }: { profile: Profile }) {
               </div>
               <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-white/10 pt-5 text-sm md:grid-cols-4">
                 <div>
-                  <dt className="text-faint">TMRCA</dt>
+                  <dt className="text-faint">{t.motherline.tmrca}</dt>
                   <dd>{haplogroup.tmrca.meanLabel}</dd>
                 </div>
                 <div>
-                  <dt className="text-faint">Testers</dt>
+                  <dt className="text-faint">{t.motherline.testers}</dt>
                   <dd>{haplogroup.testers.total}</dd>
                 </div>
                 <div>
-                  <dt className="text-faint">Known origins</dt>
+                  <dt className="text-faint">{t.motherline.knownOrigins}</dt>
                   <dd>{haplogroup.testers.known}</dd>
                 </div>
                 <div>
-                  <dt className="text-faint">Path</dt>
+                  <dt className="text-faint">{t.motherline.path}</dt>
                   <dd className="truncate">{haplogroup.pathLabel}</dd>
                 </div>
               </dl>
@@ -107,7 +115,7 @@ export function Motherline({ profile }: { profile: Profile }) {
             <figure className="relative overflow-hidden rounded-3xl border border-white/10">
               <Image
                 src="/images/rift-eve.jpg"
-                alt="East African rift at dawn, standing in for mitochondrial Eve’s landscape"
+                alt={t.motherline.mapAlt}
                 fill
                 className="object-cover opacity-80"
                 sizes="(min-width: 1024px) 40vw, 100vw"

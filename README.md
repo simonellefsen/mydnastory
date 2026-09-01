@@ -11,9 +11,10 @@ npm install
 npm run dev
 ```
 
-- `/` — catalog of stories
-- `/pernille`, `/helle`, … — one genome each
-- `/shared` — Helle (paternal grandmother) and Pernille compared
+- `/` — catalog of stories (redirects to `/en` or `/da` from the browser language, then a `NEXT_LOCALE` cookie)
+- `/en`, `/da` — English (default) and Danish
+- `/en/pernille`, `/da/helle`, … — one genome each
+- `/en/shared`, `/da/shared` — Helle (paternal grandmother) and Pernille compared
 
 ## Add a profile
 

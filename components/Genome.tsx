@@ -1,10 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { numberLocale } from "@/lib/i18n/config";
+import { useI18n } from "@/lib/i18n/context";
 import type { Profile } from "@/lib/types";
 import { Reveal } from "./Reveal";
 
 export function Genome({ profile }: { profile: Profile }) {
+  const { t, locale } = useI18n();
   const { chromosomes, genome } = profile;
   const max = useMemo(() => Math.max(...chromosomes.map((c) => c.snps)), [chromosomes]);
   const [active, setActive] = useState(chromosomes[0].id);
@@ -15,14 +18,13 @@ export function Genome({ profile }: { profile: Profile }) {
     <section id="genome" className="chapter">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="kicker">Autosomal microarray</p>
+          <p className="kicker">{t.genome.kicker}</p>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[1.05] md:text-6xl">
-            {genome.snps.toLocaleString("en-GB")} markers.
-            <span className="italic text-aurora"> A skyline of chromosomes.</span>
+            {genome.snps.toLocaleString(numberLocale(locale))} {t.genome.markers}
+            <span className="italic text-aurora">{t.genome.skyline}</span>
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            The raw genotype file stays private. What you can explore is the shape of
-            the test: how many SNPs were read on each chromosome. {genome.painting}
+            {t.genome.intro} {genome.painting}
           </p>
         </Reveal>
 
@@ -39,7 +41,7 @@ export function Genome({ profile }: { profile: Profile }) {
                   onClick={() => setActive(c.id)}
                   onMouseEnter={() => setActive(c.id)}
                   className="group flex flex-1 flex-col items-center gap-2"
-                  aria-label={`Chromosome ${c.id}, ${c.snps.toLocaleString("en-GB")} SNPs`}
+                  aria-label={`${t.genome.chromosome(c.id)}, ${c.snps.toLocaleString(numberLocale(locale))} SNPs`}
                 >
                   <span
                     className={`w-full rounded-t-sm transition ${
@@ -54,13 +56,15 @@ export function Genome({ profile }: { profile: Profile }) {
           </div>
           <div className="mt-8 flex flex-wrap items-end justify-between gap-4 border-t border-white/10 pt-5">
             <div>
-              <p className="kicker">Chromosome {current.id}</p>
+              <p className="kicker">{t.genome.chromosome(current.id)}</p>
               <p className="mt-2 font-display text-4xl">
-                {current.snps.toLocaleString("en-GB")}
-                <span className="ml-2 text-lg text-muted">SNPs · {share}% of the file</span>
+                {current.snps.toLocaleString(numberLocale(locale))}
+                <span className="ml-2 text-lg text-muted">{t.genome.snpShare(share)}</span>
               </p>
             </div>
-            <p className="max-w-md text-sm leading-relaxed text-muted">{genome.build}. Hover or tap a bar.</p>
+            <p className="max-w-md text-sm leading-relaxed text-muted">
+              {genome.build}. {t.genome.hover}
+            </p>
           </div>
         </div>
       </div>

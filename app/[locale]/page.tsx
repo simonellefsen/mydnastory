@@ -1,12 +1,36 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArchiveChrome } from "@/components/ArchiveChrome";
+import { isLocale, languageAlternates, withLocale, type Locale } from "@/lib/i18n/config";
+import { getMessages } from "@/lib/i18n/messages";
 import { getCatalog } from "@/lib/profiles";
+import type { Metadata } from "next";
 
-export default function HomePage() {
-  const entries = getCatalog();
+type Params = { locale: string };
+
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const t = getMessages(locale);
+  return {
+    title: t.meta.siteTitle,
+    description: t.meta.siteDescription,
+    alternates: {
+      canonical: withLocale(locale, "/"),
+      languages: languageAlternates("/"),
+    },
+  };
+}
+
+export default async function HomePage({ params }: { params: Promise<Params> }) {
+  const { locale: raw } = await params;
+  const locale: Locale = isLocale(raw) ? raw : "en";
+  const t = getMessages(locale);
+  const entries = getCatalog(locale);
 
   return (
     <main>
+      <ArchiveChrome />
       <section className="relative isolate min-h-[70svh] overflow-hidden">
         <Image
           src="/images/archive-threads.jpg"
@@ -19,28 +43,24 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-black/40" />
         <div className="relative z-10 mx-auto flex min-h-[70svh] w-full min-w-0 max-w-6xl flex-col justify-end px-5 pb-16 pt-20 md:justify-center md:px-8">
-          <p className="kicker">A growing archive</p>
+          <p className="kicker">{t.home.kicker}</p>
           <h1 className="mt-4 max-w-3xl font-display text-[2.5rem] leading-[0.95] sm:text-6xl md:text-7xl">
             myDNAStory
             <span className="block italic text-amber/90">
-              First names. <br className="sm:hidden" />
-              Whole genomes.
+              {t.home.titleAccent1} <br className="sm:hidden" />
+              {t.home.titleAccent2}
             </span>
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-            Each kit becomes its own cinematic walk — autosomal origins, ancient
-            Europe, a maternal haplogroup, and a chromosome skyline. People are
-            listed by first name only. Raw files never leave the private folder.
-          </p>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">{t.home.lede}</p>
         </div>
       </section>
 
       <section className="chapter">
         <div className="mx-auto max-w-6xl">
-          <p className="kicker">Stories</p>
-          <h2 className="mt-3 font-display text-4xl md:text-5xl">Open a genome.</h2>
+          <p className="kicker">{t.home.stories}</p>
+          <h2 className="mt-3 font-display text-4xl md:text-5xl">{t.home.openGenome}</h2>
           <Link
-            href="/shared"
+            href={withLocale(locale, "/shared")}
             className="group relative mt-10 flex min-h-56 overflow-hidden rounded-3xl border border-amber/25"
           >
             <Image
@@ -52,12 +72,9 @@ export default function HomePage() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/55 to-black/20" />
             <div className="relative z-10 mt-auto p-7 md:p-10">
-              <p className="kicker">Paternal grandmother</p>
-              <h3 className="mt-2 font-display text-3xl md:text-5xl">Helle &amp; Pernille</h3>
-              <p className="mt-3 max-w-xl text-muted">
-                What they share in origins, deep time, haplogroup H, and 678,311
-                compared markers — including the X that only a father’s mother can give.
-              </p>
+              <p className="kicker">{t.home.sharedKicker}</p>
+              <h3 className="mt-2 font-display text-3xl md:text-5xl">{t.home.sharedTitle}</h3>
+              <p className="mt-3 max-w-xl text-muted">{t.home.sharedLede}</p>
             </div>
           </Link>
           <ul className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -69,11 +86,11 @@ export default function HomePage() {
                     className="flex min-h-72 flex-col justify-between rounded-3xl border border-dashed border-white/15 bg-white/3 p-7"
                   >
                     <div>
-                      <p className="kicker">Coming</p>
-                      <h3 className="mt-3 font-display text-3xl text-muted">Next kit</h3>
+                      <p className="kicker">{t.home.coming}</p>
+                      <h3 className="mt-3 font-display text-3xl text-muted">{t.home.nextKit}</h3>
                       <p className="mt-3 leading-relaxed text-muted">{entry.teaser}</p>
                     </div>
-                    <p className="text-sm tracking-[0.2em] text-faint uppercase">Waiting for ftdna/</p>
+                    <p className="text-sm tracking-[0.2em] text-faint uppercase">{t.home.waiting}</p>
                   </li>
                 );
               }
@@ -82,7 +99,7 @@ export default function HomePage() {
               return (
                 <li key={entry.slug}>
                   <Link
-                    href={`/${entry.slug}`}
+                    href={withLocale(locale, `/${entry.slug}`)}
                     className="group relative flex min-h-72 overflow-hidden rounded-3xl border border-white/10"
                   >
                     <Image

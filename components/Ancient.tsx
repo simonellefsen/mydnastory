@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useI18n } from "@/lib/i18n/context";
 import type { Profile } from "@/lib/types";
 import { Reveal } from "./Reveal";
 
 export function Ancient({ profile }: { profile: Profile }) {
+  const { t } = useI18n();
   const { ancientOrigins } = profile;
   const [active, setActive] = useState(ancientOrigins[0].id);
   const current = ancientOrigins.find((o) => o.id === active) ?? ancientOrigins[0];
@@ -14,7 +16,7 @@ export function Ancient({ profile }: { profile: Profile }) {
     <section id="ancient" className="chapter bg-[linear-gradient(180deg,transparent,rgba(16,18,24,0.9),transparent)]">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="kicker">Ancient European origins</p>
+          <p className="kicker">{t.ancient.kicker}</p>
           <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[1.05] md:text-6xl">
             {profile.ancientHeadline.lead}
             <span className="italic text-rose"> {profile.ancientHeadline.mid}</span>
