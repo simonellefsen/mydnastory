@@ -50,9 +50,9 @@ export const origins: Origin[] = [
     image: "/images/british-isles.jpg",
     kicker: "A trace on the tide",
     summary:
-      "A very small British Isles signal. FamilyTreeDNA flags traces like this as easy to misattribute — a whisper, not a chapter.",
+      "A very small British Isles signal. A fair reading is leftover scraps of Helle’s Irish chapter under another name — or North Sea noise.",
     detail:
-      "Less than two percent of the autosomal painting falls with England, Wales, and Scotland. Small segments are the most fragile part of any ethnicity estimate. Treat this as a possible North Sea echo, not proof of a recent island ancestor.",
+      "Less than two percent of the autosomal painting falls with England, Wales, and Scotland. FamilyTreeDNA flags traces like this as easy to misattribute. A fair reading is leftover scraps of Helle’s 19% “Ireland” under the neighbouring British label — those two clusters are the ones the method mixes up. It could also be ordinary North Sea noise. Either way it is a whisper, not a chapter.",
   },
 ];
 

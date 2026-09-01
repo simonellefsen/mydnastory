@@ -153,6 +153,7 @@ export type Messages = {
     restCopy: string;
     originBlurb: string;
     irelandBlurb: string;
+    islesBlurb: string;
     scandBlurb: string;
     compareNames: string;
   };
@@ -393,8 +394,11 @@ export const messages: Record<Locale, Messages> = {
       restCopy:
         "Opposite homozygotes mark places they cannot be sharing a DNA segment. The rest is compatible with sharing, including ordinary European background.",
       originBlurb:
-        "Both are 100% European. Scandinavia and Central Europe are the shared rooms of the house. Helle carries a clear Irish chapter that Pernille does not; Pernille is more strongly Scandinavian. Click a row.",
-      irelandBlurb: " Ireland is Helle’s distinctive western voice.",
+        "Both are 100% European. Scandinavia and Central Europe are the shared rooms of the house. Helle’s western slice is labelled Ireland; Pernille’s leftover west is a trace of England, Wales & Scotland. Click a row.",
+      irelandBlurb:
+        " Helle’s 19% Irish and Pernille’s <2% England/Wales/Scotland may be the same western signal under two names — most of it never passed.",
+      islesBlurb:
+        " A trace on Pernille’s side. If it is leftover from Helle’s Irish chapter, FamilyTreeDNA painted the scraps as Britain instead of Ireland. Traces are also the easiest slices to invent.",
       scandBlurb: " Scandinavia is the louder shared current, especially in Pernille.",
       compareNames: "Pernille / Helle",
     },
@@ -633,8 +637,11 @@ export const messages: Record<Locale, Messages> = {
       restCopy:
         "Modsatte homozygoter markerer steder, de ikke kan dele et DNA-segment. Resten er foreneligt med deling, inklusive almindelig europæisk baggrund.",
       originBlurb:
-        "Begge er 100 % europæiske. Skandinavien og Centraleuropa er husets fælles rum. Helle bærer et tydeligt irsk kapitel, som Pernille ikke har; Pernille er stærkere skandinavisk. Klik på en række.",
-      irelandBlurb: " Irland er Helles særlige vestlige stemme.",
+        "Begge er 100 % europæiske. Skandinavien og Centraleuropa er husets fælles rum. Helles vestlige skive er mærket Irland; Pernilles resterende vest er et spor af England, Wales og Skotland. Klik på en række.",
+      irelandBlurb:
+        " Helles 19 % irsk og Pernilles <2 % England/Wales/Skotland kan være det samme vestlige signal under to navne — det meste gik aldrig videre.",
+      islesBlurb:
+        " Et spor hos Pernille. Hvis det er rester af Helles irske kapitel, har FamilyTreeDNA malet stumperne som Britannien i stedet for Irland. Spor er også de skiver, der lettest opfindes.",
       scandBlurb: " Skandinavien er den højeste fælles strøm, især hos Pernille.",
       compareNames: "Pernille / Helle",
     },

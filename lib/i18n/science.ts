@@ -276,8 +276,8 @@ export const science: Record<Locale, ScienceCopy> = {
           copy: "FamilyTreeDNA’s own myOrigins 3.0 paper says splitting Ireland from Great Britain reduces accuracy for both. Two thousand years of Gaels, Picts, Anglo-Saxons, Normans and later traffic blur the clusters. Their public example: a daughter can score more “Great Britain” than both parents combined, and less “Ireland” than either, because the two populations are close. So 19% “Ireland” is better read as a western British-Isles-like signal. It may be Irish. It may be western Scottish, Ulster, or a mix. The chip is not a parish register.",
         },
         {
-          title: "Zero in Pernille cuts both ways",
-          copy: "A random quarter of 19% would still be about 5% in the granddaughter. The file shows none — and almost no England/Wales/Scotland either. If the Irish DNA were many old, small stretches, some would likely have survived. If it were a few long blocks from a recent ancestor, a father can fail to pass any of them, the same way chromosomes 1, 14 and 17 carry no long Helle haplotype. That pattern is what you expect from a grandparent-scale gift, not from Viking Dublin sprinkled through the whole genome.",
+          title: "The leftover may be Pernille’s <2% Britain",
+          copy: "A random quarter of 19% would still be about 5% in the granddaughter. She has 0% Ireland and under 2% England, Wales & Scotland. Those two FamilyTreeDNA clusters are the ones the method paper says get swapped. So the tiny British trace is a fair candidate for the scraps of Helle’s western chapter that did pass — painted with the neighbouring name. It is not enough: 5% expected, <2% seen. Most of the 19% still never arrived. And traces are the easiest slices to invent, so the <2% might also be ordinary North Sea noise. Plausible remnant, not a proof.",
         },
         {
           title: "Not Viking Dublin by itself",
@@ -307,7 +307,7 @@ export const science: Record<Locale, ScienceCopy> = {
       colOther: "The other ¾",
       irelandTitle: "Ireland did not pass",
       irelandCopy:
-        "Helle is 19% Irish on myOrigins. A random quarter of that would still be ~5% in Pernille. The file shows none. Either the father did not inherit Helle’s Irish stretches, or he did not pass them on. The Irish chapter is Helle’s, not Pernille’s.",
+        "Helle is 19% Irish. A random quarter of that would still be ~5% in Pernille. She has 0% Ireland and a <2% England/Wales/Scotland trace. Those two labels are the ones myOrigins itself says it mixes up. The trace may be leftover western DNA under the neighbouring name. It is still far too small: most of the 19% did not pass. The loud Irish chapter is Helle’s.",
       chromTitle: "Which chromosomes the father handed on",
       chromHelle: "Mostly Helle’s copy",
       chromSilent: "No long Helle block — the other grandfather",
@@ -515,8 +515,8 @@ export const science: Record<Locale, ScienceCopy> = {
           copy: "FamilyTreeDNAs eget myOrigins 3.0-papir siger, at at skille Irland fra Storbritannien sænker nøjagtigheden for begge. To tusinde års gælere, piktere, angelsaksere, normannere og senere trafik slører klyngerne. Deres eget eksempel: en datter kan score mere “Great Britain” end begge forældre tilsammen og mindre “Ireland” end nogen af dem, fordi de to populationer ligger tæt. Så 19 % “Irland” læses bedre som et vestligt britisk-ø-lignende signal. Det kan være irsk. Det kan være vestskotsk, Ulster eller en blanding. Chippen er ikke en kirkebog.",
         },
         {
-          title: "Nul hos Pernille skærer begge veje",
-          copy: "En tilfældig fjerdedel af 19 % ville stadig være omkring 5 % hos sønnedatteren. Filen viser intet — og næsten intet England/Wales/Skotland heller. Hvis det irske DNA var mange gamle, små stræk, ville nogle sandsynligvis have overlevet. Hvis det var få lange blokke fra en nylig ane, kan en far undlade at give nogen af dem videre, på samme måde som kromosom 1, 14 og 17 ikke bærer nogen lang Helle-haplotype. Det mønster forventer man af en gave på bedsteforældre-skala, ikke af vikingetidens Dublin drysset gennem hele genomet.",
+          title: "Resten kan være Pernilles <2 % Britannien",
+          copy: "En tilfældig fjerdedel af 19 % ville stadig være omkring 5 % hos sønnedatteren. Hun har 0 % Irland og under 2 % England, Wales og Skotland. De to FamilyTreeDNA-klynger er dem, metodepapiret siger bliver byttet om. Så det lille britiske spor er en rimelig kandidat til de stumper af Helles vestlige kapitel, der gik videre — malet med nabonavnet. Det slår ikke til: 5 % forventet, <2 % set. Det meste af de 19 % ankom aldrig. Og spor er de skiver, der lettest opfindes, så de <2 % kan også være almindelig nordsø-støj. Plausibel rest, ikke et bevis.",
         },
         {
           title: "Ikke vikingetidens Dublin alene",
@@ -546,7 +546,7 @@ export const science: Record<Locale, ScienceCopy> = {
       colOther: "De andre ¾",
       irelandTitle: "Irland gik ikke videre",
       irelandCopy:
-        "Helle er 19 % irsk på myOrigins. En tilfældig fjerdedel af det ville stadig være ~5 % hos Pernille. Filen viser intet. Enten arvede faderen ikke Helles irske stræk, eller han gav dem ikke videre. Det irske kapitel er Helles, ikke Pernilles.",
+        "Helle er 19 % irsk. En tilfældig fjerdedel af det ville stadig være ~5 % hos Pernille. Hun har 0 % Irland og et spor på <2 % England/Wales/Skotland. De to etiketter er dem, myOrigins selv siger, den blander sammen. Sporet kan være resterende vestligt DNA under nabonavnet. Det er stadig alt for lille: det meste af de 19 % gik ikke videre. Det høje irske kapitel er Helles.",
       chromTitle: "Hvilke kromosomer faderen rakte videre",
       chromHelle: "Mest Helles kopi",
       chromSilent: "Ingen lang Helle-blok — den anden bedstefar",

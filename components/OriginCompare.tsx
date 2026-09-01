@@ -49,7 +49,13 @@ export function OriginCompare() {
       </div>
       <p className="text-sm leading-relaxed text-muted">
         {t.shared.originBlurb}
-        {current.id === "ireland" ? t.shared.irelandBlurb : current.id === "scandinavia" ? t.shared.scandBlurb : ""}
+        {current.id === "ireland"
+          ? t.shared.irelandBlurb
+          : current.id === "isles"
+            ? t.shared.islesBlurb
+            : current.id === "scandinavia"
+              ? t.shared.scandBlurb
+              : ""}
       </p>
     </div>
   );

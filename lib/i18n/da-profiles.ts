@@ -52,9 +52,9 @@ export const daProfiles: Record<string, TextBits> = {
       isles: {
         kicker: "Et spor i tidevandet",
         summary:
-          "Et meget lille signal fra De Britiske Øer. FamilyTreeDNA advarer om, at spor som dette let kan fejlattribueres — en hvisken, ikke et kapitel.",
+          "Et meget lille signal fra De Britiske Øer. En rimelig læsning er rester af Helles irske kapitel under et andet navn — eller nordsø-støj.",
         detail:
-          "Under to procent af den autosomale maling falder hos England, Wales og Skotland. Små segmenter er den skrøbeligste del af ethvert etnicitetsskøn. Betragt det som et muligt nordsø-ekko, ikke bevis for en nylig ø-ane.",
+          "Under to procent af den autosomale maling falder hos England, Wales og Skotland. FamilyTreeDNA advarer om, at spor som dette let kan fejlattribueres. En rimelig læsning er rester af Helles 19 % “Irland” under den nærliggende britiske etiket — de to klynger er dem, metoden blander sammen. Det kan også være almindelig nordsø-støj. Uanset hvad er det en hvisken, ikke et kapitel.",
       },
     },
     ancientHeadline: { lead: "Halv jæger.", mid: "Så markerne.", end: "Så hestene." },
