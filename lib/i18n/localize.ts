@@ -9,6 +9,11 @@ function translateLabel(locale: Locale, label: string): string {
   return t.originLabels[label] ?? t.ancientLabels[label] ?? t.era[label] ?? t.place[label] ?? label;
 }
 
+function daYear(label: string): string {
+  if (/^see\b/i.test(label)) return label;
+  return label.replace(/,/g, ".").replace(/\bBCE\b/g, "f.Kr.").replace(/\bCE\b/g, "e.Kr.");
+}
+
 export function localizeProfile(profile: Profile, locale: Locale): Profile {
   const t = getMessages(locale);
   const overlay = locale === "da" ? daProfiles[profile.slug] : undefined;
@@ -32,6 +37,7 @@ export function localizeProfile(profile: Profile, locale: Locale): Profile {
 
   const haploPath = profile.haploPath.map((step) => ({
     ...step,
+    yearLabel: overlay?.haploPath?.[step.haplogroup]?.yearLabel ?? (locale === "da" ? daYear(step.yearLabel) : step.yearLabel),
     era: t.era[step.era] ?? step.era,
     place: t.place[step.place] ?? step.place,
     copy: overlay?.haploPath?.[step.haplogroup]?.copy ?? step.copy,
@@ -39,6 +45,8 @@ export function localizeProfile(profile: Profile, locale: Locale): Profile {
 
   const connections = profile.connections.map((c) => ({
     ...c,
+    dates: locale === "da" ? daYear(c.dates) : c.dates,
+    sharedYear: locale === "da" ? daYear(c.sharedYear) : c.sharedYear,
     place: t.place[c.place] ?? c.place,
     blurb: overlay?.connections?.[c.id]?.blurb ?? c.blurb,
   }));
@@ -86,6 +94,14 @@ export function localizeProfile(profile: Profile, locale: Locale): Profile {
       ...profile.haplogroup,
       formed: overlay?.haplogroup?.formed ?? profile.haplogroup.formed,
       headline: overlay?.haplogroup?.headline ?? profile.haplogroup.headline,
+      tmrca: {
+        meanLabel:
+          overlay?.haplogroup?.tmrca ??
+          (locale === "da" ? daYear(profile.haplogroup.tmrca.meanLabel) : profile.haplogroup.tmrca.meanLabel),
+        ci95:
+          overlay?.haplogroup?.ci95 ??
+          (locale === "da" ? daYear(profile.haplogroup.tmrca.ci95) : profile.haplogroup.tmrca.ci95),
+      },
       testers: {
         ...profile.haplogroup.testers,
         known: overlay?.haplogroup?.known ?? profile.haplogroup.testers.known,
@@ -98,6 +114,14 @@ export function localizeProfile(profile: Profile, locale: Locale): Profile {
           ...profile.yHaplogroup,
           formed: overlay?.yHaplogroup?.formed ?? profile.yHaplogroup.formed,
           headline: overlay?.yHaplogroup?.headline ?? profile.yHaplogroup.headline,
+          tmrca: {
+            meanLabel:
+              overlay?.yHaplogroup?.tmrca ??
+              (locale === "da" ? daYear(profile.yHaplogroup.tmrca.meanLabel) : profile.yHaplogroup.tmrca.meanLabel),
+            ci95:
+              overlay?.yHaplogroup?.ci95 ??
+              (locale === "da" ? daYear(profile.yHaplogroup.tmrca.ci95) : profile.yHaplogroup.tmrca.ci95),
+          },
           testers: {
             ...profile.yHaplogroup.testers,
             known: overlay?.yHaplogroup?.known ?? profile.yHaplogroup.testers.known,
@@ -107,6 +131,7 @@ export function localizeProfile(profile: Profile, locale: Locale): Profile {
       : undefined,
     yHaploPath: profile.yHaploPath?.map((step) => ({
       ...step,
+      yearLabel: overlay?.yHaploPath?.[step.haplogroup]?.yearLabel ?? (locale === "da" ? daYear(step.yearLabel) : step.yearLabel),
       era: t.era[step.era] ?? step.era,
       place: t.place[step.place] ?? step.place,
       copy: overlay?.yHaploPath?.[step.haplogroup]?.copy ?? step.copy,
