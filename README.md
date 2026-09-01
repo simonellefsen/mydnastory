@@ -13,6 +13,7 @@ npm run dev
 
 - `/` — catalog of stories
 - `/pernille`, `/helle`, … — one genome each
+- `/shared` — Helle (paternal grandmother) and Pernille compared
 
 ## Add a profile
 

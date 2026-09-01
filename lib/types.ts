@@ -97,6 +97,12 @@ export type Profile = {
     build: string;
     painting: string;
   };
+  kinship?: {
+    otherSlug: string;
+    otherName: string;
+    role: string;
+    href: string;
+  };
 };
 
 export type ComingProfile = {

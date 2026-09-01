@@ -31,6 +31,15 @@ export function Notes({ profile }: { profile: Profile }) {
             helix overlay was modelled in Blender. None of the pictures are
             portraits of {profile.firstName}.
           </p>
+          {profile.kinship ? (
+            <p>
+              {profile.firstName} is also part of a{" "}
+              <Link href={profile.kinship.href} className="text-amber hover:text-ink">
+                shared ancestry
+              </Link>{" "}
+              with {profile.kinship.otherName} ({profile.kinship.role}).
+            </p>
+          ) : null}
         </div>
         <div className="hairline mt-12" />
         <p className="mt-6 text-sm text-faint">

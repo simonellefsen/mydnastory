@@ -39,6 +39,27 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl">
           <p className="kicker">Stories</p>
           <h2 className="mt-3 font-display text-4xl md:text-5xl">Open a genome.</h2>
+          <Link
+            href="/shared"
+            className="group relative mt-10 flex min-h-56 overflow-hidden rounded-3xl border border-amber/25"
+          >
+            <Image
+              src="/images/kinship-shore.jpg"
+              alt=""
+              fill
+              className="object-cover transition duration-700 group-hover:scale-105"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/55 to-black/20" />
+            <div className="relative z-10 mt-auto p-7 md:p-10">
+              <p className="kicker">Paternal grandmother</p>
+              <h3 className="mt-2 font-display text-3xl md:text-5xl">Helle &amp; Pernille</h3>
+              <p className="mt-3 max-w-xl text-muted">
+                What they share in origins, deep time, haplogroup H, and 678,311
+                compared markers — including the X that only a father’s mother can give.
+              </p>
+            </div>
+          </Link>
           <ul className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {entries.map((entry) => {
               if (entry.status === "coming") {

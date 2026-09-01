@@ -85,4 +85,10 @@ export const pernille: Profile = {
   connections,
   chromosomes,
   genome: { ...genome },
+  kinship: {
+    otherSlug: "helle",
+    otherName: "Helle",
+    role: "paternal grandmother",
+    href: "/shared",
+  },
 };

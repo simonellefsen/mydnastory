@@ -384,4 +384,10 @@ export const helle: Profile = {
     painting:
       "Chromosome painting at continent scale is Western European, with Scandinavian, Central European, and Irish components rather than a single bloc.",
   },
+  kinship: {
+    otherSlug: "pernille",
+    otherName: "Pernille",
+    role: "paternal granddaughter",
+    href: "/shared",
+  },
 };
