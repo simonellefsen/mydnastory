@@ -1,0 +1,69 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { chromosomes, genome } from "@/lib/story";
+import { Reveal } from "./Reveal";
+
+export function Genome() {
+  const max = useMemo(() => Math.max(...chromosomes.map((c) => c.snps)), []);
+  const [active, setActive] = useState(chromosomes[0].id);
+  const current = chromosomes.find((c) => c.id === active) ?? chromosomes[0];
+  const share = ((current.snps / genome.snps) * 100).toFixed(1);
+
+  return (
+    <section id="genome" className="chapter">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <p className="kicker">Autosomal microarray</p>
+          <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[1.05] md:text-6xl">
+            {genome.snps.toLocaleString("en-GB")} markers.
+            <span className="italic text-aurora"> A skyline of chromosomes.</span>
+          </h2>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+            The raw genotype file stays private. What you can explore is the
+            shape of the test: how many SNPs were read on each chromosome.
+            {` ${genome.painting}`}
+          </p>
+        </Reveal>
+
+        <div className="mt-10 rounded-3xl border border-white/10 bg-black/25 p-5 md:p-8">
+          <div className="flex items-end gap-[2px] md:gap-1.5" role="list">
+            {chromosomes.map((c) => {
+              const on = c.id === active;
+              const h = 8 + (c.snps / max) * 220;
+              return (
+                <button
+                  key={c.id}
+                  type="button"
+                  role="listitem"
+                  onClick={() => setActive(c.id)}
+                  onMouseEnter={() => setActive(c.id)}
+                  className="group flex flex-1 flex-col items-center gap-2"
+                  aria-label={`Chromosome ${c.id}, ${c.snps.toLocaleString("en-GB")} SNPs`}
+                >
+                  <span
+                    className={`w-full rounded-t-sm transition ${
+                      on ? "bg-amber" : c.id === "X" ? "bg-aurora/70" : "bg-aurora/40 group-hover:bg-aurora/70"
+                    }`}
+                    style={{ height: h }}
+                  />
+                  <span className={`text-[10px] md:text-xs ${on ? "text-ink" : "text-faint"}`}>{c.id}</span>
+                </button>
+              );
+            })}
+          </div>
+          <div className="mt-8 flex flex-wrap items-end justify-between gap-4 border-t border-white/10 pt-5">
+            <div>
+              <p className="kicker">Chromosome {current.id}</p>
+              <p className="mt-2 font-display text-4xl">
+                {current.snps.toLocaleString("en-GB")}
+                <span className="ml-2 text-lg text-muted">SNPs · {share}% of the file</span>
+              </p>
+            </div>
+            <p className="max-w-md text-sm leading-relaxed text-muted">{genome.build}. Hover or tap a bar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

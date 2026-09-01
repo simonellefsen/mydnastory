@@ -1,0 +1,53 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { chapters } from "@/lib/story";
+
+export function SiteNav() {
+  const [active, setActive] = useState<string>(chapters[0].id);
+
+  useEffect(() => {
+    const nodes = chapters
+      .map((c) => document.getElementById(c.id))
+      .filter((n): n is HTMLElement => Boolean(n));
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target.id) setActive(visible.target.id);
+      },
+      { threshold: [0.2, 0.45, 0.7], rootMargin: "-18% 0px -40% 0px" },
+    );
+    nodes.forEach((n) => obs.observe(n));
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <nav
+      aria-label="Chapters"
+      className="pointer-events-none fixed inset-x-0 top-0 z-40 flex justify-center p-2 md:inset-auto md:top-1/2 md:right-5 md:-translate-y-1/2 md:p-0"
+    >
+      <ul className="pointer-events-auto flex max-w-[calc(100vw-1rem)] gap-1 overflow-x-auto rounded-full border border-white/10 bg-black/45 px-1.5 py-1.5 backdrop-blur-md md:max-w-none md:flex-col md:rounded-3xl md:px-2 md:py-3">
+        {chapters.map((c) => {
+          const on = active === c.id;
+          return (
+            <li key={c.id} className="shrink-0">
+              <a
+                href={`#${c.id}`}
+                className={`flex items-center gap-2 whitespace-nowrap rounded-full px-2.5 py-1.5 text-[10px] tracking-[0.14em] uppercase transition md:px-3 md:text-[11px] md:tracking-[0.18em] ${
+                  on ? "bg-white/10 text-ink" : "text-faint hover:text-ink"
+                }`}
+              >
+                <span
+                  className={`h-1.5 w-1.5 rounded-full ${on ? "bg-amber" : "bg-white/25"}`}
+                />
+                <span className="md:inline">{c.label}</span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+}
