@@ -81,7 +81,7 @@ export const helle: Profile = {
       summary:
         "Nineteen percent matches Irish references. That is not a trace. It is a third voice, loud enough to be a chapter.",
       detail:
-        "Unlike a sub-two-percent whisper, this Irish signal is large enough to take seriously. It may travel with older Atlantic connections, later movement, or both. Treat it as a real western current, still an estimate.",
+        "Nineteen percent is grandparent-scale if you take the number as a person — or a western British-Isles cluster that FamilyTreeDNA labelled Ireland. Their own method paper says splitting Ireland from Great Britain reduces accuracy for both. Pernille inherited none of it, which fits a few long blocks that her father did not pass, not a Viking-Age sprinkle. Still an estimate, not a parish.",
     },
   ],
   ancientHeadline: {

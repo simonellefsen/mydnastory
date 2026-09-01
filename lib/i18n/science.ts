@@ -44,6 +44,13 @@ export type ScienceCopy = {
     note: string;
     silent: string;
   };
+  ireland: {
+    kicker: string;
+    title: string;
+    accent: string;
+    lede: string;
+    cards: { title: string; copy: string }[];
+  };
   split: {
     kicker: string;
     title: string;
@@ -253,6 +260,30 @@ export const science: Record<Locale, ScienceCopy> = {
       chrom: (id, cm, n) => `Chromosome ${id} · ${cm} cM in ${n} segment${n === "1" ? "" : "s"}`,
       note: "Unphased identity-by-state, gaps over 1 Mb break a run, lengths from a sex-averaged chromosome map. This is not FamilyTreeDNA’s match list and not a court exhibit. Opposite sites cannot sit inside a shared segment. Two opposite calls on X are more likely chip errors than a break in a father’s X.",
       silent: "No long IBD",
+    },
+    ireland: {
+      kicker: "The 19% Irish question",
+      title: "A western chapter.",
+      accent: " Not a passport.",
+      lede: "Nineteen percent is large enough to be a person, or a mislabelled west. FamilyTreeDNA can be wrong about the name on the slice even when the slice itself is real.",
+      cards: [
+        {
+          title: "Grandparent-scale, if you take the number literally",
+          copy: "A fully Irish grandparent would leave about 25% on average (often roughly 18–32% after recombination). A fully Irish great-grandparent would leave about 12.5%. Nineteen percent sits between those two. It could be one mixed-Irish grandparent, one Irish plus another partly Irish great-grandparent, or several more distant western lines adding up. It is not a trace. FamilyTreeDNA flags traces under 2%. This is a third of her western European pie.",
+        },
+        {
+          title: "The label is the fragile part",
+          copy: "FamilyTreeDNA’s own myOrigins 3.0 paper says splitting Ireland from Great Britain reduces accuracy for both. Two thousand years of Gaels, Picts, Anglo-Saxons, Normans and later traffic blur the clusters. Their public example: a daughter can score more “Great Britain” than both parents combined, and less “Ireland” than either, because the two populations are close. So 19% “Ireland” is better read as a western British-Isles-like signal. It may be Irish. It may be western Scottish, Ulster, or a mix. The chip is not a parish register.",
+        },
+        {
+          title: "Zero in Pernille cuts both ways",
+          copy: "A random quarter of 19% would still be about 5% in the granddaughter. The file shows none — and almost no England/Wales/Scotland either. If the Irish DNA were many old, small stretches, some would likely have survived. If it were a few long blocks from a recent ancestor, a father can fail to pass any of them, the same way chromosomes 1, 14 and 17 carry no long Helle haplotype. That pattern is what you expect from a grandparent-scale gift, not from Viking Dublin sprinkled through the whole genome.",
+        },
+        {
+          title: "Not Viking Dublin by itself",
+          copy: "Danish–Irish contact in the ninth to eleventh centuries is real. A thousand years later that would be a whisper unless many lines carried it. Nineteen percent is too loud for “a Viking in Dublin” as the sole source. If the number is genealogical, the person is more likely in the last two or three centuries than in the sagas. If the number is a painting error, the west is still there — just not necessarily Ireland on a map.",
+        },
+      ],
     },
     split: {
       kicker: "Mother and father’s mother",
@@ -468,6 +499,30 @@ export const science: Record<Locale, ScienceCopy> = {
       chrom: (id, cm, n) => `Kromosom ${id} · ${cm} cM i ${n} segment${n === "1" ? "" : "er"}`,
       note: "Ufaselt identity-by-state, huller over 1 Mb bryder et stræk, længder fra et kønsgennemsnitligt kromosomkort. Dette er ikke FamilyTreeDNAs matchliste og ikke et retsdokument. Modsatte steder kan ikke ligge i et delt segment. To modsatte kald på X er snarere chipfejl end et brud i et fars-X.",
       silent: "Ingen lang IBD",
+    },
+    ireland: {
+      kicker: "De 19 % irske",
+      title: "Et vestligt kapitel.",
+      accent: " Ikke et pas.",
+      lede: "Nitten procent er stort nok til at være et menneske — eller et fejlmærket vest. FamilyTreeDNA kan tage fejl af navnet på skiven, selv når skiven selv er ægte.",
+      cards: [
+        {
+          title: "Bedsteforældre-skala, hvis man tager tallet bogstaveligt",
+          copy: "En fuldt irsk bedsteforælder ville i gennemsnit efterlade omkring 25 % (ofte groft 18–32 % efter rekombination). En fuldt irsk oldeforælder omkring 12,5 %. Nitten procent ligger derimellem. Det kan være én delvis irsk bedsteforælder, én irsk plus en anden delvis irsk oldeforælder, eller flere fjernere vestlige linjer der lægges sammen. Det er ikke et spor. FamilyTreeDNA flagger spor under 2 %. Dette er en tredjedel af hendes vesteuropæiske tærte.",
+        },
+        {
+          title: "Etiketten er den skrøbelige del",
+          copy: "FamilyTreeDNAs eget myOrigins 3.0-papir siger, at at skille Irland fra Storbritannien sænker nøjagtigheden for begge. To tusinde års gælere, piktere, angelsaksere, normannere og senere trafik slører klyngerne. Deres eget eksempel: en datter kan score mere “Great Britain” end begge forældre tilsammen og mindre “Ireland” end nogen af dem, fordi de to populationer ligger tæt. Så 19 % “Irland” læses bedre som et vestligt britisk-ø-lignende signal. Det kan være irsk. Det kan være vestskotsk, Ulster eller en blanding. Chippen er ikke en kirkebog.",
+        },
+        {
+          title: "Nul hos Pernille skærer begge veje",
+          copy: "En tilfældig fjerdedel af 19 % ville stadig være omkring 5 % hos sønnedatteren. Filen viser intet — og næsten intet England/Wales/Skotland heller. Hvis det irske DNA var mange gamle, små stræk, ville nogle sandsynligvis have overlevet. Hvis det var få lange blokke fra en nylig ane, kan en far undlade at give nogen af dem videre, på samme måde som kromosom 1, 14 og 17 ikke bærer nogen lang Helle-haplotype. Det mønster forventer man af en gave på bedsteforældre-skala, ikke af vikingetidens Dublin drysset gennem hele genomet.",
+        },
+        {
+          title: "Ikke vikingetidens Dublin alene",
+          copy: "Dansk-irsk kontakt i 800- og 1000-tallet er ægte. Tusind år senere ville det være en hvisken, medmindre mange linjer bar det. Nitten procent er for højt til “en viking i Dublin” som eneste kilde. Hvis tallet er genealogisk, sidder personen snarere i de sidste to-tre århundreder end i sagaerne. Hvis tallet er en malerifejl, er vesten der stadig — bare ikke nødvendigvis Irland på et kort.",
+        },
+      ],
     },
     split: {
       kicker: "Mor og fars mor",

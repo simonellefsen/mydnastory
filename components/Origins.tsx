@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import { useI18n } from "@/lib/i18n/context";
 import type { Profile } from "@/lib/types";
+import { IrelandDeep } from "./IrelandDeep";
 import { Reveal } from "./Reveal";
 
 const TAU = Math.PI * 2;
@@ -112,6 +113,7 @@ export function Origins({ profile }: { profile: Profile }) {
             </article>
           </Reveal>
         </div>
+        <IrelandDeep profile={profile} />
       </div>
     </section>
   );

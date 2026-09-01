@@ -255,7 +255,7 @@ export const daProfiles: Record<string, TextBits> = {
         summary:
           "Nitten procent matcher irske referencer. Det er ikke et spor. Det er en tredje stemme, høj nok til at være et kapitel.",
         detail:
-          "I modsætning til en hvisken under to procent er det irske signal stort nok til at tage alvorligt. Det kan følge ældre atlantiske forbindelser, senere flytning, eller begge. Betragt det som en ægte vestlig strøm, stadig et skøn.",
+          "Nitten procent er bedsteforældre-skala, hvis man tager tallet som et menneske — eller en vestlig britisk-ø-klynge, FamilyTreeDNA har mærket Irland. Deres eget metodepapir siger, at at skille Irland fra Storbritannien sænker nøjagtigheden for begge. Pernille arvede intet af det, hvilket passer til få lange blokke, hendes far ikke gav videre, ikke et vikingetids-drys. Stadig et skøn, ikke en kirkebog.",
       },
     },
     ancientHeadline: { lead: "Næsten halv jæger.", mid: "Så markerne.", end: "En lettere steppe." },
