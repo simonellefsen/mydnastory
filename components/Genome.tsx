@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { numberLocale } from "@/lib/i18n/config";
 import { useI18n } from "@/lib/i18n/context";
 import type { Profile } from "@/lib/types";
+import { AutosomalBeyond } from "./AutosomalBeyond";
 import { Reveal } from "./Reveal";
 
 export function Genome({ profile }: { profile: Profile }) {
@@ -67,6 +68,7 @@ export function Genome({ profile }: { profile: Profile }) {
             </p>
           </div>
         </div>
+        <AutosomalBeyond profile={profile} />
       </div>
     </section>
   );

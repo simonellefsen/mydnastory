@@ -91,7 +91,7 @@ export const daProfiles: Record<string, TextBits> = {
     },
     haploPath: {
       H10a1u: {
-        copy: "Pernilles egen maternelle haplogruppe. Kvinden ved roden af denne lille gren levede sandsynligvis omkring det 12. århundrede. Testeres dokumenterede oprindelse i dag er Danmark.",
+        copy: "Pernilles egen maternelle haplogruppe. Mutationen sidder på en ældre bronzealder-H10a1-baggrund (omkring 2250 f.Kr.), men den seneste kvinde, de fire nulevende testere deler, levede sandsynligvis omkring 1090 e.Kr. Det er en tretusindårig tråd med næsten ingen overlevende søstre. To af de fire testere nævner Danmark.",
       },
       H10a1: {
         copy: "Forældregrenen opstod i ældre bronzealder, da Unětice, Kisapostag og beslægtede kulturer begravede mennesker i Karpaterbækkenet og det alpine forland. Mange af Pernilles tætteste oldtidsmatcher på morlinjen sidder her.",
@@ -160,6 +160,10 @@ export const daProfiles: Record<string, TextBits> = {
       bayard: {
         blurb:
           "Ridderen uden frygt og dadel. Han og Pernille deler det tættere H10-knudepunkt — stadig senneolitikum, stadig et sjovt faktum, og sjældnere: omkring én ud af 115 FamilyTreeDNA-kunder sidder så tæt på Bayard på morlinjen.",
+      },
+      wenman: {
+        blurb:
+          "En tidlig engelsk nybygger i Jamestown, identificeret arkæogenomisk i 2024. Han sidder på H10e; Pernille sidder på H10a1u. De mødes i H10, omkring én ud af 115 kunder så tæt. Stadig neolitisk, stadig et sjovt faktum.",
       },
       henry: {
         blurb:

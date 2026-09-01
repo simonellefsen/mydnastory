@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import { useI18n } from "@/lib/i18n/context";
 import type { Profile } from "@/lib/types";
+import { MotherlineDeep } from "./MotherlineDeep";
 import { Reveal } from "./Reveal";
 
 const points = [
@@ -152,6 +153,7 @@ export function Motherline({ profile }: { profile: Profile }) {
             </article>
           ))}
         </div>
+        <MotherlineDeep profile={profile} />
       </div>
     </section>
   );

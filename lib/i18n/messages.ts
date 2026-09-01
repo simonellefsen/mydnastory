@@ -250,7 +250,7 @@ export const messages: Record<Locale, Messages> = {
     notes: {
       kicker: "How to read this",
       title: "A story, not a verdict.",
-      p1: "Ethnicity percentages and ancient components come from FamilyTreeDNA myOrigins version 3. They compare stretches of autosomal DNA with reference populations. They will shift as those references grow. Smaller slices are the most fragile.",
+      p1: "Ethnicity percentages and ancient components come from FamilyTreeDNA myOrigins version 3. They compare stretches of autosomal DNA with reference populations. They will shift as those references grow. Smaller slices are the most fragile. Shared haplotype blocks between kits were called independently from the raw autosomal CSVs: long runs without opposite homozygotes, not FamilyTreeDNA’s match list.",
       p2: (haplo) =>
         `Haplogroup ${haplo} is from mtFull Sequence. Notable and ancient “connections” mean a shared maternal ancestor at the stated node, often many thousands of years ago. This site does not claim close kinship with kings, mummies, or archaeological strangers.`,
       p3: (name) =>
@@ -328,6 +328,7 @@ export const messages: Record<Locale, Messages> = {
       "Atapuerca, Spain": "Atapuerca, Spain",
       "East Francia": "East Francia",
       "Bonn / Vienna": "Bonn / Vienna",
+      "Jamestown, Virginia": "Jamestown, Virginia",
     },
     shared: {
       heroKicker: "A family in two kits",
@@ -367,7 +368,7 @@ export const messages: Record<Locale, Messages> = {
       autoLede: (identical, opposite, x) =>
         `Where both kits called a SNP, ${identical}% have the same genotype and only ${opposite}% are opposite homozygotes. Opposite sites cannot sit inside a shared segment. Chromosome X is the tell: two opposite sites in ${x} — the paternal X.`,
       autoNote:
-        "This is identity-by-state on an unphased microarray, not a published IBD match list. It is a window onto sharing, not a court exhibit. Raw genotypes stay in the private folder.",
+        "Identity-by-state on an unphased microarray, plus candidate shared haplotypes called as long runs without opposite homozygotes. Not a published IBD match list. A window onto sharing, not a court exhibit. Raw genotypes stay in the private folder.",
       togetherKicker: "Read together",
       togetherTitle: "Open each genome.",
       togetherLede:
@@ -488,7 +489,7 @@ export const messages: Record<Locale, Messages> = {
     notes: {
       kicker: "Sådan læses det",
       title: "En historie, ikke en dom.",
-      p1: "Etnicitetsprocenter og oldtidskomponenter kommer fra FamilyTreeDNA myOrigins version 3. De sammenligner stræk af autosomalt DNA med referencepopulationer. De vil rykke sig, efterhånden som referencerne vokser. De mindste skiver er de mest skrøbelige.",
+      p1: "Etnicitetsprocenter og oldtidskomponenter kommer fra FamilyTreeDNA myOrigins version 3. De sammenligner stræk af autosomalt DNA med referencepopulationer. De vil rykke sig, efterhånden som referencerne vokser. De mindste skiver er de mest skrøbelige. Delte haplotypeblokke mellem kits er kaldt selvstændigt fra de rå autosomale CSV-filer: lange stræk uden modsatte homozygoter, ikke FamilyTreeDNAs matchliste.",
       p2: (haplo) =>
         `Haplogruppe ${haplo} kommer fra mtFull Sequence. Bemærkelsesværdige og arkæologiske “forbindelser” betyder en fælles maternel ane ved det angivne knudepunkt, ofte mange tusinde år tilbage. Sitet hævder ikke nært slægtskab med konger, mumier eller arkæologiske fremmede.`,
       p3: (name) =>
@@ -566,6 +567,7 @@ export const messages: Record<Locale, Messages> = {
       "Atapuerca, Spain": "Atapuerca, Spanien",
       "East Francia": "Østfranken",
       "Bonn / Vienna": "Bonn / Wien",
+      "Jamestown, Virginia": "Jamestown, Virginia",
     },
     shared: {
       heroKicker: "En familie i to kits",
@@ -605,7 +607,7 @@ export const messages: Record<Locale, Messages> = {
       autoLede: (identical, opposite, x) =>
         `Hvor begge kits kaldte en SNP, har ${identical} % samme genotype, og kun ${opposite} % er modsatte homozygoter. Modsatte steder kan ikke ligge i et delt segment. X-kromosomet er tegnet: to modsatte steder i ${x} — det paternelle X.`,
       autoNote:
-        "Dette er identity-by-state på et ufaselt microarray, ikke en offentliggjort IBD-matchliste. Det er et vindue ind til deling, ikke et retsdokument. Rå genotyper bliver i den private mappe.",
+        "Identity-by-state på et ufaselt microarray, plus kandidat-haplotyper kaldt som lange stræk uden modsatte homozygoter. Ikke en offentliggjort IBD-matchliste. Et vindue ind til deling, ikke et retsdokument. Rå genotyper bliver i den private mappe.",
       togetherKicker: "Læs sammen",
       togetherTitle: "Åbn hvert genom.",
       togetherLede:

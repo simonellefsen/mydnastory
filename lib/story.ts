@@ -154,7 +154,7 @@ export const haploPath: HaploStep[] = [
     year: 1100,
     era: "Middle Ages",
     place: "Denmark",
-    copy: "Pernille’s own maternal haplogroup. The woman at the root of this tiny branch most likely lived around the twelfth century. Today the documented origin of testers is Denmark.",
+    copy: "Pernille’s own maternal haplogroup. The mutation sits on an Early Bronze Age H10a1 background (around 2250 BCE), but the most recent woman shared by the four living testers likely lived around 1090 CE. That is a three-thousand-year thread with almost no surviving sisters. Two of the four testers name Denmark.",
   },
   {
     haplogroup: "H10a1",
@@ -306,6 +306,19 @@ export const connections: Connection[] = [
     image: "/images/france-bridge.jpg",
     blurb:
       "The knight without fear and beyond reproach. He and Pernille share the closer H10 node — still Late Neolithic, still a fun fact, and rarer: about one in 115 FamilyTreeDNA customers sit this close to Bayard on the motherline.",
+  },
+  {
+    id: "wenman",
+    name: "Sir Ferdinando Wenman",
+    dates: "1576–1610 CE",
+    kind: "notable",
+    rarity: "rare",
+    shared: "H10",
+    sharedYear: "4650 BCE",
+    place: "Jamestown, Virginia",
+    image: "/images/british-isles.jpg",
+    blurb:
+      "An early English settler at Jamestown, identified archaeogenomically in 2024. He sits on H10e; Pernille sits on H10a1u. They meet at H10, about one in 115 customers this close. Still Neolithic, still a fun fact.",
   },
   {
     id: "henry",
