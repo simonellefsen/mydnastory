@@ -143,7 +143,7 @@ export const helle: Profile = {
     headline: "A Nordic motherline from around 950 CE.",
     tmrca: {
       meanLabel: "950 CE",
-      ci95: "see FamilyTreeDNA scientific details",
+      ci95: "717–1176 CE",
     },
     testers: {
       total: 15,
@@ -159,7 +159,7 @@ export const helle: Profile = {
       year: 950,
       era: "Middle Ages",
       place: "Scandinavia",
-      copy: "Helle’s own maternal haplogroup. The woman at the root of this branch most likely lived around the tenth century. Testers today name Denmark, Norway, and Sweden.",
+      copy: "Helle’s own maternal haplogroup. The parent H1e1b1f is Bronze Age (FamilyTreeDNA mean 1700 BCE). The most recent woman shared by the fifteen living testers likely lived around 950 CE (95% 717–1176). Six name Denmark, two Norway, one Sweden. That is a Viking-Age twig on a much older Central European family.",
     },
     {
       haplogroup: "H1e1b1f",
@@ -183,7 +183,7 @@ export const helle: Profile = {
       year: -3750,
       era: "Stone Age / Metal Ages",
       place: "Europe",
-      copy: "H1e1 is a well-travelled European maternal family. Later historical fun facts on this kit meet here, including a famous composer’s maternal line.",
+      copy: "H1e1 is a well-travelled European maternal family. FamilyTreeDNA still files Beethoven here; hair sequenced in 2023 is H1b1, so the real shared node with the composer is H1.",
     },
     {
       haplogroup: "H1",
@@ -278,12 +278,12 @@ export const helle: Profile = {
       dates: "1770–1827 CE",
       kind: "notable",
       rarity: "rare",
-      shared: "H1e1",
-      sharedYear: "3750 BCE",
+      shared: "H1",
+      sharedYear: "5200 BCE",
       place: "Bonn / Vienna",
       image: "/images/central-europe.jpg",
       blurb:
-        "The composer’s maternal haplogroup sits on H1e1. Helle meets that line in the Late Neolithic — a fun fact about a shared Stone Age mother, not a family portrait.",
+        "FamilyTreeDNA still lists Beethoven at H1e1. Authentic hair sequenced in 2023 (Begg et al.) is H1b1+16362C. Helle meets that line at H1, around 5200 BCE — a fun fact one step higher than the Discover page says, still not a family portrait.",
     },
     {
       id: "sweyn",
@@ -348,7 +348,33 @@ export const helle: Profile = {
       place: "Lower Austria",
       image: "/images/central-europe.jpg",
       blurb:
-        "Several Late Avar burials at Mödling sit on Helle’s closer H1e1b1 node — a Carpathian-basin chapter of the same motherline.",
+        "Several Late Avar burials at Mödling sit on Helle’s closer H1e1b1 node — a Carpathian-basin chapter of the same motherline (Wang et al. 2025).",
+    },
+    {
+      id: "stambolovo",
+      name: "Stambolovo 15848",
+      dates: "1100–700 BCE",
+      kind: "ancient",
+      rarity: "rare",
+      shared: "H1e1b1",
+      sharedYear: "3350 BCE",
+      place: "Haskovo, Bulgaria",
+      image: "/images/bronze-plain.jpg",
+      blurb:
+        "An Early Iron Age woman at Stambolovo (I15848, Lazaridis et al. 2022). Her own twig is H1e1b1j. About one in 2,100 customers sit this close. A Balkan Iron Age sister of the family that later names H1e1b1f1.",
+    },
+    {
+      id: "brucken",
+      name: "Brücken 34",
+      dates: "436–542 CE",
+      kind: "ancient",
+      rarity: "rare",
+      shared: "H1e1b1",
+      sharedYear: "3350 BCE",
+      place: "Saxony-Anhalt, Germany",
+      image: "/images/bronze-plain.jpg",
+      blurb:
+        "An ~11-year-old girl of the Thuringian world (Gretzinger et al. 2025). Same H1e1b1 node as the Avars and the Bulgarian Iron Age woman — Central Europe still holding the motherline in the migration period.",
     },
     {
       id: "neanderthal",

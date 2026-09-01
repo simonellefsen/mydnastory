@@ -292,7 +292,7 @@ export const daProfiles: Record<string, TextBits> = {
     },
     haploPath: {
       H1e1b1f1: {
-        copy: "Helles egen maternelle haplogruppe. Kvinden ved roden af denne gren levede sandsynligvis omkring det tiende århundrede. Testere i dag nævner Danmark, Norge og Sverige.",
+        copy: "Helles egen maternelle haplogruppe. Forælderen H1e1b1f er bronzealder (FamilyTreeDNA-middel 1700 f.Kr.). Den seneste kvinde, de femten nulevende testere deler, levede sandsynligvis omkring 950 e.Kr. (95 % 717–1176). Seks nævner Danmark, to Norge, én Sverige. Det er en vikingetidskvist på en langt ældre centraleuropæisk familie.",
       },
       H1e1b1f: {
         copy: "Forældregrenen opstod i bronzealderen. FamilyTreeDNA skønner H1e1b1f omkring 1700 f.Kr. (95 % interval groft 2455–1022 f.Kr.).",
@@ -301,7 +301,7 @@ export const daProfiles: Record<string, TextBits> = {
         copy: "Et senneolitisk knudepunkt. Mange af Helles tættere oldtidsmatcher sidder under H1e1b1, omkring 3350 f.Kr.",
       },
       H1e1: {
-        copy: "H1e1 er en velberejst europæisk morfamilie. Senere historiske sjove fakta på dette kit mødes her, herunder en berømt komponists morlinje.",
+        copy: "H1e1 er en velberejst europæisk morfamilie. FamilyTreeDNA arkiverer stadig Beethoven her; hår sekventeret i 2023 er H1b1, så det reelle fælles knudepunkt med komponisten er H1.",
       },
       H1: {
         copy: "H1 er en af de store europæiske døtre af H, der bredte sig med postglacialt og neolitisk Europa.",
@@ -341,7 +341,7 @@ export const daProfiles: Record<string, TextBits> = {
     connections: {
       beethoven: {
         blurb:
-          "Komponistens maternelle haplogruppe sidder på H1e1. Helle møder den linje i senneolitikum — et sjovt faktum om en fælles stenaldermor, ikke et familieportræt.",
+          "FamilyTreeDNA lister stadig Beethoven på H1e1. Ægte hår sekventeret i 2023 (Begg m.fl.) er H1b1+16362C. Helle møder den linje i H1, omkring 5200 f.Kr. — et sjovt faktum ét trin højere end Discover-siden siger, stadig ikke et familieportræt.",
       },
       sweyn: {
         blurb: "Danmarks sidste vikingekonge. Det fælles knudepunkt er haplogruppe H, tusinder af år før dem begge.",
@@ -359,7 +359,15 @@ export const daProfiles: Record<string, TextBits> = {
       },
       avar: {
         blurb:
-          "Flere sene avarbegravelser i Mödling sidder på Helles tættere H1e1b1-knude — et karpaterbækken-kapitel af samme morlinje.",
+          "Flere sene avarbegravelser i Mödling sidder på Helles tættere H1e1b1-knude — et karpaterbækken-kapitel af samme morlinje (Wang m.fl. 2025).",
+      },
+      stambolovo: {
+        blurb:
+          "En tidlig jernalderkvinde i Stambolovo (I15848, Lazaridis m.fl. 2022). Hendes egen kvist er H1e1b1j. Omkring én ud af 2.100 kunder sidder så tæt. En balkansk jernalder-søster til familien, der senere navngiver H1e1b1f1.",
+      },
+      brucken: {
+        blurb:
+          "En ca. 11-årig pige fra den thüringiske verden (Gretzinger m.fl. 2025). Samme H1e1b1-knude som avarerne og den bulgarske jernalderkvinde — Centraleuropa holder stadig morlinjen i folkevandringstiden.",
       },
       neanderthal: {
         blurb:

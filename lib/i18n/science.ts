@@ -1,15 +1,18 @@
 import type { Locale } from "./config";
 
+export type TwigCopy = {
+  kicker: string;
+  title: string;
+  accent: string;
+  lede: string;
+  image: string;
+  imageAlt: string;
+  cards: { title: string; copy: string }[];
+  papers: { cite: string; point: string }[];
+};
+
 export type ScienceCopy = {
-  twig: {
-    kicker: string;
-    title: string;
-    accent: string;
-    lede: string;
-    imageAlt: string;
-    cards: { title: string; copy: string }[];
-    papers: { cite: string; point: string }[];
-  };
+  twigs: Record<string, TwigCopy>;
   beyond: {
     kicker: string;
     title: string;
@@ -45,11 +48,13 @@ export type ScienceCopy = {
 
 export const science: Record<Locale, ScienceCopy> = {
   en: {
-    twig: {
+    twigs: {
+      H10a1u: {
       kicker: "A closer look at H10a1u",
       title: "A thousand-year twig",
       accent: " on a three-thousand-year thread.",
       lede: "FamilyTreeDNA dates the living mother of H10a1u to about 1090 CE. That is young. The mutation itself is not. The interesting part is the silence in between.",
+      image: "/images/medieval-denmark.jpg",
       imageAlt: "A reconstructed medieval Danish village of turf-roofed timber houses by a winter fjord, with a small wooden church at dusk",
       cards: [
         {
@@ -91,6 +96,59 @@ export const science: Record<Locale, ScienceCopy> = {
           point: "100 ancient Danish genomes: Ertebølle hunter-gatherers replaced by Funnelbeaker farmers, then by steppe-related people. Local Mesolithic DNA left little in later Danes.",
         },
       ],
+      },
+      H1e1b1f1: {
+        kicker: "A closer look at H1e1b1f1",
+        title: "A Viking-Age twig",
+        accent: " on a Late Neolithic family.",
+        lede: "FamilyTreeDNA dates the living mother of H1e1b1f1 to about 950 CE. That is the late Viking Age. The parent branch is more than two millennia older. Fifteen testers, not four — and this time the parent family already has names in the Danish Middle Ages.",
+        image: "/images/viking-age-denmark.jpg",
+        imageAlt: "A late tenth-century Danish coastal settlement of turf-roofed longhouses by a grey fjord at dusk",
+        cards: [
+          {
+            title: "1700 BCE, then a long hush",
+            copy: "H1e1b1f1 branched from H1e1b1f in the Bronze Age — FamilyTreeDNA’s mean is 1705 BCE (95% 2455–1022 BCE). The 950 CE date is the most recent woman shared by the fifteen testers on this named twig, not the year the mutation appeared. YFull defines the parent H1e1b1f by A9545G and makes it younger (formed ~300 BCE, TMRCA ~1200 CE). Clocks disagree; the biology is a thin northern thread that only bushy-tips in the last thousand years.",
+          },
+          {
+            title: "A clock on fifteen people",
+            copy: "The 95% interval is 717–1176 CE: mid-Viking Age through the early Valdemars. Fifteen testers tighten the clock relative to a four-person twig. Six name Denmark, two Norway, one Sweden, six unknown. The living geography is Scandinavian. No ancient genome has been called H1e1b1f1 itself — the last letter is too young — but the parent family is already on Danish ground in the Middle Ages.",
+          },
+          {
+            title: "H1 is the great western daughter",
+            copy: "H1 is marked by G3010A and is the largest European daughter of H. A 2005 Genome Research study placed its expansion in post-glacial western Europe, with a strong Iberian signal. In Denmark H1 is common: about 15% of a forensic Danish sample, and H1 makes up roughly 38% of all H in 24,216 Danes. H1e (G5460A) is much rarer there — about 0.5% in that forensic set. Helle’s line is a late northern leaf on a very large western tree.",
+          },
+          {
+            title: "H1e1b1 walked the Iron Age",
+            copy: "The closer archaeological kin sit at H1e1b1, around 3350 BCE: an Early Iron Age woman at Stambolovo in Bulgaria (I15848, Lazaridis 2022), an ~11-year-old Thuringian girl at Brücken in Saxony-Anhalt (436–542 CE, Gretzinger 2025), and several Late Avar burials at Mödling–Goldene Stiege in Lower Austria (600–800 CE, Wang 2025). That is a Central European motherline that later has a Scandinavian named daughter — not a line that began in a Viking hall.",
+          },
+          {
+            title: "Already in Denmark around 950",
+            copy: "YFull places an ancient Danish mitogenome (MK059610) on H1e1b1f, and a sister twig H1e1b1d is a cluster of Danish sequences. An early medieval burial at Sankt Mathias has been called H1e1b1. The parent family was in Denmark in the same centuries as the living TMRCA. If the woman around 950 CE sat in Scandinavia, she lived in Harald Bluetooth’s and Sweyn Forkbeard’s world — conversion, royal power, and the North Sea as a road.",
+          },
+          {
+            title: "Beethoven is not H1e1",
+            copy: "FamilyTreeDNA still lists Ludwig van Beethoven as an H1e1 “notable connection.” Hair sequenced in 2023 (Begg et al., Current Biology) is haplogroup H1b1+16362C. The shared node with Helle is H1, around 5200 BCE, not H1e1. Discover pages lag published genomes. The fun fact survives only one step higher on the tree.",
+          },
+        ],
+        papers: [
+          {
+            cite: "Pereira et al., Genome Research 2005",
+            point: "H1 and H3 as post-glacial western European expansions, with a strong Iberian signal.",
+          },
+          {
+            cite: "Bybjerg-Grauholm et al., PLOS ONE 2018",
+            point: "24,216 Danes: H ~45%; H1 is the largest H subclade in the country.",
+          },
+          {
+            cite: "Begg et al., Current Biology 2023",
+            point: "Beethoven’s authentic hair is H1b1+16362C, not the H1e1 that some public trees still show.",
+          },
+          {
+            cite: "Lazaridis et al. 2022; Gretzinger et al. 2025; Wang et al. 2025",
+            point: "Ancient H1e1b1 in Iron Age Bulgaria, Thuringian Saxony-Anhalt, and Avar-period Mödling.",
+          },
+        ],
+      },
     },
     beyond: {
       kicker: "Beyond myOrigins",
@@ -171,11 +229,13 @@ export const science: Record<Locale, ScienceCopy> = {
     },
   },
   da: {
-    twig: {
+    twigs: {
+      H10a1u: {
       kicker: "Et nærmere kig på H10a1u",
       title: "En tusindårig kvist",
       accent: " på en tretusindårig tråd.",
       lede: "FamilyTreeDNA daterer den nulevende mor til H10a1u til omkring 1090 e.Kr. Det er ungt. Mutationen selv er det ikke. Det interessante er stilheden derimellem.",
+      image: "/images/medieval-denmark.jpg",
       imageAlt: "En rekonstrueret middelalderlig dansk landsby med tømmerhuse og tørvetage ved en vinterfjord, med en lille trækirke i skumringen",
       cards: [
         {
@@ -217,6 +277,59 @@ export const science: Record<Locale, ScienceCopy> = {
           point: "100 olddanske genomer: Ertebølle-jægere afløst af tragtbægerbønder, derefter af steppe-beslægtede. Lokalt mesolitisk DNA efterlod lidt i senere danskere.",
         },
       ],
+      },
+      H1e1b1f1: {
+        kicker: "Et nærmere kig på H1e1b1f1",
+        title: "En vikingetidskvist",
+        accent: " på en senneolitisk familie.",
+        lede: "FamilyTreeDNA daterer den nulevende mor til H1e1b1f1 til omkring 950 e.Kr. Det er sen vikingetid. Forældregrenen er mere end to årtusinder ældre. Femten testere, ikke fire — og denne gang har forældrefamilien allerede navne i den danske middelalder.",
+        image: "/images/viking-age-denmark.jpg",
+        imageAlt: "En dansk kystbebyggelse fra slutningen af 900-tallet med tørretækte langhuse ved en grå fjord i skumringen",
+        cards: [
+          {
+            title: "1700 f.Kr., derefter en lang stilhed",
+            copy: "H1e1b1f1 forgrenede sig fra H1e1b1f i bronzealderen — FamilyTreeDNAs middel er 1705 f.Kr. (95 % 2455–1022 f.Kr.). Datoen 950 e.Kr. er den seneste kvinde, de femten testere på denne navngivne kvist deler, ikke året mutationen opstod. YFull definerer forælderen H1e1b1f ved A9545G og gør den yngre (dannet ~300 f.Kr., TMRCA ~1200 e.Kr.). Uhrene er uenige; biologien er en tynd nordlig tråd, der først busker i det sidste årtusind.",
+          },
+          {
+            title: "Et ur på femten mennesker",
+            copy: "95 %-intervallet er 717–1176 e.Kr.: midt-vikingetid gennem de tidlige Valdemarer. Femten testere strammer uret i forhold til en kvist med fire. Seks nævner Danmark, to Norge, én Sverige, seks ukendt. Den levende geografi er skandinavisk. Intet oldtidsgenom er kaldt H1e1b1f1 — det sidste bogstav er for ungt — men forældrefamilien er allerede på dansk jord i middelalderen.",
+          },
+          {
+            title: "H1 er den store vestlige datter",
+            copy: "H1 er mærket af G3010A og er den største europæiske datter af H. Et Genome Research-studie fra 2005 lagde dens ekspansion i postglacialt Vesteuropa, med et stærkt iberisk signal. I Danmark er H1 almindelig: omkring 15 % af et forensisk dansk sample, og H1 udgør groft 38 % af al H hos 24.216 danskere. H1e (G5460A) er langt sjældnere dér — omkring 0,5 % i det forensiske sæt. Helles linje er et sent nordligt blad på et meget stort vestligt træ.",
+          },
+          {
+            title: "H1e1b1 vandrede i jernalderen",
+            copy: "De tættere arkæologiske slægtninge sidder ved H1e1b1, omkring 3350 f.Kr.: en tidlig jernalderkvinde i Stambolovo i Bulgarien (I15848, Lazaridis 2022), en ca. 11-årig thüringisk pige i Brücken i Sachsen-Anhalt (436–542 e.Kr., Gretzinger 2025) og flere senavariske begravelser ved Mödling–Goldene Stiege i Niederösterreich (600–800 e.Kr., Wang 2025). Det er en centraleuropæisk morlinje, der senere får en skandinavisk navngiven datter — ikke en linje der begyndte i en vikingehal.",
+          },
+          {
+            title: "Allerede i Danmark omkring 950",
+            copy: "YFull placerer et olddansk mitogenom (MK059610) på H1e1b1f, og en søsterkvist H1e1b1d er en klynge af danske sekvenser. En tidlig middelalderlig begravelse ved Sankt Mathias er kaldt H1e1b1. Forældrefamilien var i Danmark i de samme århundreder som den nulevende TMRCA. Hvis kvinden omkring 950 e.Kr. sad i Skandinavien, levede hun i Harald Blåtands og Svend Tveskægs verden — omvendelse, kongemagt og Nordsøen som vej.",
+          },
+          {
+            title: "Beethoven er ikke H1e1",
+            copy: "FamilyTreeDNA lister stadig Ludwig van Beethoven som en H1e1-“bemærkelsesværdig forbindelse.” Hår sekventeret i 2023 (Begg m.fl., Current Biology) er haplogruppe H1b1+16362C. Det fælles knudepunkt med Helle er H1, omkring 5200 f.Kr., ikke H1e1. Discover-sider halter efter offentliggjorte genomer. Det sjove faktum overlever kun ét trin højere på træet.",
+          },
+        ],
+        papers: [
+          {
+            cite: "Pereira m.fl., Genome Research 2005",
+            point: "H1 og H3 som postglaciale vesteuropæiske ekspansioner, med et stærkt iberisk signal.",
+          },
+          {
+            cite: "Bybjerg-Grauholm m.fl., PLOS ONE 2018",
+            point: "24.216 danskere: H ~45 %; H1 er den største H-undergruppe i landet.",
+          },
+          {
+            cite: "Begg m.fl., Current Biology 2023",
+            point: "Beethovens ægte hår er H1b1+16362C, ikke det H1e1 nogle offentlige træer stadig viser.",
+          },
+          {
+            cite: "Lazaridis m.fl. 2022; Gretzinger m.fl. 2025; Wang m.fl. 2025",
+            point: "Oldtids-H1e1b1 i jernalderens Bulgarien, thüringisk Sachsen-Anhalt og avar-tidens Mödling.",
+          },
+        ],
+      },
     },
     beyond: {
       kicker: "Bagom myOrigins",
