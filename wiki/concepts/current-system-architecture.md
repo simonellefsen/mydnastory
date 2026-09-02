@@ -10,7 +10,7 @@ sources:
 
 # Current System Architecture
 
-This page describes v1 as deployed and checked on 2026-09-02. The versioned redesign remains [planned](../roadmap.md).
+This page describes the production system after v2-v4 were released on 2026-09-02. The original v1 route remains available as a comparison and fallback.
 
 ## Runtime and Routes
 
@@ -18,10 +18,12 @@ This page describes v1 as deployed and checked on 2026-09-02. The versioned rede
 - `/` is locale-selected by `proxy.ts`; the `NEXT_LOCALE` cookie wins over the browser language.
 - `/en` and `/da` are catalogs.
 - `/[locale]/[slug]` statically generates published profiles and renders the v1 story.
+- `/[locale]/v2/[slug]`, `/v3/[slug]`, and `/v4/[slug]` statically generate the Story, Dossier, and Journey experiences.
+- Bare versioned paths such as `/v4/simon` pass through the same cookie/browser-language negotiation as v1.
 - `/pernille`, `/helle`, and `/shared` profile routes redirect to the separate Pernille/Helle site.
 - Vercel deploys from the GitHub repository. No database or server-side DNA processing is part of the public application.
 
-## Profile Data Flow
+## v1 Profile Data Flow
 
 ```mermaid
 flowchart LR
@@ -33,7 +35,22 @@ flowchart LR
   S --> C["Chapter components"]
 ```
 
-The current `Profile` type mixes observations, formatted numbers, prose, imagery, colors, and chart values. English is the base object; Danish is a partial overlay. This works for one presentation but makes three future presentations vulnerable to numerical and source drift.
+The legacy `Profile` type mixes observations, formatted numbers, prose, imagery, colors, and chart values. English is the base object; Danish is a partial overlay. It remains in place for v1 only.
+
+## Versioned Evidence Flow
+
+```mermaid
+flowchart LR
+  R["Ignored private exports"] --> V["Local aggregate verifier"]
+  V --> A["Approved aggregate fixture"]
+  P["Public source records"] --> E["Typed evidence layer"]
+  A --> E
+  E --> V2["v2 Story"]
+  E --> V3["v3 Dossier"]
+  E --> V4["v4 Journey"]
+```
+
+`Fact`, `SourceRef`, `OriginEstimate`, `DatasetQc`, `Lineage`, and `EvidenceConnection` records hold language-neutral results, precision, status, dates, and source IDs. Localized presentation copy consumes those records; it does not own authoritative values.
 
 ## UI Composition
 
@@ -48,16 +65,13 @@ The v1 visual language is a dark cinematic archive with photographic landscapes,
 - No raw genotype row or full sequence is needed to build or serve the site.
 - First names only; living match names and raw genotypes are forbidden.
 
-The planned architecture keeps these invariants while adding a second boundary: a typed public evidence fixture reproducibly checked against private inputs before release.
+The versioned architecture keeps these invariants and adds a second boundary: a typed public evidence fixture reproducibly checked against private inputs before release. `.vercelignore` excludes `ftdna/**` independently of Git ignore rules.
 
-## Known Baseline Issues
+## Current Quality State and Legacy Limits
 
-- `npm run build` passes.
-- `npm run lint` currently fails in `Origins.tsx` and `PhoneDock.tsx`.
-- Two `<1%` origins are stored internally as `0.5`, inventing chart precision.
-- Source citations are text rather than linked records.
-- Numerical facts and translated prose share the same presentation-oriented object.
-- Reveal components can leave content hidden until client-side viewport intersection occurs.
-- The first-load JavaScript for the v1 profile route was approximately 681 KB in the 2026-09-02 production build audit.
+- Lint, route-aware TypeScript, ten evidence/unit tests, the production build, 27 Playwright/axe checks, and local private aggregate verification pass on the release revision.
+- v2-v4 use explicit `<1%` precision, linked source records, server-visible content, and shared language-neutral facts.
+- v1 still uses the legacy presentation model, prose-only citations, approximate trace slices, and reveal-on-scroll components. These are retained as known comparison-route limitations.
+- In the release build, v2-v4 reference less unique uncompressed client JavaScript than v1, though v2 and v3 remain slightly above the roadmap's aspirational 600 KiB target.
 
 See [urgent todo](../urgent-todo.md) for the required corrections.

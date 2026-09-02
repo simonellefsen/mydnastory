@@ -32,7 +32,7 @@ Exit gate: lint and production build pass, the worktree remains clean, and produ
 
 ## Phase 1 — Shared Evidence Foundation
 
-**State:** implemented on `codex/v2`; production release pending.
+**State:** implemented on `codex/v2` and released on `main`.
 
 - Introduce language-neutral `Fact`, `SourceRef`, `OriginEstimate`, `LineageNode`, `DatasetQc`, and `Connection` records.
 - Move numbers, precision, confidence, date, source IDs, and method notes out of presentation copy.
@@ -44,7 +44,7 @@ Exit gate: all published facts render from one typed source, and a trusted local
 
 ## Phase 2 — v2 Story + Evidence
 
-**State:** implemented and verified on `codex/v2`; production release pending.
+**State:** implemented on `codex/v2` and released on `main`.
 
 Route: `/en/v2/simon` and `/da/v2/simon`.
 
@@ -58,7 +58,7 @@ Exit gate: bilingual preview passes content, accessibility, responsive, metadata
 
 ## Phase 3 — v3 Research Dossier
 
-**State:** implemented and verified on `codex/v3`; production release pending.
+**State:** implemented on `codex/v3` and released on `main`.
 
 Route: `/en/v3/simon` and `/da/v3/simon`.
 
@@ -71,7 +71,7 @@ Exit gate: an informed reader can trace every material conclusion to a source an
 
 ## Phase 4 — v4 Immersive Journey
 
-**State:** implemented and verified on `codex/v4`; production release pending.
+**State:** implemented on `codex/v4` and released on `main`.
 
 Route: `/en/v4/simon` and `/da/v4/simon`.
 
@@ -84,9 +84,11 @@ Exit gate: the story remains complete without animation or JavaScript, meets per
 
 ## Release Sequence
 
-1. `codex/v2` from current `main`: shared foundation plus v2, preview, verify, merge, and production verification.
-2. `codex/v3` from updated `main`: v3, preview, verify, merge, and production verification.
-3. `codex/v4` from updated `main`: v4, preview, verify, merge, and production verification.
+1. `codex/v2`: shared foundation plus v2 at milestone `48f770c`.
+2. `codex/v3`: v3 on top of v2 at milestone `90c6fb8`.
+3. `codex/v4`: v4 and the combined browser gate on top of v3 at milestone `5336f78`.
+
+The branch milestones were dependency-ordered. The verified descendant was then released once as documented in the [combined release decision](decisions/2026-09-02-combined-v2-v4-release.md).
 
 The version switcher exposes only released versions and preserves locale and slug. v1 remains the stable fallback at `/en/simon` and `/da/simon`.
 

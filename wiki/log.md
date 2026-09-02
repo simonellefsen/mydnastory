@@ -10,6 +10,12 @@ updated: 2026-09-02
 
 Append-only timeline for wiki maintenance. Use headings in the form `## [YYYY-MM-DD] kind | summary`.
 
+## [2026-09-02] release | Publish v2, v3, and v4
+
+- Fast-forwarded `main` through the three version milestones and deployed production revision `b84c217` as Vercel deployment `dpl_J5z7SUZzEZcurMfZ9XWQzu3hdk2i`.
+- Verified HTTP 200 responses, localized headings, canonical URLs, cross-version navigation, the v4 evidence tray, and locale negotiation on `mydnastory.vercel.app` for all six English and Danish v2-v4 routes.
+- Recorded the combined-production decision while preserving the separate v2, v3, and v4 Git branches as review and rollback boundaries.
+
 ## [2026-09-02] preview | Verify the combined v2-v4 deployment
 
 - Deployed Git revision `5336f78` to [the protected Vercel preview](https://mydnastory-e6aoo6cdb-simonellefsens-projects.vercel.app). Vercel completed the Next.js 16.3.4 build and statically generated all six localized version routes.

@@ -11,7 +11,7 @@ sources:
 
 # Versioned Experience Strategy
 
-The project will explore three genuinely different answers to the same content problem. They share facts, sources, privacy rules, and basic accessible primitives; they do not share a visual shell.
+The project exposes three genuinely different answers to the same content problem. They share facts, sources, privacy rules, and basic accessible primitives; they do not share a visual shell.
 
 ## v2 — Story + Evidence
 
