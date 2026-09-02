@@ -18,18 +18,11 @@ export function PhoneDock() {
   const [open, setOpen] = useState(false);
   const chapterIds = useMemo(() => t.nav.chapters.map((c) => c.id), [t.nav.chapters]);
   const onProfile = publishedProfiles.some((p) => rest === `/${p.slug}`);
+  const onVersionedStory = /^\/v[2-4]\//.test(rest);
   const active = useActiveChapter(onProfile ? chapterIds : [], t.nav.chapters[0].id);
 
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
-    if (!isPhone) setOpen(false);
-  }, [isPhone]);
-
-  useEffect(() => {
-    if (!open) return;
+    if (!open || !isPhone) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };
@@ -40,12 +33,14 @@ export function PhoneDock() {
       document.body.style.overflow = prev;
       window.removeEventListener("keydown", onKey);
     };
-  }, [open]);
+  }, [isPhone, open]);
 
   const goChapter = (id: string) => {
     setOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  if (onVersionedStory) return null;
 
   return (
     <>

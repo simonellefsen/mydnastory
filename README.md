@@ -4,6 +4,8 @@ A bilingual archive for my own DNA history. Each published kit gets the same cha
 
 Pernille and Helle now live at [pernille-helle.vercel.app](https://pernille-helle.vercel.app).
 
+Project history, evidence boundaries, runbooks, and the v2-v4 improvement roadmap live in the [project wiki](wiki/index.md).
+
 ## Develop
 
 ```bash

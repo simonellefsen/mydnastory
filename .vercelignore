@@ -1,0 +1,4 @@
+ftdna/**
+.git/**
+wiki/**
+scripts/__pycache__/**

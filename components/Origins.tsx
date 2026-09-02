@@ -27,14 +27,21 @@ export function Origins({ profile }: { profile: Profile }) {
 
   const slices = useMemo(() => {
     const r = 42;
-    let cursor = -Math.PI / 2;
-    return origins.map((o) => {
-      const sweep = (o.percent / 100) * TAU;
-      const start = cursor;
-      const end = cursor + sweep;
-      cursor = end;
-      return { ...o, d: arc(50, 50, r, start, end), start, end };
-    });
+    return origins.reduce<{
+      cursor: number;
+      items: Array<(typeof origins)[number] & { d: string; start: number; end: number }>;
+    }>(
+      (result, origin) => {
+        const sweep = (origin.percent / 100) * TAU;
+        const start = result.cursor;
+        const end = start + sweep;
+        return {
+          cursor: end,
+          items: [...result.items, { ...origin, d: arc(50, 50, r, start, end), start, end }],
+        };
+      },
+      { cursor: -Math.PI / 2, items: [] },
+    ).items;
   }, [origins]);
 
   return (
