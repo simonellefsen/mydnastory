@@ -32,6 +32,8 @@ Exit gate: lint and production build pass, the worktree remains clean, and produ
 
 ## Phase 1 — Shared Evidence Foundation
 
+**State:** implemented on `codex/v2`; production release pending.
+
 - Introduce language-neutral `Fact`, `SourceRef`, `OriginEstimate`, `LineageNode`, `DatasetQc`, and `Connection` records.
 - Move numbers, precision, confidence, date, source IDs, and method notes out of presentation copy.
 - Add clickable sources and retrieval dates.
@@ -41,6 +43,8 @@ Exit gate: lint and production build pass, the worktree remains clean, and produ
 Exit gate: all published facts render from one typed source, and a trusted local verification run reproduces the public aggregate fixture from the ignored inputs.
 
 ## Phase 2 — v2 Story + Evidence
+
+**State:** implemented and verified on `codex/v2`; production release pending.
 
 Route: `/en/v2/simon` and `/da/v2/simon`.
 
@@ -54,6 +58,8 @@ Exit gate: bilingual preview passes content, accessibility, responsive, metadata
 
 ## Phase 3 — v3 Research Dossier
 
+**State:** implemented and verified on `codex/v3`; production release pending.
+
 Route: `/en/v3/simon` and `/da/v3/simon`.
 
 - Build a slate-and-teal technical atlas with complete documented lineages.
@@ -64,6 +70,8 @@ Route: `/en/v3/simon` and `/da/v3/simon`.
 Exit gate: an informed reader can trace every material conclusion to a source and understand what is observed, derived, or interpreted.
 
 ## Phase 4 — v4 Immersive Journey
+
+**State:** implemented and verified on `codex/v4`; production release pending.
 
 Route: `/en/v4/simon` and `/da/v4/simon`.
 

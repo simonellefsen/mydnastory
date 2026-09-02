@@ -195,6 +195,11 @@
   white-space: nowrap;
 }
 
+.variantSummary {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 .muted {
   color: var(--muted);
 }

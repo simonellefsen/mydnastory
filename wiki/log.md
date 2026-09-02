@@ -10,6 +10,12 @@ updated: 2026-09-02
 
 Append-only timeline for wiki maintenance. Use headings in the form `## [YYYY-MM-DD] kind | summary`.
 
+## [2026-09-02] implementation | Build the v4 immersive journey and browser quality gate
+
+- Added static English and Danish v4 routes with a Nordic-night six-scene journey, meaningful CSS data visuals, full server-rendered content, reduced-motion protection, explicit evidence boundaries, and a persistent native evidence tray.
+- Exposed all four experiences in the locale-preserving version switcher and added a production-mode Playwright/axe matrix at 390, 768, and 1280 CSS pixels for routing, metadata, filters, disclosures, reduced motion, JavaScript-disabled content, overflow, console errors, and serious accessibility defects.
+- The browser gate found and drove fixes for v3 scroll-table keyboard focus and v4 percentage-label contrast. All 27 end-to-end checks pass on `codex/v4`; production release remains pending.
+
 ## [2026-09-02] implementation | Build the v3 research dossier
 
 - Added static English and Danish v3 routes with a separate technical-atlas design, origin and QC tables, complete documented maternal and paternal paths, branch-quality evidence, a filterable connection register, and direct source links.

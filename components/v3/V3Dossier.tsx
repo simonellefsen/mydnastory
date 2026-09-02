@@ -22,7 +22,11 @@ import styles from "./v3.module.css";
 function OriginTable({ items, locale }: { items: OriginEstimate[]; locale: Locale }) {
   const { v3 } = getEvidenceCopy(locale);
   return (
-    <div className={styles.tableWrap}>
+    <div
+      className={styles.tableWrap}
+      tabIndex={0}
+      aria-label={locale === "da" ? "Vandret rulbar datatabel" : "Horizontally scrollable data table"}
+    >
       <table className={styles.table}>
         <thead><tr><th>{v3.measure}</th><th>{v3.result}</th><th>{v3.precision}</th><th>{v3.evidenceState}</th></tr></thead>
         <tbody>
@@ -109,7 +113,11 @@ export function V3Dossier({ locale, slug }: { locale: Locale; slug: string }) {
 
         <section className={styles.section} aria-labelledby="dossier-qc">
           <div className={styles.sectionHead}><p className={styles.sectionId}>02 / 07</p><h2 id="dossier-qc">{v3.qc}</h2></div>
-          <div className={styles.tableWrap}>
+          <div
+            className={styles.tableWrap}
+            tabIndex={0}
+            aria-label={locale === "da" ? "Vandret rulbar kvalitetskontroltabel" : "Horizontally scrollable quality-control table"}
+          >
             <table className={styles.table}>
               <thead><tr><th>{v3.test}</th><th>{v3.measure}</th><th>{v3.result}</th><th>{v3.evidenceState}</th></tr></thead>
               <tbody>
@@ -139,7 +147,7 @@ export function V3Dossier({ locale, slug }: { locale: Locale; slug: string }) {
             </article>
             <article className={styles.panel}>
               <p className={styles.code}>Y / GRCh38</p><h3>R-BY67151</h3>
-              <p className={styles.value}>32 / 32 derived · 30 PASS · 2 flagged</p>
+              <p className={`${styles.value} ${styles.variantSummary}`}>32 / 32 derived · 30 PASS · 2 flagged</p>
               <p>{locale === "da" ? "Kvalitetsflagene skjules ikke: afledt tilstand og filterstatus er to forskellige observationer." : "The quality flags are not hidden: derived state and filter status are separate observations."}</p>
             </article>
           </div>

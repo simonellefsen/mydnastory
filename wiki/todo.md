@@ -30,15 +30,15 @@ Assert that EN and DA use the same fact IDs, values, precision, sources, lineage
 
 ## T4 — Version-Aware Routes and Metadata
 
-**State:** v2 and v3 implemented; v4 follows its branch.
+**State:** implemented across `codex/v2`, `codex/v3`, and `codex/v4`; production release pending.
 
 Add static localized version routes, canonical/hreflang metadata, and a locale/slug-preserving version switcher driven by an explicit released-version list.
 
 ## T5 — Automated Browser and Accessibility Coverage
 
-**State:** planned for v2.
+**State:** implemented on `codex/v4`; production release pending.
 
-Add Playwright and axe checks for routing, evidence disclosures, keyboard/focus behavior, mobile navigation, no-JavaScript visibility, reduced motion, responsive overflow, and console errors.
+Playwright and axe now cover localized routing, version navigation, v3 filtering, v4 evidence disclosure, 390/768/1280-pixel responsive overflow, reduced motion, serious accessibility violations, console errors, and no-JavaScript visibility. Stable screenshot assertions remain part of T6.
 
 ## T6 — Visual Regression Baselines
 
