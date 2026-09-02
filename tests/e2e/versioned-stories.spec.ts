@@ -76,6 +76,23 @@ test("bare versioned routes retain locale negotiation", async ({ page }) => {
   await expect(page).toHaveURL(/\/(en|da)\/v4\/simon$/);
 });
 
+test("version roots open the default Simon story", async ({ page }) => {
+  const roots = [
+    { path: "/da/v2", destination: "/da/v2/simon", title: "Tre tests. Tre tidsskalaer." },
+    { path: "/da/v3", destination: "/da/v3/simon", title: "Evidens før fortolkning." },
+    { path: "/da/v4", destination: "/da/v4/simon", title: "Ét genom er ikke én historie." },
+  ];
+
+  for (const root of roots) {
+    await page.goto(root.path);
+    await expect(page).toHaveURL(new RegExp(`${root.destination}$`));
+    await expect(page.getByRole("heading", { level: 1, name: root.title })).toBeVisible();
+  }
+
+  await page.goto("/v2");
+  await expect(page).toHaveURL(/\/(en|da)\/v2\/simon$/);
+});
+
 test("all versioned content remains visible without JavaScript", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   const page = await context.newPage();

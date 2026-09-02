@@ -10,6 +10,11 @@ updated: 2026-09-02
 
 Append-only timeline for wiki maintenance. Use headings in the form `## [YYYY-MM-DD] kind | summary`.
 
+## [2026-09-02] fix | Add version-root redirects
+
+- Added permanent locale-preserving redirects from `/[locale]/v2`, `/v3`, and `/v4` to Simon's corresponding story, including bare `/v2`, `/v3`, and `/v4` paths after locale negotiation.
+- Added browser coverage for all Danish version roots and the bare v2 shortcut after `/da/v2` was reported as a production 404.
+
 ## [2026-09-02] release | Publish v2, v3, and v4
 
 - Fast-forwarded `main` through the three version milestones and deployed production revision `b84c217` as Vercel deployment `dpl_J5z7SUZzEZcurMfZ9XWQzu3hdk2i`.

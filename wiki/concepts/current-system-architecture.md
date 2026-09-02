@@ -19,6 +19,7 @@ This page describes the production system after v2-v4 were released on 2026-09-0
 - `/en` and `/da` are catalogs.
 - `/[locale]/[slug]` statically generates published profiles and renders the v1 story.
 - `/[locale]/v2/[slug]`, `/v3/[slug]`, and `/v4/[slug]` statically generate the Story, Dossier, and Journey experiences.
+- `/[locale]/v2`, `/v3`, and `/v4` permanently redirect to the corresponding Simon route while it is the only published profile.
 - Bare versioned paths such as `/v4/simon` pass through the same cookie/browser-language negotiation as v1.
 - `/pernille`, `/helle`, and `/shared` profile routes redirect to the separate Pernille/Helle site.
 - Vercel deploys from the GitHub repository. No database or server-side DNA processing is part of the public application.
