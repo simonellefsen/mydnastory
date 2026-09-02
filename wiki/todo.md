@@ -30,7 +30,7 @@ Assert that EN and DA use the same fact IDs, values, precision, sources, lineage
 
 ## T4 — Version-Aware Routes and Metadata
 
-**State:** v2 implemented; v3/v4 route entries follow their branches.
+**State:** v2 and v3 implemented; v4 follows its branch.
 
 Add static localized version routes, canonical/hreflang metadata, and a locale/slug-preserving version switcher driven by an explicit released-version list.
 

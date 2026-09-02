@@ -10,6 +10,11 @@ updated: 2026-09-02
 
 Append-only timeline for wiki maintenance. Use headings in the form `## [YYYY-MM-DD] kind | summary`.
 
+## [2026-09-02] implementation | Build the v3 research dossier
+
+- Added static English and Danish v3 routes with a separate technical-atlas design, origin and QC tables, complete documented maternal and paternal paths, branch-quality evidence, a filterable connection register, and direct source links.
+- Verified type-safe static generation, responsive semantics, and the client-side peer-reviewed/vendor filter. The version switcher now exposes Original, Story, and Dossier; Journey remains hidden until v4 lands. This entry records the `codex/v3` implementation state; production release remains pending.
+
 ## [2026-09-02] implementation | Build the evidence foundation and v2 story
 
 - Added typed language-neutral evidence and source records, a sanitized aggregate fixture, and a local-only verifier that reproduced 725,291 autosomal rows/723,043 calls, the mtDNA sequence summary and three terminal-path markers, and 14,879,003 Big Y callable bases with all 32 terminal variants derived and 30 PASS.
