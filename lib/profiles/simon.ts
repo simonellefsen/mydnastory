@@ -142,13 +142,13 @@ export const simon: Profile = {
   haplogroup: {
     id: "U5b1b1a",
     parent: "U5b1b1a+7385",
-    pathLabel: "U > U5 > U5b > U5b1 > U5b1b1a +7385 +16519",
+    pathLabel: "U5b1b1a +7385 +16519",
     formed: "branched from U5b1b1a+7385 around 1200 BCE",
     headline: "A Swedish motherline from the Viking Age.",
-    tmrca: { meanLabel: "850 CE", ci95: "see note" },
-    testers: { total: 15, known: "8 naming Sweden, 1 Finland" },
+    tmrca: { meanLabel: "836 CE", ci95: "505–1127 CE" },
+    testers: { total: 15, known: "Sweden 8, Finland 1" },
     rarityNote:
-      "Fifteen testers sit on U5b1b1a+7385+16519. The living geography is Swedish, with one Finnish kit. The parent branch is already Bronze Age; this twig is medieval.",
+      "Fifteen testers sit on U5b1b1a+7385+16519. The mtFull FASTA confirms T16144C, A7385G, and T16519C against rCRS. The parent +7385 is a large northeastern family (Finland, Sweden, Norway, Sápmi). This extra-mutation twig is Swedish and medieval.",
   },
   haploPath: [
     {
@@ -217,19 +217,27 @@ export const simon: Profile = {
     },
     {
       haplogroup: "U5b1b1a",
-      yearLabel: "1400 BCE",
-      year: -1400,
+      yearLabel: "1415 BCE",
+      year: -1415,
       era: "Metal Ages",
       place: "Scandinavia",
-      copy: "The named family before the last two mutations. Bronze Age north. From here the clock is no longer geological.",
+      copy: "T16144C. Mitotree (July 2026) dates this node to about 1415 BCE. Living testers pile up in Finland, then Sweden and Norway — a northeastern Bronze Age family, not a Swedish census yet.",
     },
     {
-      haplogroup: "U5b1b1a+16519",
-      yearLabel: "850 CE",
-      year: 850,
+      haplogroup: "U5b1b1a+7385",
+      yearLabel: "1205 BCE",
+      year: -1205,
+      era: "Metal Ages",
+      place: "Scandinavia",
+      copy: "A7385G, confirmed in the FASTA. About 1,300 full-sequence testers. Iron Age burials at Levänluhta in Finland sit here. The FASTA is on this oak; the last extra mutation is still ahead.",
+    },
+    {
+      haplogroup: "U5b1b1a+7385+16519",
+      yearLabel: "836 CE",
+      year: 836,
       era: "Middle Ages",
       place: "Sweden",
-      copy: "The living twig. FamilyTreeDNA dates the most recent woman of this exact branch around 850 CE. Fifteen testers; the named origins are Sweden and Finland.",
+      copy: "The living twig. T16519C, a fast control-region extra, confirmed in the FASTA. Mitotree dates the last woman of this exact branch to 836 CE (505–1127). Fifteen testers; eight name Sweden, one Finland. The sequence itself stays private.",
     },
   ],
   haploMapPoints: [
@@ -241,17 +249,17 @@ export const simon: Profile = {
     { x: 53, y: 20, label: "U5b1b1a" },
   ],
   motherlineMapCaption:
-    "A schematic walk: East Africa → Near East → haplogroup U → U5 in Ice Age Europe → a Swedish medieval twig. Not a GPS track — a mitochondrial route of daughters.",
+    "A schematic walk: East Africa → Near East → haplogroup U → U5 in Ice Age Europe → a large northeastern +7385 oak → a Swedish medieval twig. Not a GPS track — a mitochondrial route of daughters.",
   motherlineSpotlights: [
     {
       img: "/images/sweden-winter.jpg",
       title: "A Swedish twig",
-      copy: "Fifteen testers. Eight name Sweden, one Finland. The last woman of this exact branch likely lived around 850 CE — late Iron Age / early medieval north.",
+      copy: "Fifteen testers on U5b1b1a+7385+16519. Eight name Sweden, one Finland. The FASTA confirms the three extras against rCRS. Mitotree’s clock for the last woman is 836 CE (505–1127).",
     },
     {
       img: "/images/hunter-gatherer.jpg",
       title: "U5 before farms",
-      copy: "U5 is the hunter-gatherer motherline of western Europe. Cheddar Man, Motala, and a Mesolithic Dane at Fannerup all sit on older U5b branches of the same family.",
+      copy: "U5 is the hunter-gatherer motherline of western Europe. Cheddar Man, Motala, and a Mesolithic Dane at Fannerup all sit on older U5b branches of the same family. The FASTA is a full mt genome; those older nodes are in the sequence as well as the Swedish extras.",
     },
     {
       img: "/images/medieval-denmark.jpg",
@@ -487,7 +495,21 @@ export const simon: Profile = {
       place: "Jutland, Denmark",
       image: "/images/hunter-gatherer.jpg",
       blurb:
-        "A Mesolithic man from Fannerup, Jutland (Allentoft et al. 2024). He sits on U5b1b1, the parent of Simon’s living twig. About 1 in 148 testers share a node this close. A Danish hunter-gatherer on the same motherline family, five thousand years before 850 CE.",
+        "A Mesolithic man from Fannerup, Jutland (Allentoft et al. 2024). He sits on U5b1b1, two steps above Simon’s living twig. About 1 in 148 testers share a node this close. A Danish hunter-gatherer on the same motherline family, five thousand years before 836 CE.",
+    },
+    {
+      id: "levanluhta",
+      name: "Levänluhta 1963",
+      dates: "300–800 CE",
+      kind: "ancient",
+      rarity: "rare",
+      line: "maternal",
+      shared: "U5b1b1a+7385",
+      sharedYear: "1205 BCE",
+      place: "Levänluhta, Finland",
+      image: "/images/sweden-winter.jpg",
+      blurb:
+        "An Iron Age burial in a Finnish spring (Lamnidis et al. 2018). The genome is U5b1b1a1, a sister of Simon’s 16519 twig under A7385G. The shared node is about 1205 BCE. A northeastern oak, not a Swedish village, and not a living match.",
     },
     {
       id: "cheddar",
@@ -579,6 +601,6 @@ export const simon: Profile = {
     snps,
     build: "Build 37 autosomal export",
     painting:
-      "The chip reads autosomes and X — 725,276 SNPs here. A son’s X is the X his mother gave him. Y is not on this microarray; it was sequenced separately as Big Y. The February 2020 regions file covers 14.9 million bases of chrY that passed QC. All 32 equivalent SNPs for R-BY67151 are derived in that callset. Continent-scale painting is Scandinavian, with two traces under one percent.",
+      "The chip reads autosomes and X — 725,276 SNPs here. A son’s X is the X his mother gave him. Y is not on this microarray; it was sequenced separately as Big Y. The February 2020 regions file covers 14.9 million bases of chrY that passed QC. All 32 equivalent SNPs for R-BY67151 are derived in that callset. The mtFull FASTA is a complete rCRS-aligned genome and confirms T16144C, A7385G, and T16519C; the sequence stays private. Continent-scale painting is Scandinavian, with two traces under one percent.",
   },
 };

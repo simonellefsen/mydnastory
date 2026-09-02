@@ -22,13 +22,13 @@ const science: Record<Locale, ScienceCopy> = {
         kicker: "Beyond the badge",
         title: "U5 is Ice Age Europe.",
         accent: " This twig is medieval Sweden.",
-        lede: "FamilyTreeDNA’s living date for U5b1b1a+7385+16519 is about 850 CE, with fifteen testers, mostly Swedish. The family above it is much older: U5b is the hunter-gatherer motherline of western Europe, and a Mesolithic Dane at Fannerup already sits on U5b1b1.",
+        lede: "The mtFull FASTA confirms the three extras that name the living twig: T16144C, A7385G, T16519C. Mitotree (July 2026) dates U5b1b1a+7385+16519 to 836 CE (505–1127), with fifteen testers, mostly Swedish. The oak above it is a large northeastern Bronze Age family; Simon’s extra is a small Swedish fork, not a people.",
         image: "/images/sweden-winter.jpg",
         imageAlt: "A winter Swedish landscape standing in for a northern motherline",
         cards: [
           {
-            title: "A Mesolithic Dane, then a medieval Swede",
-            copy: "Fannerup 855 (Allentoft et al. 2024) is U5b1b1, 4671–4253 BCE, Jutland. Simon’s living twig is a daughter of that node dated to 850 CE. The motherline was in Denmark five thousand years before the testers who name Sweden.",
+            title: "A Mesolithic Dane, then a Finnish oak, then a Swedish extra",
+            copy: "Fannerup 855 (Allentoft et al. 2024) is U5b1b1, Jutland, fifth millennium BCE. U5b1b1a+7385, confirmed in the FASTA, is a Bronze Age node with about 1,300 testers — Finland first, then Sweden and Norway. Iron Age Levänluhta (Lamnidis et al. 2018) sits on a sister of the 16519 twig. Simon’s last extra is T16519C, dated 836 CE.",
           },
           {
             title: "Cheddar Man is an uncle, not a face",
@@ -36,13 +36,13 @@ const science: Record<Locale, ScienceCopy> = {
           },
           {
             title: "U5 and the hunter-gatherer half",
-            copy: "Simon’s autosomes are 49% FamilyTreeDNA Hunter-Gatherer. U5 is the mitochondrial family most often found in Western hunter-gatherers. The two facts rhyme without being the same measurement: one is the whole genome’s deep recipe, the other is one mother’s thread.",
+            copy: "Simon’s autosomes are 49% FamilyTreeDNA Hunter-Gatherer. U5 is the mitochondrial family most often found in Western hunter-gatherers. The FASTA is one mother’s whole mt genome. The 49% is the rest of the autosomes. They rhyme without being the same measurement.",
           },
         ],
         papers: [
           { cite: "Allentoft et al. 2024", point: "100 generations of Danish population history, including Fannerup 855 on U5b1b1." },
-          { cite: "Brace et al. 2019", point: "Cheddar Man and Mesolithic British genomes; U5b1 as a hunter-gatherer motherline in Britain." },
-          { cite: "Posth et al. 2016 / Malmström et al. 2009", point: "U5 dominance in Mesolithic Scandinavia, including Motala." },
+          { cite: "Lamnidis et al. 2018", point: "Iron Age Levänluhta, Finland, on U5b1b1a1 — a sister of Simon’s 16519 twig under A7385G." },
+          { cite: "FamilyTreeDNA Mitotree 2026.07.28", point: "U5b1b1a+7385+16519 TMRCA 836 CE (CI 505–1127), 15 testers; parent +7385 at 1205 BCE." },
         ],
       },
       "R-BY67151": {
@@ -80,13 +80,13 @@ const science: Record<Locale, ScienceCopy> = {
         kicker: "Bagved mærkatet",
         title: "U5 er istidens Europa.",
         accent: " Kvisten er middelalderens Sverige.",
-        lede: "FamilyTreeDNAs levende datering for U5b1b1a+7385+16519 er omkring 850 e.Kr., med femten testere, mest svenske. Familien ovenover er langt ældre: U5b er jæger-samlernes morlinje i Vesteuropa, og en mesolitisk dansker i Fannerup sidder allerede på U5b1b1.",
+        lede: "mtFull-FASTA’en bekræfter de tre ekstra, der navngiver den levende kvist: T16144C, A7385G, T16519C. Mitotree (juli 2026) daterer U5b1b1a+7385+16519 til 836 e.Kr. (505–1127), med femten testere, mest svenske. Egetræet ovenover er en stor nordøstlig bronzealderfamilie; Simons ekstra er en lille svensk forgrening, ikke et folk.",
         image: "/images/sweden-winter.jpg",
         imageAlt: "Et vintersvensk landskab som stand-in for en nordlig morlinje",
         cards: [
           {
-            title: "En mesolitisk dansker, så en middelalderlig svensker",
-            copy: "Fannerup 855 (Allentoft m.fl. 2024) er U5b1b1, 4671–4253 f.Kr., Jylland. Simons levende kvist er en datter af det knudepunkt, dateret til 850 e.Kr. Morlinjen var i Danmark fem tusinde år før testerne, der nævner Sverige.",
+            title: "En mesolitisk dansker, så et finsk egetræ, så en svensk ekstra",
+            copy: "Fannerup 855 (Allentoft m.fl. 2024) er U5b1b1, Jylland, femte årtusinde f.Kr. U5b1b1a+7385, bekræftet i FASTA’en, er et bronzealderknudepunkt med omkring 1.300 testere — Finland først, så Sverige og Norge. Jernalderens Levänluhta (Lamnidis m.fl. 2018) sidder på en søster til 16519-kvisten. Simons sidste ekstra er T16519C, dateret 836 e.Kr.",
           },
           {
             title: "Cheddar Man er en onkel, ikke et ansigt",
@@ -94,13 +94,13 @@ const science: Record<Locale, ScienceCopy> = {
           },
           {
             title: "U5 og jæger-halvdelen",
-            copy: "Simons autosomer er 49 % FamilyTreeDNA jæger-samler. U5 er den mitokondrielle familie, man oftest finder hos vestlige jæger-samlere. De to fakta rimer uden at være den samme måling.",
+            copy: "Simons autosomer er 49 % FamilyTreeDNA jæger-samler. U5 er den mitokondrielle familie, man oftest finder hos vestlige jæger-samlere. FASTA’en er én mors hele mt-genom. De 49 % er resten af autosomerne. De rimer uden at være den samme måling.",
           },
         ],
         papers: [
           { cite: "Allentoft m.fl. 2024", point: "100 generationer af dansk befolkningshistorie, inklusive Fannerup 855 på U5b1b1." },
-          { cite: "Brace m.fl. 2019", point: "Cheddar Man og mesolitiske britiske genomer; U5b1 som jæger-morlinje i Britannien." },
-          { cite: "Posth m.fl. 2016 / Malmström m.fl. 2009", point: "U5-dominans i mesolitisk Skandinavien, inklusive Motala." },
+          { cite: "Lamnidis m.fl. 2018", point: "Jernalderens Levänluhta, Finland, på U5b1b1a1 — en søster til Simons 16519-kvist under A7385G." },
+          { cite: "FamilyTreeDNA Mitotree 2026.07.28", point: "U5b1b1a+7385+16519 TMRCA 836 e.Kr. (CI 505–1127), 15 testere; forælder +7385 ved 1205 f.Kr." },
         ],
       },
       "R-BY67151": {

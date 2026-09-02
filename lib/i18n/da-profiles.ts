@@ -75,9 +75,9 @@ export const daProfiles: Record<string, TextBits> = {
     haplogroup: {
       formed: "forgrenede sig fra U5b1b1a+7385 omkring 1200 f.Kr.",
       headline: "En svensk morlinje fra vikingetiden.",
-      known: "8 nævner Sverige, 1 Finland",
+      known: "Sverige 8, Finland 1",
       rarityNote:
-        "Femten testere sidder på U5b1b1a+7385+16519. Den levende geografi er svensk, med ét finsk kit. Forældregrenen er allerede bronzealder; denne kvist er middelalderlig.",
+        "Femten testere sidder på U5b1b1a+7385+16519. mtFull-FASTA’en bekræfter T16144C, A7385G og T16519C mod rCRS. Forælderen +7385 er en stor nordøstlig familie (Finland, Sverige, Norge, Sápmi). Denne extra-mutationskvist er svensk og middelalderlig.",
     },
     haploPath: {
       L: {
@@ -105,22 +105,25 @@ export const daProfiles: Record<string, TextBits> = {
         copy: "Fannerup 855, en mesolitisk mand fra Jylland, sidder her. Morlinjen er allerede dansk tusinder af år før den kvist, testerne lever på.",
       },
       U5b1b1a: {
-        copy: "Den navngivne familie før de sidste to mutationer. Bronzealderens nord. Herfra er uret ikke længere geologisk.",
+        copy: "T16144C. Mitotree (juli 2026) daterer dette knudepunkt til omkring 1415 f.Kr. Levende testere samler sig i Finland, så Sverige og Norge — en nordøstlig bronzealderfamilie, endnu ikke en svensk folketælling.",
       },
-      "U5b1b1a+16519": {
-        copy: "Den levende kvist. FamilyTreeDNA daterer den seneste kvinde på netop denne gren til omkring 850 e.Kr. Femten testere; de navngivne oprindelser er Sverige og Finland.",
+      "U5b1b1a+7385": {
+        copy: "A7385G, bekræftet i FASTA’en. Omkring 1.300 full-sequence-testere. Jernalderbegravelser ved Levänluhta i Finland sidder her. FASTA’en er på dette egetræ; den sidste ekstra mutation ligger stadig forude.",
+      },
+      "U5b1b1a+7385+16519": {
+        copy: "Den levende kvist. T16519C, en hurtig kontrolregion-ekstra, bekræftet i FASTA’en. Mitotree daterer den seneste kvinde på netop denne gren til 836 e.Kr. (505–1127). Femten testere; otte nævner Sverige, én Finland. Sekvensen selv forbliver privat.",
       },
     },
     motherlineMapCaption:
-      "En skematisk vandring: Østafrika → Nærorienten → haplogruppe U → U5 i istidens Europa → en svensk middelalderkvist. Ikke et GPS-spor — en mitokondriel datterrute.",
+      "En skematisk vandring: Østafrika → Nærorienten → haplogruppe U → U5 i istidens Europa → et stort nordøstligt +7385-egetræ → en svensk middelalderkvist. Ikke et GPS-spor — en mitokondriel datterrute.",
     motherlineSpotlights: [
       {
         title: "En svensk kvist",
-        copy: "Femten testere. Otte nævner Sverige, én Finland. Den sidste kvinde på netop denne gren levede sandsynligvis omkring 850 e.Kr. — sen jernalder / tidlig middelalder i nord.",
+        copy: "Femten testere på U5b1b1a+7385+16519. Otte nævner Sverige, én Finland. FASTA’en bekræfter de tre ekstra mod rCRS. Mitotrees ur for den sidste kvinde er 836 e.Kr. (505–1127).",
       },
       {
         title: "U5 før markerne",
-        copy: "U5 er jæger-samlernes morlinje i Vesteuropa. Cheddar Man, Motala og en mesolitisk dansker i Fannerup sidder alle på ældre U5b-grene af samme familie.",
+        copy: "U5 er jæger-samlernes morlinje i Vesteuropa. Cheddar Man, Motala og en mesolitisk dansker i Fannerup sidder alle på ældre U5b-grene af samme familie. FASTA’en er et helt mt-genom; de ældre knudepunkter sidder i sekvensen sammen med de svenske ekstra.",
       },
       {
         title: "En dronning på U5b1",
@@ -238,7 +241,11 @@ export const daProfiles: Record<string, TextBits> = {
       },
       fannerup: {
         blurb:
-          "En mesolitisk mand fra Fannerup på Jylland (Allentoft m.fl. 2024). Han sidder på U5b1b1, forælderen til Simons levende kvist. Omkring 1 ud af 148 testere deler et knudepunkt så tæt. En dansk jæger-samler i samme morlinjefamilie, fem tusinde år før 850 e.Kr.",
+          "En mesolitisk mand fra Fannerup på Jylland (Allentoft m.fl. 2024). Han sidder på U5b1b1, to trin over Simons levende kvist. Omkring 1 ud af 148 testere deler et knudepunkt så tæt. En dansk jæger-samler i samme morlinjefamilie, fem tusinde år før 836 e.Kr.",
+      },
+      levanluhta: {
+        blurb:
+          "En jernalderbegravelse i en finsk kilde (Lamnidis m.fl. 2018). Genomet er U5b1b1a1, en søster til Simons 16519-kvist under A7385G. Det fælles knudepunkt er omkring 1205 f.Kr. Et nordøstligt egetræ, ikke en svensk landsby, og ikke et levende match.",
       },
       cheddar: {
         blurb:
@@ -266,7 +273,7 @@ export const daProfiles: Record<string, TextBits> = {
       },
     },
     genomePainting:
-      "Chippen læser autosomer og X — 725.276 SNP’er her. En søns X er det X, hans mor gav ham. Y er ikke på dette microarray; det blev sekventeret separat som Big Y. Februar 2020-regionsfilen dækker 14,9 millioner baser af chrY, der bestod QC. Alle 32 ækvivalente SNP’er for R-BY67151 er afledte i den VCF. Maleriet på kontinentskala er skandinavisk, med to spor under én procent.",
+      "Chippen læser autosomer og X — 725.276 SNP’er her. En søns X er det X, hans mor gav ham. Y er ikke på dette microarray; det blev sekventeret separat som Big Y. Februar 2020-regionsfilen dækker 14,9 millioner baser af chrY, der bestod QC. Alle 32 ækvivalente SNP’er for R-BY67151 er afledte i den VCF. mtFull-FASTA’en er et komplet rCRS-alignet genom og bekræfter T16144C, A7385G og T16519C; sekvensen forbliver privat. Maleriet på kontinentskala er skandinavisk, med to spor under én procent.",
   },
 };
 

@@ -293,7 +293,7 @@ export const messages: Record<Locale, Messages> = {
       title: "A story, not a verdict.",
       p1: "Ethnicity percentages and ancient components come from FamilyTreeDNA myOrigins version 3. They compare stretches of autosomal DNA with reference populations. They will shift as those references grow. Smaller slices are the most fragile.",
       p2: (haplo) =>
-        `Haplogroup ${haplo} is from mtFull Sequence. Notable and ancient “connections” on the motherline mean a shared maternal ancestor at the stated node, often many thousands of years ago. This site does not claim close kinship with queens, mummies, or archaeological strangers.`,
+        `Haplogroup ${haplo} is from mtFull Sequence. The FASTA confirms the named path SNPs against rCRS; the sequence stays private. Notable and ancient “connections” on the motherline mean a shared maternal ancestor at the stated node, often many thousands of years ago. This site does not claim close kinship with queens, mummies, or archaeological strangers.`,
       p2y: (haplo) =>
         `Haplogroup ${haplo} is from Big Y. The February 2020 VCF confirms the named terminal SNPs as derived; the raw calls stay private. Notable “connections” on the fatherline mean a shared paternal ancestor at the stated node. The Y is one thread. It does not have to match the autosomal map.`,
       p3: (name) =>
@@ -385,6 +385,7 @@ export const messages: Record<Locale, Messages> = {
       "Bonn / Vienna": "Bonn / Vienna",
       "Jamestown, Virginia": "Jamestown, Virginia",
       "Rathlin Island": "Rathlin Island",
+      "Levänluhta, Finland": "Levänluhta, Finland",
     },
     shared: {
       heroKicker: "A family in two kits",
@@ -571,7 +572,7 @@ export const messages: Record<Locale, Messages> = {
       title: "En historie, ikke en dom.",
       p1: "Etnicitetsprocenter og oldtidskomponenter kommer fra FamilyTreeDNA myOrigins version 3. De sammenligner stræk af autosomalt DNA med referencepopulationer. De vil rykke sig, efterhånden som referencerne vokser. De mindste skiver er de mest skrøbelige.",
       p2: (haplo) =>
-        `Haplogruppe ${haplo} kommer fra mtFull Sequence. Bemærkelsesværdige og arkæologiske “forbindelser” på morlinjen betyder en fælles maternel ane ved det angivne knudepunkt, ofte mange tusinde år tilbage. Sitet hævder ikke nært slægtskab med dronninger, mumier eller arkæologiske fremmede.`,
+        `Haplogruppe ${haplo} kommer fra mtFull Sequence. FASTA’en bekræfter de navngivne sti-SNP’er mod rCRS; sekvensen forbliver privat. Bemærkelsesværdige og arkæologiske “forbindelser” på morlinjen betyder en fælles maternel ane ved det angivne knudepunkt, ofte mange tusinde år tilbage. Sitet hævder ikke nært slægtskab med dronninger, mumier eller arkæologiske fremmede.`,
       p2y: (haplo) =>
         `Haplogruppe ${haplo} kommer fra Big Y. Februar 2020-VCF’en bekræfter de navngivne terminale SNP’er som afledte; de rå kald forbliver private. Bemærkelsesværdige “forbindelser” på farlinjen betyder en fælles paternel ane ved det angivne knudepunkt. Y er én tråd. Den behøver ikke ligne det autosomale kort.`,
       p3: (name) =>
@@ -663,6 +664,7 @@ export const messages: Record<Locale, Messages> = {
       "Bonn / Vienna": "Bonn / Wien",
       "Jamestown, Virginia": "Jamestown, Virginia",
       "Rathlin Island": "Rathlin Island",
+      "Levänluhta, Finland": "Levänluhta, Finland",
     },
     shared: {
       heroKicker: "En familie i to kits",
