@@ -132,7 +132,7 @@ export const daProfiles: Record<string, TextBits> = {
       headline: "En sjælden paternel kvist, dateret til omkring 1500 e.Kr.",
       known: "Norge 2, England 1",
       rarityNote:
-        "Tre Big Y-testere på R-BY67151. Forælderen R-S7293 er allerede en lille metalaldergren; denne kvist er senmiddelalderlig. Autosomerne er 99 % skandinaviske. Y sidder på R-L21 / DF13, den store atlantiske familie.",
+        "Tre Big Y-testere på R-BY67151. FamilyTreeDNA lister 32 ækvivalente SNP’er for kvisten; februar 2020-Big Y-VCF’en kalder dem alle afledte. Linjen forlod det store DF13-egetræ ved FTT9 i tidlig bronzealder og tyndede ud gennem BY197676 og S7293. Autosomerne er 99 % skandinaviske. Y er atlantisk.",
     },
     yHaploPath: {
       "Y-Adam": {
@@ -153,33 +153,42 @@ export const daProfiles: Record<string, TextBits> = {
       "R-M343": {
         copy: "R1b. Tutankhamon placeres på dette oldtidsknudepunkt — en sjov kendsgerning om 17.000 f.Kr., ikke Det Nye Rige.",
       },
+      "R-P312": {
+        copy: "P312 er den vestlige klokkebæger-farlinje. Det er den dør, R1b tog ind i Atlanterhavseuropa. Darwin og Crick sidder på det ældre R-M269; P312 er sønnen, der gik vestpå.",
+      },
       "R-L21": {
-        copy: "L21 er den store atlantiske gren af R1b. Den er almindelig i Storbritannien og Irland og findes i Bretagne og Norge. Her forlader Simons Y det generelle europæiske R1b og tager en vestlig dør.",
+        copy: "L21 er den store atlantiske gren af P312. Den er almindelig i Storbritannien og Irland og findes i Bretagne og Norge. Her forlader Simons Y det generelle vestlige R1b og tager den insulære dør.",
       },
       "R-DF13": {
-        copy: "DF13 er et kæmpe insulært knudepunkt: titusindvis af testere. Francis Crick og Charles Darwin sidder på det ældre R-M269; DF13 er den atlantiske søn. Simons linje er en tynd kvist på det egetræ.",
+        copy: "DF13 er et egetræ: titusindvis af levende testere og hundredvis af oldtidsgenomer. Tidlig bronzealdermænd ved Rathlin, Yarnton og Amesbury sidder på dette knudepunkt. Simons linje er ved at forlade egetræet.",
+      },
+      "R-FTT9": {
+        copy: "Udtyndingen. FamilyTreeDNAs træ (august 2026) sætter femten Big Y-testere på FTT9, mod titusinder på DF13. England, Norge, Skotland. En sjælden tidlig bronzealder-forgrening, ikke et slægtsnavn.",
+      },
+      "R-BY197676": {
+        copy: "Ni testere. England og Norge. Uret her er midten af bronzealderen. Februar 2020-VCF’en kalder otte af de ni ækvivalente SNP’er afledte i høj kvalitet; den niende er afledt ved lavere dybde.",
       },
       "R-S7293": {
-        copy: "Forælderen til den levende kvist. Thomas Powys, en engelsk dommer under den gloriøse revolution, deler dette knudepunkt — omkring 1 ud af 120.000 testere sidder så tæt. Stadig ikke en familiesammenkomst. En metalalder-forgrening.",
+        copy: "Seks Big Y-testere, så et split. Thomas Powys sidder på søstergrenen R-FT287223. Simon sidder på BY67151. Omkring 1 ud af 120.000 testere deler et knudepunkt så tæt. Stadig en metalalder-forgrening, ikke en retssal.",
       },
       "R-BY67151": {
-        copy: "Tre Big Y-testere. Norge og England. FamilyTreeDNAs ur for den sidste mand på netop denne gren er 1482 e.Kr. (95 % interval 1168–1703). En senmiddelalderlig paternel familie på et atlantisk Y, inde i et 99 % skandinavisk autosomalt genom.",
+        copy: "Tre testere. Norge 2, England 1. FamilyTreeDNAs ur for den sidste mand på netop denne gren er 1482 e.Kr. (95 % interval 1168–1703). Toogtredive ækvivalente SNP’er; 2020-Big Y-VCF’en har dem alle afledte. En senmiddelalderlig paternel familie på et atlantisk Y, inde i et 99 % skandinavisk autosomalt genom.",
       },
     },
     fatherlineMapCaption:
-      "En skematisk vandring: Østafrika → Eurasien → R1b → atlantisk L21/DF13 → en senmiddelalderlig kvist med testere i Norge og England. Ikke en slægtsnavnehistorie. En Y-rute af sønner.",
+      "En skematisk vandring: Østafrika → R1b → klokkebæger P312 → atlantisk L21/DF13 → den tynde FTT9-gren → en senmiddelalderlig kvist med testere i Norge og England. Ikke en slægtsnavnehistorie. En Y-rute af sønner.",
     fatherlineSpotlights: [
       {
         title: "Et atlantisk Y",
-        copy: "R-L21 og DF13 er de store insulære grene af R1b. Simons autosomer ligner ikke britiske. Hans Y sidder alligevel på det vestlige egetræ — én paternel tråd, ikke resten af genomet.",
+        copy: "P312, L21 og DF13 er klokkebægertidens vestlige egetræ af R1b. Simons autosomer ligner ikke britiske. Hans Y sidder alligevel på det egetræ — én paternel tråd, ikke resten af genomet.",
       },
       {
-        title: "Tre testere",
-        copy: "R-BY67151 har to kits der nævner Norge og ét der nævner England. Den sidste mand på kvisten dateres til omkring 1500 e.Kr. Små træer rykker sig, når den næste mand tester.",
+        title: "Egetræet tynder ud",
+        copy: "FTT9 har femten Big Y-testere. BY197676 har ni. S7293 har seks. BY67151 har tre. Februar 2020-regionsfilen dækker 14,9 millioner baser af chrY; de navngivne terminale SNP’er er alle afledte dér.",
       },
       {
-        title: "En dommer på S7293",
-        copy: "Thomas Powys (1649–1719) deler forældregrenen R-S7293, omkring 1050 f.Kr. FamilyTreeDNA kalder det en sjælden bemærkelsesværdig forbindelse. Det er stadig tre tusinde år af fædre, ikke en retssal.",
+        title: "En dommer på søstergrenen",
+        copy: "Thomas Powys (1649–1719) er R-FT287223, den anden søn af S7293. FamilyTreeDNA tæller det stadig som en sjælden bemærkelsesværdig forbindelse. Tre tusinde år af fædre, ikke en retssal.",
       },
     ],
     ancientOrigins: {
@@ -209,7 +218,7 @@ export const daProfiles: Record<string, TextBits> = {
     connections: {
       powys: {
         blurb:
-          "Kronjurist og dommer i det sene stuartske England, blandt andet i retssagen mod de syv biskopper. Han og Simon deler R-S7293, et paternel knudepunkt i metalalderen. FamilyTreeDNA tæller den nærhed som omkring 1 ud af 120.000 testere. Ikke en juridisk ane. En forgrening ved 1050 f.Kr.",
+          "Kronjurist og dommer i det sene stuartske England, blandt andet i retssagen mod de syv biskopper. Hans Big Y-kvist er R-FT287223, søster til Simons R-BY67151. De deler R-S7293, et paternel knudepunkt i metalalderen. FamilyTreeDNA tæller den nærhed som omkring 1 ud af 120.000 testere. Ikke en juridisk ane. En forgrening ved 1050 f.Kr.",
       },
       darwin: {
         blurb:
@@ -222,6 +231,10 @@ export const daProfiles: Record<string, TextBits> = {
       tut: {
         blurb:
           "Drengeskongen af det attende dynasti. FamilyTreeDNA placerer den fælles paternelle ane ved R-M343 (R1b), omkring 17.000 f.Kr. Det er istidens fader til vesteuropæisk R1b, ikke Kongernes Dal.",
+      },
+      rathlin: {
+        blurb:
+          "En tidlig bronzealdermand fra Rathlin Island (Cassidy m.fl. 2016). Hans Y er R-DF21, en bror til Simons FTT9 under det samme DF13-egetræ. Omkring 1 ud af 9 testere deler et knudepunkt så bredt. Et klokkebæger-irsk genom på den atlantiske farlinje — ikke en viking, og ikke en nær fætter.",
       },
       fannerup: {
         blurb:
@@ -253,7 +266,7 @@ export const daProfiles: Record<string, TextBits> = {
       },
     },
     genomePainting:
-      "Chippen læser autosomer og X — 725.276 SNP’er her. En søns X er det X, hans mor gav ham. Y er ikke på dette microarray; det blev sekventeret separat som Big Y (R-BY67151). Maleriet på kontinentskala er skandinavisk, med to spor under én procent.",
+      "Chippen læser autosomer og X — 725.276 SNP’er her. En søns X er det X, hans mor gav ham. Y er ikke på dette microarray; det blev sekventeret separat som Big Y. Februar 2020-regionsfilen dækker 14,9 millioner baser af chrY, der bestod QC. Alle 32 ækvivalente SNP’er for R-BY67151 er afledte i den VCF. Maleriet på kontinentskala er skandinavisk, med to spor under én procent.",
   },
 };
 
