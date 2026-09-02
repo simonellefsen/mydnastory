@@ -10,6 +10,12 @@ updated: 2026-09-02
 
 Append-only timeline for wiki maintenance. Use headings in the form `## [YYYY-MM-DD] kind | summary`.
 
+## [2026-09-02] preview | Verify the combined v2-v4 deployment
+
+- Deployed Git revision `5336f78` to [the protected Vercel preview](https://mydnastory-e6aoo6cdb-simonellefsens-projects.vercel.app). Vercel completed the Next.js 16.3.4 build and statically generated all six localized version routes.
+- Confirmed HTTP 200 responses, English and Danish headings, production canonical URLs, locale-preserving v2/v3/v4 links, and bare `/v4/simon` locale negotiation against the preview.
+- The production build references approximately 625.4 KiB (v2), 613.4 KiB (v3), and 611.0 KiB (v4) of unique uncompressed client JavaScript, versus 775.6 KiB for v1 in the same build. All are below the current v1 route; v2 and v3 remain above the roadmap's aspirational 600 KiB target.
+
 ## [2026-09-02] implementation | Build the v4 immersive journey and browser quality gate
 
 - Added static English and Danish v4 routes with a Nordic-night six-scene journey, meaningful CSS data visuals, full server-rendered content, reduced-motion protection, explicit evidence boundaries, and a persistent native evidence tray.
