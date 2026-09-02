@@ -8,6 +8,8 @@ updated: 2026-09-02
 
 # Urgent Todo
 
+The v2-v4-specific items below are archived with the retired redesign. They do not describe the active v1 route's current product direction.
+
 Verified production or repository gaps that should be corrected before the redesign expands the surface area.
 
 ## U1 — Remove Invented Precision from Trace Origins

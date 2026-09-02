@@ -14,6 +14,8 @@ sources:
 
 My DNA Story is a public interpretation of selected ancestry evidence, not a public genome repository. The architecture must make that distinction enforceable.
 
+The versioned evidence flow below is archived with the retired v2-v4 redesign. The active product is the original v1 route and does not ship the former typed fixture or private verifier.
+
 ## Intended Evidence Flow
 
 ```mermaid
@@ -24,9 +26,7 @@ flowchart LR
   A --> F["Typed facts and sources"]
   F --> EN["English presentation"]
   F --> DA["Danish presentation"]
-  F --> V2["v2 Story"]
-  F --> V3["v3 Dossier"]
-  F --> V4["v4 Journey"]
+  F --> V1["v1 presentation"]
 ```
 
 The private verifier is a release tool, not a production dependency. Vercel must receive only application code, public assets, and approved aggregates.

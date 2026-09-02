@@ -10,7 +10,7 @@ sources:
 
 # Current System Architecture
 
-This page describes the production system after v2-v4 were released on 2026-09-02. The original v1 route remains available as a comparison and fallback.
+This page describes the production system after the v2-v4 experiments were retired on 2026-09-02. The original v1 route is the active experience.
 
 ## Runtime and Routes
 
@@ -18,9 +18,7 @@ This page describes the production system after v2-v4 were released on 2026-09-0
 - `/` is locale-selected by `proxy.ts`; the `NEXT_LOCALE` cookie wins over the browser language.
 - `/en` and `/da` are catalogs.
 - `/[locale]/[slug]` statically generates published profiles and renders the v1 story.
-- `/[locale]/v2/[slug]`, `/v3/[slug]`, and `/v4/[slug]` statically generate the Story, Dossier, and Journey experiences.
-- `/[locale]/v2`, `/v3`, and `/v4` permanently redirect to the corresponding Simon route while it is the only published profile.
-- Bare versioned paths such as `/v4/simon` pass through the same cookie/browser-language negotiation as v1.
+- `/[locale]/[slug]` is the only published profile route; `/en/simon` and `/da/simon` are the active Simon experiences.
 - `/pernille`, `/helle`, and `/shared` profile routes redirect to the separate Pernille/Helle site.
 - Vercel deploys from the GitHub repository. No database or server-side DNA processing is part of the public application.
 
@@ -38,7 +36,7 @@ flowchart LR
 
 The legacy `Profile` type mixes observations, formatted numbers, prose, imagery, colors, and chart values. English is the base object; Danish is a partial overlay. It remains in place for v1 only.
 
-## Versioned Evidence Flow
+## Archived Versioned Evidence Flow
 
 ```mermaid
 flowchart LR
@@ -70,9 +68,8 @@ The versioned architecture keeps these invariants and adds a second boundary: a 
 
 ## Current Quality State and Legacy Limits
 
-- Lint, route-aware TypeScript, ten evidence/unit tests, the production build, 27 Playwright/axe checks, and local private aggregate verification pass on the release revision.
-- v2-v4 use explicit `<1%` precision, linked source records, server-visible content, and shared language-neutral facts.
-- v1 still uses the legacy presentation model, prose-only citations, approximate trace slices, and reveal-on-scroll components. These are retained as known comparison-route limitations.
-- In the release build, v2-v4 reference less unique uncompressed client JavaScript than v1, though v2 and v3 remain slightly above the roadmap's aspirational 600 KiB target.
+- The active v1 route is checked with the repository's original lint and production build commands.
+- The v2-v4 evidence layer, routes, and browser test harness were removed after review; their implementation remains documented in the archived log only.
+- v1 retains its original presentation model and content as the deliberate product choice.
 
 See [urgent todo](../urgent-todo.md) for the required corrections.

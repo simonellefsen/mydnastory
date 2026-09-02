@@ -10,6 +10,8 @@ updated: 2026-09-02
 
 Operational procedures belong here when they should survive a chat session.
 
+The active release path is the original v1 app. Any v2-v4-specific checklist language is historical and should not be used to re-enable those routes.
+
 ## Current Runbooks
 
 - [Build, test, preview, and release](build-test-release.md) — current quality gates, Vercel preview, production verification, and wiki maintenance.

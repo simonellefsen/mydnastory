@@ -25,3 +25,4 @@ Do not rewrite the original decision when implementation changes. Append an outc
 
 - [2026-09-02: Parallel localized v2-v4 experiences](2026-09-02-parallel-localized-experiences.md)
 - [2026-09-02: Combined v2-v4 production release](2026-09-02-combined-v2-v4-release.md)
+- [2026-09-02: Retire v2, v3, and v4](2026-09-02-retire-v2-v4.md)

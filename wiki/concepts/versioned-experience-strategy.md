@@ -11,7 +11,7 @@ sources:
 
 # Versioned Experience Strategy
 
-The project exposes three genuinely different answers to the same content problem. They share facts, sources, privacy rules, and basic accessible primitives; they do not share a visual shell.
+Archived on 2026-09-02. The project explored three genuinely different answers to the same content problem, but the original v1 experience was judged the better product and remains live.
 
 ## v2 — Story + Evidence
 
@@ -58,7 +58,7 @@ The labels are:
 - Dossier — v3 `/[locale]/v3/simon`
 - Journey — v4 `/[locale]/v4/simon`
 
-The switcher preserves locale and slug and reads an explicit released-version list. Unreleased entries are not rendered. Bare versioned routes use the existing locale negotiation.
+The v2-v4 switcher and routes were removed. The active navigation is the original locale-preserving v1 experience.
 
 ## Shared and Independent Layers
 

@@ -1,6 +1,5 @@
 node_modules/
 .next/
-next-env.d.ts
 out/
 .vercel
 .env*
@@ -12,6 +11,3 @@ scripts/__pycache__/
 public/sprites/src/
 scripts/shots.mjs
 tsconfig.tsbuildinfo
-test-results/
-playwright-report/
-blob-report/

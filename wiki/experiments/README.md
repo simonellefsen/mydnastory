@@ -10,6 +10,8 @@ updated: 2026-09-02
 
 Product experiments belong here when they can change a design or evidence decision. This project does not currently collect visitor analytics, so experiments default to local performance/accessibility measurements and documented moderated comprehension checks.
 
+The v2-v4 redesign experiments are archived. The current product is the original v1 experience; a future redesign needs a new product decision before implementation.
+
 Each experiment records:
 
 - baseline route and Git revision;

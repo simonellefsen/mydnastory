@@ -9,6 +9,8 @@ updated: 2026-09-02
 
 # My DNA Story Roadmap
 
+**Status:** Archived. The v2-v4 redesign was retired on 2026-09-02 after review; the original v1 page remains the active product. Do not treat the phases below as current implementation work without a new decision.
+
 This roadmap is a planning map, not a claim about production. Work should improve scientific precision, privacy, accessibility, and maintainability before adding visual spectacle.
 
 ## Guiding Principles

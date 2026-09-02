@@ -18,7 +18,6 @@ export function PhoneDock() {
   const [open, setOpen] = useState(false);
   const chapterIds = useMemo(() => t.nav.chapters.map((c) => c.id), [t.nav.chapters]);
   const onProfile = publishedProfiles.some((p) => rest === `/${p.slug}`);
-  const onVersionedStory = /^\/v[2-4]\//.test(rest);
   const active = useActiveChapter(onProfile ? chapterIds : [], t.nav.chapters[0].id);
 
   useEffect(() => {
@@ -39,8 +38,6 @@ export function PhoneDock() {
     setOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
-
-  if (onVersionedStory) return null;
 
   return (
     <>

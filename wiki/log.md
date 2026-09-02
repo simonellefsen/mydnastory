@@ -10,6 +10,12 @@ updated: 2026-09-02
 
 Append-only timeline for wiki maintenance. Use headings in the form `## [YYYY-MM-DD] kind | summary`.
 
+## [2026-09-02] rollback | Retire v2, v3, and v4 after product review
+
+- Removed the v2 Story, v3 Dossier, v4 Journey routes, version switcher, shared evidence presentation layer, aggregate fixture/verifier, browser harness, and version-only dependencies.
+- Restored the original v1 package surface and navigation while retaining the deployment-level `ftdna/**` exclusion and the immutable origin calculation fix.
+- Kept the wiki as an archive of the experiment and recorded the user's conclusion that the original page is the preferred product.
+
 ## [2026-09-02] fix | Add version-root redirects
 
 - Added permanent locale-preserving redirects from `/[locale]/v2`, `/v3`, and `/v4` to Simon's corresponding story, including bare `/v2`, `/v3`, and `/v4` paths after locale negotiation.

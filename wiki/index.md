@@ -8,7 +8,7 @@ updated: 2026-09-02
 
 # My DNA Story Knowledge Wiki
 
-This is the maintained knowledge layer for My DNA Story. Future agents should read this page first when working on scientific claims, private DNA inputs, architecture, localization, or the versioned redesign.
+This is the maintained knowledge layer for My DNA Story. The live product is the original v1 experience; the v2-v4 redesign is retained here as an archived experiment and should not be restored without a new decision.
 
 The wiki summarizes evidence; it is not a second copy of the genome data. Raw FamilyTreeDNA exports remain private and gitignored.
 
@@ -16,7 +16,7 @@ The wiki summarizes evidence; it is not a second copy of the genome data. Raw Fa
 
 - [Wiki schema](schema.md) — maintenance contract, evidence statuses, citation rules, and privacy boundary.
 - [Project audit, 2026-09-02](sources/project-audit-2026-09-02.md) — verified state of the repository, live experience, and Simon's aggregate results.
-- [Roadmap](roadmap.md) — staged shared foundation followed by v2, v3, and v4.
+- [Roadmap](roadmap.md) — archived v2-v4 redesign plan and its retirement outcome.
 - [Urgent todo](urgent-todo.md) — verified defects or misleading claims that should be corrected first.
 - [Todo](todo.md) — open implementation work that is not a current production incident.
 - [Wiki log](log.md) — append-only record of documentation changes.
@@ -25,12 +25,13 @@ The wiki summarizes evidence; it is not a second copy of the genome data. Raw Fa
 
 - [Current system architecture](concepts/current-system-architecture.md) — v1 routing, localization, data flow, UI composition, and deployment shape.
 - [Evidence and privacy boundary](concepts/evidence-and-privacy-boundary.md) — what may become public, how claims are classified, and what must remain local.
-- [Versioned experience strategy](concepts/versioned-experience-strategy.md) — the distinct roles of v2 Story, v3 Dossier, and v4 Journey.
+- [Versioned experience strategy](concepts/versioned-experience-strategy.md) — archived design directions for v2 Story, v3 Dossier, and v4 Journey.
 
 ## Decisions
 
 - [Decision index](decisions/README.md)
 - [Parallel localized v2-v4 experiences](decisions/2026-09-02-parallel-localized-experiences.md)
+- [Retire v2, v3, and v4](decisions/2026-09-02-retire-v2-v4.md)
 
 ## Runbooks
 

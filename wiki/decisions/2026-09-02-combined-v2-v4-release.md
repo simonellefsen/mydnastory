@@ -10,7 +10,7 @@ supersedes:
   - production-sequencing in 2026-09-02-parallel-localized-experiences.md
 ---
 
-# Combined v2-v4 Production Release
+# Combined v2-v4 Production Release (Retired)
 
 ## Context
 
@@ -33,4 +33,4 @@ The original decision proposed three separate production promotions. Implementat
 
 ## Outcome
 
-Released to `mydnastory.vercel.app` on 2026-09-02 after the combined preview and production checks passed.
+Released to `mydnastory.vercel.app` on 2026-09-02 after the combined preview and production checks passed. Retired later the same day after product review selected the original v1 page; see the rollback entry in the [wiki log](../log.md).

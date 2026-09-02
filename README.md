@@ -2,9 +2,9 @@
 
 A bilingual archive for my own DNA history. Each published kit gets the same chapters: autosomal origins, ancient Europe, a maternal haplogroup, a paternal haplogroup when Big Y was tested, notable/ancient kin, and a chromosome skyline (autosomes and X).
 
-Pernille and Helle now live at [pernille-helle.vercel.app](https://pernille-helle.vercel.app).
+The v2-v4 redesign experiments are archived in the [project wiki](wiki/index.md); the live product is the original v1 experience.
 
-Project history, evidence boundaries, runbooks, and the v2-v4 improvement roadmap live in the [project wiki](wiki/index.md).
+Pernille and Helle now live at [pernille-helle.vercel.app](https://pernille-helle.vercel.app).
 
 ## Develop
 

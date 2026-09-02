@@ -41,4 +41,4 @@ The current site is a polished bilingual long-form story, but its evidence, pros
 
 ## Status
 
-Implemented and released on 2026-09-02. The route, evidence, privacy, localization, and independent-design decisions remain current. The separate-production-promotion detail was superseded by the [combined release decision](2026-09-02-combined-v2-v4-release.md).
+Implemented, released, and retired on 2026-09-02. This is an historical record; the original v1 page is current. The separate-production-promotion detail was superseded by the [combined release decision](2026-09-02-combined-v2-v4-release.md), which was itself retired after product review.

@@ -10,7 +10,7 @@ updated: 2026-09-02
 
 # Build, Test, Preview, and Release
 
-This runbook describes the current checks and release flow for v1-v4.
+This runbook describes the current checks and release flow for the active v1 experience. The former v2-v4 release flow is archived.
 
 ## Current Commands
 
@@ -24,15 +24,11 @@ Run the current static quality gates:
 
 ```bash
 rtk npm run lint
-rtk npm run typecheck
-rtk npm run test
 rtk npm run build
-rtk npm run test:e2e
-rtk npm run dna:verify:private
 rtk git status --short
 ```
 
-As of 2026-09-02 on `codex/v4`, all of these checks pass. The private verifier requires the ignored FamilyTreeDNA inputs on a trusted local machine; it prints aggregates only. Playwright starts a production build/server and tests desktop and mobile Chromium.
+The active repository uses the original v1 scripts above. The private `ftdna/` directory remains Git-ignored and `.vercelignore` excludes it from deployments.
 
 For local visual inspection:
 
@@ -41,11 +37,6 @@ rtk npm run dev
 ```
 
 Use the in-app browser or a browser test runner against the localized route. Do not expose the dev server publicly.
-
-- `typecheck` performs generated-route typing followed by `tsc --noEmit`.
-- `test` runs unit and evidence-fixture tests without private data.
-- `test:e2e` runs localized route, accessibility, responsive, interactive-control, and no-JavaScript browser checks.
-- `dna:verify:private` requires ignored local DNA exports and compares only approved aggregates to the public fixture.
 
 ## Pre-Preview Checklist
 
