@@ -1,0 +1,20 @@
+{
+  "kit": "simon",
+  "method": "Autosomal microarray, chr 1\u201322. X is omitted: a male X is haploid on this chip and would look like one giant ROH. Lengths use a sex-averaged chromosome map.",
+  "heterozygosity": {
+    "called": 705241,
+    "heterozygous": 208769,
+    "heterozygosity": 0.296
+  },
+  "roh": [
+    {
+      "chromosome": "17",
+      "start": 57560539,
+      "end": 59242266,
+      "mb": 1.68,
+      "snps": 217,
+      "cM": 2.7
+    }
+  ],
+  "rohNote": "Runs of homozygosity longer than 1.5 Mb and 200 SNPs. Long ROH can reflect a cousin marriage; a handful of medium runs is typical in northern Europeans."
+}

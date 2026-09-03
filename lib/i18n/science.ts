@@ -11,8 +11,22 @@ export type TwigCopy = {
   papers: { cite: string; point: string }[];
 };
 
+export type BeyondCopy = {
+  kicker: string;
+  title: string;
+  accent: string;
+  lede: string;
+  modelTitle: string;
+  modelCopy: string;
+  hetTitle: string;
+  hetCopy: (name: string, pct: string) => string;
+  rohTitle: string;
+  rohCopy: (n: string, longest: string) => string;
+};
+
 export type ScienceCopy = {
   twigs: Record<string, TwigCopy>;
+  beyond: BeyondCopy;
 };
 
 const science: Record<Locale, ScienceCopy> = {
@@ -73,6 +87,23 @@ const science: Record<Locale, ScienceCopy> = {
         ],
       },
     },
+    beyond: {
+      kicker: "Beyond myOrigins",
+      title: "What the chip still holds.",
+      accent: " FamilyTreeDNA did not plot this.",
+      lede: "The raw autosomal file is a map of 700,000 sites. Ethnicity percentages are one reading of it. Newer population genomics lets us read others.",
+      modelTitle: "The three-way mix is not the academic three-way",
+      modelCopy:
+        "FamilyTreeDNA splits European autosomes into Hunter-Gatherer, Early Farmer, and Metal Age Invader. Since Haak 2015 and Allentoft 2024 the research model is different: Western hunter-gatherers (WHG), Anatolian farmers, and Yamnaya-related steppe (itself Eastern hunter-gatherers plus Caucasus). In that framework present-day Danes usually carry a large farming layer, a substantial steppe layer, and a smaller WHG layer. A 49% “hunter-gatherer” / 12% “invader” result is a proprietary clustering, not evidence that half the genome is Ertebølle. The 2024 Danish transect shows two near-total turnovers: local Mesolithic people left little. Most “forager” ancestry in a modern Dane arrived with farmers from the south, or folded inside steppe ancestry from the east.",
+      hetTitle: "Diversity on the array",
+      hetCopy: (name, pct) =>
+        `${name}’s called autosomal markers are ${pct}% heterozygous. That is a normal European figure on this kind of microarray, which is enriched for common variants.`,
+      rohTitle: "Runs of homozygosity",
+      rohCopy: (n, longest) =>
+        n === "1"
+          ? `One stretch longer than 1.5 Mb, ${longest} cM. That pattern fits a northern European without a recent cousin marriage — not a closed village.`
+          : `${n} stretches longer than 1.5 Mb, longest ${longest} cM. That pattern fits a northern European without a recent cousin marriage — not a closed village.`,
+    },
   },
   da: {
     twigs: {
@@ -130,6 +161,23 @@ const science: Record<Locale, ScienceCopy> = {
           { cite: "FamilyTreeDNA Discover Y-træ 2026.8.30", point: "Sti DF13 > FTT9 > BY197676 > S7293 > BY67151. Terminal TMRCA 1482 e.Kr. (CI 1168–1703), tre testere, 32 ækvivalente SNP’er." },
         ],
       },
+    },
+    beyond: {
+      kicker: "Bagom myOrigins",
+      title: "Det chippen stadig gemmer.",
+      accent: " FamilyTreeDNA tegnede ikke dette.",
+      lede: "Den rå autosomale fil er et kort over 700.000 steder. Etnicitetsprocenter er én læsning. Nyere populationsgenomik lader os læse andre.",
+      modelTitle: "Tredelingen er ikke den akademiske tredeling",
+      modelCopy:
+        "FamilyTreeDNA splitter europæiske autosomer i jæger-samler, tidlig bonde og metalalderens indvandrer. Siden Haak 2015 og Allentoft 2024 er forskningsmodellen en anden: vestlige jæger-samlere (WHG), anatolske bønder og Yamnaya-beslægtet steppe (selv østlige jæger-samlere plus Kaukasus). I den ramme bærer nulevende danskere typisk et stort bondelag, et væsentligt steppelag og et mindre WHG-lag. Et resultat på 49 % “jæger-samler” / 12 % “indvandrer” er en proprietær klynge, ikke bevis for at halvdelen af genomet er Ertebølle. Det danske tværsnit fra 2024 viser to næsten totale udskiftninger: de lokale mesolitiske mennesker efterlod lidt. Det meste “jæger”-afstamning hos en moderne dansker kom med bønder sydfra, eller ligger foldet ind i steppeafstamning østfra.",
+      hetTitle: "Diversitet på arrayet",
+      hetCopy: (name, pct) =>
+        `${name}s kaldte autosomale markører er ${pct} % heterozygote. Det er et normalt europæisk tal på denne slags microarray, som er beriget for almindelige varianter.`,
+      rohTitle: "Homozygote stræk",
+      rohCopy: (n, longest) =>
+        n === "1"
+          ? `Ét stræk længere end 1,5 Mb, ${longest} cM. Mønstret passer til en nordeuropæer uden et nyligt fætter-ægteskab — ikke en lukket landsby.`
+          : `${n} stræk længere end 1,5 Mb, længst ${longest} cM. Mønstret passer til en nordeuropæer uden et nyligt fætter-ægteskab — ikke en lukket landsby.`,
     },
   },
 };
